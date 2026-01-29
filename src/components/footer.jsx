@@ -384,7 +384,7 @@ const Footer = () => {
         </div>
 
         {/* Back to Top Button */}
-        <button
+        {/* <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           className="fixed bottom-6 right-6 w-12 h-12 flex items-center justify-center bg-white rounded-xl border border-gray-200 shadow-lg hover:shadow-xl hover:border-[#B03982]/50 transition-all duration-300 hover:scale-110 group z-50"
           aria-label="Back to top"
@@ -393,7 +393,7 @@ const Footer = () => {
             <div className="absolute -inset-3 bg-gradient-to-br from-[#B03982]/10 to-[#733C86]/10 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <ChevronUp className="w-5 h-5 text-gray-400 group-hover:text-[#B03982] transition-colors duration-300 relative z-10" />
           </div>
-        </button>
+        </button> */}
       </div>
 
       <style jsx>{`

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X, ChevronRight, Phone } from 'lucide-react';
+import { NavLink, Outlet } from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -15,9 +16,9 @@ const Navbar = () => {
     }, []);
 
     const menuItems = [
-        { name: 'Home', href: 'index.html' },
-        { name: 'About us', href: 'about.html' },
-        { name: 'Contact us', href: 'contact.html' },
+        { name: 'Home', href: '/' },
+        { name: 'About us', href: '/about' },
+        { name: 'Contact us', href: '/contact-us' },
     ];
 
     const scrollToContactForm = (e) => {
@@ -51,14 +52,14 @@ const Navbar = () => {
                         {/* Desktop Navigation */}
                         <nav className="hidden lg:flex items-center space-x-8">
                             {menuItems.map((item) => (
-                                <a
+                                <NavLink
                                     key={item.name}
-                                    href={item.href}
+                                    to={item.href}
                                     className="relative group text-gray-300 hover:text-gray-500 transition-colors duration-200 px-2 py-1"
                                 >
                                     <span className="text-base font-medium">{item.name}</span>
                                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 group-hover:w-full transition-all duration-300"></span>
-                                </a>
+                                </NavLink>
                             ))}
                         </nav>
 
@@ -205,6 +206,9 @@ const Navbar = () => {
           }
         }
       `}</style>
+
+            <Outlet />
+
         </>
     );
 };
