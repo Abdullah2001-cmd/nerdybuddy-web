@@ -50,6 +50,7 @@ function Home() {
 
   return (
     <div className="min-h-screen relative">
+      
       <Navbar />
       <HeroSection />
       <ProductOverview />
