@@ -75,7 +75,7 @@
 //               AI That Understands Your Organization
 //             </span>
 //           </div>
-          
+
 //           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 flex justify-center gap-4">
 //             <span className="block text-white">Product</span>
 //             <span className="block bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
@@ -152,7 +152,7 @@
 //                   <h4 className="text-2xl md:text-3xl font-bold text-white mb-6">
 //                     How It <span className="bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">Works</span>
 //                   </h4>
-                  
+
 //                   <div className="grid md:grid-cols-2 gap-4">
 //                     {howItWorks.map((item, index) => (
 //                       <div
@@ -179,7 +179,7 @@
 //                   <h4 className="text-2xl md:text-3xl font-bold text-white mb-6">
 //                     Why It's <span className="bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">Different</span>
 //                   </h4>
-                  
+
 //                   <div className="space-y-4">
 //                     {whyDifferent.map((item, index) => (
 //                       <div
@@ -219,7 +219,7 @@
 //             <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-[#B03982]/20 group">
 //               {/* Gradient Border */}
 //               <div className="absolute -inset-1 bg-gradient-to-br from-[#B03982] via-transparent to-[#733C86] rounded-3xl opacity-30 blur group-hover:opacity-50 transition-opacity duration-500"></div>
-              
+
 //               {/* Main Image Container */}
 //               <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-3xl overflow-hidden">
 //                 <img
@@ -227,7 +227,7 @@
 //                   alt="Nerdy Buddy AI Assistant in Action"
 //                   className="w-full h-auto object-cover rounded-3xl transform group-hover:scale-105 transition-transform duration-700"
 //                 />
-                
+
 //                 {/* Overlay Content */}
 //                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
 //                   <div className="space-y-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
@@ -241,7 +241,7 @@
 //                   </div>
 //                 </div>
 //               </div>
-              
+
 //               {/* Floating Elements */}
 //               <div className="absolute -top-3 -right-3 w-20 h-20 bg-gradient-to-br from-[#B03982]/30 to-[#733C86]/30 rounded-full blur-xl"></div>
 //               <div className="absolute -bottom-3 -left-3 w-24 h-24 bg-gradient-to-br from-[#733C86]/30 to-[#B03982]/30 rounded-full blur-xl"></div>
@@ -381,13 +381,13 @@
 // export default ProductOverview;
 
 import React, { useState } from 'react';
-import { 
-  Upload, 
-  Layers, 
-  Shield, 
-  MessageSquare, 
-  Users, 
-  Zap, 
+import {
+  Upload,
+  Layers,
+  Shield,
+  MessageSquare,
+  Users,
+  Zap,
   Sparkles,
   CheckCircle,
   ArrowRight,
@@ -457,7 +457,7 @@ const ProductOverview = () => {
               AI That Understands Your Organization
             </span>
           </div>
-          
+
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 flex justify-center gap-4">
             <span className="block text-gray-900">Product</span>
             <span className="block bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
@@ -501,11 +501,10 @@ const ProductOverview = () => {
             <div className="flex space-x-2 border-b border-gray-200">
               <button
                 onClick={() => setActiveTab('how')}
-                className={`px-6 py-3 font-medium text-lg transition-all duration-300 relative ${
-                  activeTab === 'how'
+                className={`px-6 py-3 font-medium text-lg transition-all duration-300 relative ${activeTab === 'how'
                     ? 'text-gray-900'
                     : 'text-gray-500 hover:text-gray-900'
-                }`}
+                  }`}
               >
                 How It Works
                 {activeTab === 'how' && (
@@ -514,11 +513,10 @@ const ProductOverview = () => {
               </button>
               <button
                 onClick={() => setActiveTab('why')}
-                className={`px-6 py-3 font-medium text-lg transition-all duration-300 relative ${
-                  activeTab === 'why'
+                className={`px-6 py-3 font-medium text-lg transition-all duration-300 relative ${activeTab === 'why'
                     ? 'text-gray-900'
                     : 'text-gray-500 hover:text-gray-900'
-                }`}
+                  }`}
               >
                 Why It's Different
                 {activeTab === 'why' && (
@@ -534,7 +532,7 @@ const ProductOverview = () => {
                   <h4 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
                     How It <span className="bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">Works</span>
                   </h4>
-                  
+
                   <div className="grid md:grid-cols-2 gap-4">
                     {howItWorks.map((item, index) => (
                       <div
@@ -561,7 +559,7 @@ const ProductOverview = () => {
                   <h4 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
                     Why It's <span className="bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">Different</span>
                   </h4>
-                  
+
                   <div className="space-y-4">
                     {whyDifferent.map((item, index) => (
                       <div
@@ -601,15 +599,28 @@ const ProductOverview = () => {
             <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-[#B03982]/10 group">
               {/* Gradient Border */}
               <div className="absolute -inset-1 bg-gradient-to-br from-[#B03982] via-transparent to-[#733C86] rounded-3xl opacity-20 blur group-hover:opacity-30 transition-opacity duration-500"></div>
-              
+
               {/* Main Image Container */}
               <div className="relative bg-gradient-to-br from-white to-gray-50 rounded-3xl overflow-hidden border border-gray-200">
-                <img
+                {/* <img
                   src="https://nerdybuddy.com/wp-content/uploads/2025/05/12435.gif"
                   alt="Nerdy Buddy AI Assistant in Action"
                   className="w-full h-auto object-cover rounded-3xl transform group-hover:scale-105 transition-transform duration-700"
-                />
-                
+                /> */}
+                <video
+                  id="hero-video"
+                  className="w-full h-auto object-cover rounded-2xl transform group-hover:scale-105 transition-transform duration-700"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  poster="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200"
+                >
+                  <source
+                    src="https://nerdybuddy.com/wp-content/uploads/2025/07/989.mp4"
+                    type="video/mp4"
+                  />
+                </video>
                 {/* Overlay Content */}
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                   <div className="space-y-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
@@ -623,7 +634,7 @@ const ProductOverview = () => {
                   </div>
                 </div>
               </div>
-              
+
               {/* Floating Elements */}
               <div className="absolute -top-3 -right-3 w-20 h-20 bg-gradient-to-br from-[#B03982]/20 to-[#733C86]/20 rounded-full blur-xl"></div>
               <div className="absolute -bottom-3 -left-3 w-24 h-24 bg-gradient-to-br from-[#733C86]/20 to-[#B03982]/20 rounded-full blur-xl"></div>
