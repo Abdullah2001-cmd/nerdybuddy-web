@@ -814,6 +814,19 @@ body {
   background: #a8a8a8;
 }
 
+@keyframes reveal-up {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-reveal-up {
+  animation: reveal-up 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.reveal-group {
+  opacity: 0; /* hidden until animation starts */
+}
+
 /* Mobile Responsive */
 @media (max-width: 480px) {
   .chat-container {
@@ -869,4 +882,17 @@ body {
   .quick-replies {
     flex-direction: column;
   }
+}
+
+/* App loading visibility helpers */
+.hidden-during-loading {
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.visible-after-loading {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.45s ease;
 }

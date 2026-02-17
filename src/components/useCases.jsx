@@ -1,17 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
 
 const UseCases = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [autoplay, setAutoplay] = useState(true);
   const carouselRef = useRef(null);
-  
+
   const useCases = [
     {
       id: 1,
       title: "Corporate Teams",
       icon: "https://nerdybuddy.com/wp-content/uploads/2025/05/Icon-1-1.webp",
-      link: "/corpTeam",
+      link: "/corporate-teams",
       description: "Streamline internal knowledge sharing and collaboration"
     },
     {
@@ -25,28 +26,28 @@ const UseCases = () => {
       id: 3,
       title: "Retail Chains",
       icon: "https://nerdybuddy.com/wp-content/uploads/2025/05/Icon-3-1.webp",
-      link: "/retailChain",
+      link: "/health-care",
       description: "Consistent information across all store locations"
     },
     {
       id: 4,
       title: "Healthcare",
       icon: "https://nerdybuddy.com/wp-content/uploads/2025/05/Icon-5-1.webp",
-      link: "/healthCare",
+      link: "/public-sector",
       description: "Quick access to medical protocols and patient information"
     },
     {
       id: 5,
       title: "Telecom & Service",
       icon: "https://nerdybuddy.com/wp-content/uploads/2025/05/Icon-2-1.webp",
-      link: "/telecom",
+      link: "/retail-chain",
       description: "Efficient customer service and technical documentation"
     },
     {
       id: 6,
       title: "Public Sector",
       icon: "https://nerdybuddy.com/wp-content/uploads/2025/05/Icon-6-1.webp",
-      link: "/publicSector",
+      link: "/telecom",
       description: "Government documentation and public information access"
     }
   ];
@@ -100,7 +101,7 @@ const UseCases = () => {
       <div className="relative container mx-auto px-4 md:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold mb-6">
             <span className="block text-gray-900">Use Cases</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -109,7 +110,7 @@ const UseCases = () => {
         </div>
 
         {/* Carousel Container */}
-        <div 
+        <div
           className="relative"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
@@ -122,7 +123,7 @@ const UseCases = () => {
           >
             <ChevronLeft className="w-6 h-6 text-gray-700 group-hover:text-[#B03982] transition-colors" />
           </button>
-          
+
           <button
             onClick={nextSlide}
             className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 z-10 w-12 h-12 flex items-center justify-center bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group border border-gray-200"
@@ -133,21 +134,19 @@ const UseCases = () => {
 
           {/* Carousel */}
           <div className="overflow-hidden">
-            <div 
+            <div
               ref={carouselRef}
               className="flex transition-transform duration-500 ease-out"
               style={{ transform: `translateX(-${currentSlide * (100 / slidesToShow.xl)}%)` }}
             >
               {useCases.map((useCase, index) => (
-                <div 
+                <div
                   key={useCase.id}
-                  className={`flex-shrink-0 px-3 transition-all duration-300 ${
-                    currentSlide === index ? 'opacity-100 scale-100' : 'opacity-90 scale-95'
-                  }`}
+                  className={`flex-shrink-0 px-3 transition-all duration-300 ${currentSlide === index ? 'opacity-100 scale-100' : 'opacity-90 scale-95'}`}
                   style={{ width: `${100 / slidesToShow.xl}%` }}
                 >
-                  <a 
-                    href={useCase.link}
+                  <NavLink
+                    to={useCase.link}
                     className="group block h-full"
                     aria-label={`Learn more about ${useCase.title}`}
                   >
@@ -155,7 +154,7 @@ const UseCases = () => {
                       {/* Icon Container */}
                       <div className="relative mb-6">
                         <div className="absolute -inset-4 bg-gradient-to-br from-[#B03982]/5 to-[#733C86]/5 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div className="relative w-24 h-24 md:w-32 md:h-32 flex items-center justify-center bg-gradient-to-br from-gray-100 to-white rounded-xl border border-gray-300 group-hover:border-transparent transition-all duration-300">
+                        <div className="relative w-24 h-24 md:w-32 md:h-32 flex items-center justify-center bg-gradient-to-r from-[#B03982] via-[#a32c8d] to-[#733C86] rounded-xl border border-gray-300 group-hover:border-transparent transition-all duration-300">
                           <img
                             src={useCase.icon}
                             alt={useCase.title}
@@ -181,11 +180,10 @@ const UseCases = () => {
                           {[...Array(3)].map((_, i) => (
                             <div
                               key={i}
-                              className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                                i === 0 
+                              className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${i === 0
                                   ? 'bg-gradient-to-r from-[#B03982] to-[#733C86]'
                                   : 'bg-gray-300 group-hover:bg-gray-400'
-                              }`}
+                                }`}
                             ></div>
                           ))}
                         </div>
@@ -201,7 +199,7 @@ const UseCases = () => {
                         {index + 1}
                       </div>
                     </div>
-                  </a>
+                  </NavLink>
                 </div>
               ))}
             </div>
@@ -213,11 +211,10 @@ const UseCases = () => {
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  currentSlide === index
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${currentSlide === index
                     ? 'w-8 bg-gradient-to-r from-[#B03982] to-[#733C86]'
                     : 'bg-gray-300 hover:bg-gray-400'
-                }`}
+                  }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}

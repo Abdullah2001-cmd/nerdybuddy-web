@@ -173,15 +173,6 @@ const Chat = () => {
                         </motion.div>
                     )}
                 </AnimatePresence>
-
-                {/* Chat label */}
-                <motion.div 
-                    className="chat-label"
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                >
-                    {isChatOpen ? 'Close Chat' : 'Chat with us!'}
-                </motion.div>
             </motion.div>
 
             {/* Chat Window - Opens above the icon */}

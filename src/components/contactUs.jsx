@@ -46,28 +46,13 @@ const ContactFormSection = () => {
 
   return (
     <section className="relative py-16 md:py-24 overflow-hidden bg-gradient-to-b from-white to-gray-50">
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-[#B03982]/5 to-[#733C86]/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-[#B03982]/5 to-[#733C86]/5 rounded-full blur-3xl"></div>
-        
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `linear-gradient(to right, #B03982 1px, transparent 1px),
-                            linear-gradient(to bottom, #733C86 1px, transparent 1px)`,
-            backgroundSize: '50px 50px'
-          }}></div>
-        </div>
-      </div>
-
       <div className="relative container mx-auto px-4 md:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Column - Content */}
           <div className="space-y-8">
             {/* Heading */}
             <div className="space-y-6">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              <h1 className="text-4xl md:text-4xl lg:text-5xl font-bold leading-tight">
                 <span className="block text-gray-900">Let's Start</span>
                 <span className="block mt-2">
                   <span className="relative">
