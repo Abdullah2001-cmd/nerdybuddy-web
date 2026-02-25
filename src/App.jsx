@@ -11,6 +11,8 @@ import HealthCareSection from './pages/healthCare';
 import PublicSectorSection from './pages/publicSector';
 import RetailChainsSection from './pages/retailChain';
 import TelecomSection from './pages/telecom';
+import PricingPage from './pages/pricingPage';
+import ServicesPage from './pages/services';
 
 function App() {
 
@@ -32,6 +34,8 @@ function App() {
               <Route path="/public-sector" element={<PublicSectorSection />} />
               <Route path="/retail-chain" element={<RetailChainsSection />} />
               <Route path="/telecom" element={<TelecomSection />} />
+              <Route path="/pricing" element={<PricingPage />} />
+              <Route path="/services" element={<ServicesPage />} />
             </Route>
           </Routes>
         </Router>

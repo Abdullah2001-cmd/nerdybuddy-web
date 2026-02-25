@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Menu, X, ChevronRight, Phone } from 'lucide-react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const location = useLocation()
 
     React.useEffect(() => {
         const handleScroll = () => {
@@ -16,9 +17,11 @@ const Navbar = () => {
     }, []);
 
     const menuItems = [
-        { name: 'Home', href: '/' },
-        { name: 'About us', href: '/about' },
-        { name: 'Contact us', href: '/contact-us' },
+        { name: 'Home', href: '/', active: location.pathname === '/' },
+        { name: 'Pricing', href: '/pricing', active: location.pathname === '/pricing' },
+        { name: 'Services', href: '/services', active: location.pathname === '/services' },
+        { name: 'About us', href: '/about', active: location.pathname === '/about' },
+        { name: 'Contact us', href: '/contact-us', active: location.pathname === '/contact-us' },
     ];
 
     const scrollToContactForm = (e) => {
@@ -40,7 +43,7 @@ const Navbar = () => {
                                 <img
                                     src="https://nerdybuddy.com/wp-content/uploads/2024/08/Nerdy-Buddy-scaled.png"
                                     alt="Nerdy Buddy"
-                                    className="h-10 w-auto transition-all duration-300"
+                                    className="h-8 w-auto transition-all duration-300"
                                 />
                             </div>
                         </NavLink>
@@ -51,10 +54,10 @@ const Navbar = () => {
                                 <NavLink
                                     key={item.name}
                                     to={item.href}
-                                    className="relative group text-gray-500 transition-colors duration-200 px-2 py-1"
+                                    className={`relative group hover:text-[#B03982] transition px-2 py-1 ${item.active ? 'text-[#B03982]' : 'text-gray-700'}`}
                                 >
                                     <span className="text-base font-medium">{item.name}</span>
-                                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 group-hover:w-full transition-all duration-300"></span>
+                                    {/* <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 group-hover:w-full transition-all duration-300"></span> */}
                                 </NavLink>
                             ))}
                         </nav>
