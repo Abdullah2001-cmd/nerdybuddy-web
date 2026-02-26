@@ -111,7 +111,7 @@ const AIAssistantFeatures = () => {
           </div>
 
           {/* Right Column - Features Grid */}
-          <div className="lg:w-1/2">
+          <div className="lg:w-1/2 h-[1000px] overflow-auto">
             <div className="grid grid-cols-1 gap-8">
               {features.map((feature, index) => (
                 <div 

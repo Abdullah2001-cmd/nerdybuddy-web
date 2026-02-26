@@ -1,11 +1,11 @@
 import React from 'react';
-import { 
-  Target, 
-  Zap, 
-  Shield, 
-  Users, 
-  Lightbulb, 
-  Rocket, 
+import {
+  Target,
+  Zap,
+  Shield,
+  Users,
+  Lightbulb,
+  Rocket,
   TrendingUp,
   Globe,
   BookOpen,
@@ -56,7 +56,7 @@ const AboutUs = () => {
   ];
 
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section className="relative pt-44 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-white">
         {/* Geometric Pattern */}
@@ -64,13 +64,13 @@ const AboutUs = () => {
           <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#B03982" strokeWidth="1" opacity="0.3"/>
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#B03982" strokeWidth="1" opacity="0.3" />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#grid)" />
           </svg>
         </div>
-        
+
         {/* Gradient Blobs */}
         <div className="absolute top-20 -left-20 w-64 h-64 bg-gradient-to-br from-[#B03982]/10 to-[#733C86]/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 -right-20 w-64 h-64 bg-gradient-to-br from-[#B03982]/10 to-[#733C86]/10 rounded-full blur-3xl"></div>
@@ -83,8 +83,8 @@ const AboutUs = () => {
             <div className="w-2 h-2 bg-gradient-to-r from-[#B03982] to-[#733C86] rounded-full animate-pulse"></div>
             <span className="text-sm font-medium text-gray-600">About Nerdy Buddy</span>
           </div>
-          
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+
+          <h1 className="text-5xl md:text-4xl lg:text-5xl font-bold mb-6">
             <span className="block text-gray-900">Transforming Knowledge</span>
             <span className="block mt-2 relative">
               <span className="relative z-10 bg-gradient-to-r from-[#B03982] via-[#a32c8d] to-[#733C86] bg-clip-text text-transparent">
@@ -93,13 +93,13 @@ const AboutUs = () => {
               <span className="absolute -bottom-2 left-1/4 w-1/2 h-3 bg-gradient-to-r from-[#B03982]/20 to-[#733C86]/20 blur-xl -z-10"></span>
             </span>
           </h1>
-          
+
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
             We're a UK-based AI company on a mission to make organizational knowledge simple, secure, and instantly accessible.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-20">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-16">
           {/* Left Column - Visual & Stats */}
           <div className="space-y-8">
             {/* Animated GIF Container */}
@@ -110,15 +110,17 @@ const AboutUs = () => {
                   AI in Action
                 </div>
               </div>
-              
+
               {/* Main Image */}
-              <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-white to-gray-50 border border-gray-200 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-                <img
-                  src="https://nerdybuddy.com/wp-content/uploads/2025/07/Reading.gif"
-                  alt="Nerdy Buddy AI Processing Knowledge"
-                  className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
-                />
-                
+              <div className="relative rounded-2xl flex justify-center overflow-hidden bg-gradient-to-br from-white to-gray-50 border border-gray-200 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                <div className="w-[30rem] h-[34rem]">
+                  <img
+                    src="https://nerdybuddy.com/wp-content/uploads/2025/05/12435.gif"
+                    alt="Nerdy Buddy Digital Colleague in Action"
+                    className="w-full h-auto object-cover rounded-3xl transform group-hover:scale-[1.02] transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
                 {/* Overlay Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-white/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
@@ -152,7 +154,7 @@ const AboutUs = () => {
               <div className="space-y-6 relative">
                 {/* Timeline Line */}
                 <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-gray-200 via-gray-300 to-gray-200"></div>
-                
+
                 {milestones.map((milestone, index) => (
                   <div key={index} className="relative pl-12">
                     <div className="absolute left-0 top-1">
@@ -185,23 +187,23 @@ const AboutUs = () => {
                   <div>
                     <h2 className="text-2xl font-bold text-gray-900 mb-3">Our Mission</h2>
                     <p className="text-gray-600 leading-relaxed">
-                      Nerdy Buddy eliminates the daily friction of searching, asking, and waiting for answers. 
-                      By giving employees instant access to the right information, we reduce support tickets 
+                      Nerdy Buddy eliminates the daily friction of searching, asking, and waiting for answers.
+                      By giving employees instant access to the right information, we reduce support tickets
                       and free up time for meaningful work.
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="space-y-4">
                   <p className="text-gray-600 leading-relaxed">
-                    What started as a simple idea to help teams find answers faster has grown into 
-                    a powerful assistant designed to simplify training, manage policies, and improve 
+                    What started as a simple idea to help teams find answers faster has grown into
+                    a powerful assistant designed to simplify training, manage policies, and improve
                     everyday learning.
                   </p>
-                  
+
                   <p className="text-gray-600 leading-relaxed">
-                    We're not just building tools, we're building better ways for people to learn, 
-                    share, and grow at work. Join us in transforming how organizations access and 
+                    We're not just building tools, we're building better ways for people to learn,
+                    share, and grow at work. Join us in transforming how organizations access and
                     utilize knowledge.
                   </p>
                 </div>
@@ -221,7 +223,7 @@ const AboutUs = () => {
                     <div className="absolute top-0 right-0 w-12 h-12 overflow-hidden">
                       <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br ${value.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 transform rotate-45 translate-x-8 -translate-y-8`}></div>
                     </div>
-                    
+
                     <div className="space-y-3 relative">
                       <div className="flex items-center gap-3">
                         <div className={`w-10 h-10 flex items-center justify-center bg-gradient-to-br ${value.color} bg-opacity-10 rounded-lg`}>
@@ -233,7 +235,7 @@ const AboutUs = () => {
                       </div>
                       <p className="text-sm text-gray-600">{value.description}</p>
                     </div>
-                    
+
                     {/* Hover Line */}
                     <div className="mt-4 relative">
                       <div className="w-full h-0.5 bg-gray-100 rounded-full overflow-hidden">
@@ -266,29 +268,29 @@ const AboutUs = () => {
                 ))}
               </ul>
             </div>
-
-            {/* CTA Card */}
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#B03982] to-[#733C86] p-6 md:p-8 text-white">
-              <div className="relative z-10">
-                <h3 className="text-xl font-bold mb-3">Ready to Transform Your Organization?</h3>
-                <p className="mb-6 opacity-90">
-                  Join hundreds of companies using Nerdy Buddy to streamline their knowledge management.
-                </p>
-                <button className="group flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors duration-300">
-                  <span>Book a Demo</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
-              </div>
-              
-              {/* Pattern Overlay */}
-              <div className="absolute right-0 bottom-0 w-32 h-32 opacity-10">
-                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                  <path fill="white" d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.6,90,-16.3,89.9,-0.1C89.8,16.2,86.9,32.4,80.1,47.9C73.3,63.4,62.6,78.2,48.1,85.1C33.6,92,16.8,91,0.7,89.9C-15.4,88.8,-30.8,87.5,-43.9,80.8C-57,74.1,-67.8,62,-74,48.1C-80.2,34.2,-81.8,18.1,-83.6,1.2C-85.4,-15.7,-87.5,-31.4,-81.3,-43.9C-75.1,-56.4,-60.6,-65.7,-45.2,-72.2C-29.8,-78.7,-14.9,-82.4,0.7,-83.8C16.3,-85.2,32.7,-84.4,44.7,-76.4Z" transform="translate(100 100)" />
-                </svg>
-              </div>
-            </div>
           </div>
         </div>
+        {/* CTA Card */}
+        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#B03982] to-[#733C86] p-6 md:p-8 text-white">
+          <div className="relative z-10">
+            <h3 className="text-xl font-bold mb-3">Ready to Transform Your Organization?</h3>
+            <p className="mb-6 opacity-90">
+              Join hundreds of companies using Nerdy Buddy to streamline their knowledge management.
+            </p>
+            <button className="group flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors duration-300">
+              <span>Book a Demo</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+
+          {/* Pattern Overlay */}
+          <div className="absolute right-0 bottom-0 w-32 h-32 opacity-10">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <path fill="white" d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.6,90,-16.3,89.9,-0.1C89.8,16.2,86.9,32.4,80.1,47.9C73.3,63.4,62.6,78.2,48.1,85.1C33.6,92,16.8,91,0.7,89.9C-15.4,88.8,-30.8,87.5,-43.9,80.8C-57,74.1,-67.8,62,-74,48.1C-80.2,34.2,-81.8,18.1,-83.6,1.2C-85.4,-15.7,-87.5,-31.4,-81.3,-43.9C-75.1,-56.4,-60.6,-65.7,-45.2,-72.2C-29.8,-78.7,-14.9,-82.4,0.7,-83.8C16.3,-85.2,32.7,-84.4,44.7,-76.4Z" transform="translate(100 100)" />
+            </svg>
+          </div>
+        </div>
+
       </div>
     </section>
   );

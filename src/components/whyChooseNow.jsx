@@ -63,7 +63,7 @@ const WhyChooseNow = () => {
   return (
     <section className="relative py-20 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-50">
       <div className="relative container mx-auto px-4 md:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Left Column - Content */}
           <div className="space-y-8">
             {/* Header */}
@@ -75,7 +75,7 @@ const WhyChooseNow = () => {
                 </span>
               </div>
 
-              <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold leading-tight">
+              <h2 className="flex items-center gap-2 text-4xl md:text-4xl lg:text-5xl font-bold leading-tight">
                 <span className="block text-gray-900">Why</span>
                 <span className="block mt-2 bg-gradient-to-r from-[#B03982] via-[#a32c8d] to-[#733C86] bg-clip-text text-transparent">
                   Now?

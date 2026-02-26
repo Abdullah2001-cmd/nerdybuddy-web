@@ -1,7 +1,8 @@
-import React from 'react';
-import { MapPin, Mail, Phone, Clock, Zap, Navigation, ArrowRight, MessageSquare, Building } from 'lucide-react';
+import React, { useState } from 'react';
+import { MapPin, Mail, Phone, Clock, Zap, Sparkles, Navigation, ArrowRight, MessageSquare, Building, Brain, Github, Twitter, Linkedin, Facebook, Youtube, Send } from 'lucide-react';
 
 const ContactInformation = () => {
+
     const contactCards = [
         {
             icon: <MapPin className="w-6 h-6" />,
@@ -38,252 +39,456 @@ const ContactInformation = () => {
         { day: "Sunday", time: "By Appointment" }
     ];
 
+    const [formData, setFormData] = useState({
+        name: '',
+        company: '',
+        phone: '',
+        email: '',
+        message: ''
+    });
+
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isSubmitted, setIsSubmitted] = useState(false);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setTimeout(() => {
+            setIsSubmitting(false);
+            setIsSubmitted(true);
+            setTimeout(() => {
+                setIsSubmitted(false);
+                setFormData({
+                    name: '',
+                    company: '',
+                    phone: '',
+                    email: '',
+                    message: ''
+                });
+            }, 3000);
+        }, 1500);
+    };
+
     return (
-        <section className="relative py-20 overflow-hidden">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-white">
-                {/* Geometric Pattern */}
-                <div className="absolute inset-0 opacity-5">
-                    <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <pattern id="dots" width="40" height="40" patternUnits="userSpaceOnUse">
-                                <circle cx="20" cy="20" r="1" fill="#B03982" opacity="0.3" />
-                                <circle cx="60" cy="20" r="1" fill="#733C86" opacity="0.3" />
-                            </pattern>
-                        </defs>
-                        <rect width="100%" height="100%" fill="url(#dots)" />
-                    </svg>
-                </div>
-
-                {/* Gradient Blobs */}
-                <div className="absolute top-20 -left-40 w-80 h-80 bg-gradient-to-br from-[#B03982]/5 to-[#733C86]/5 rounded-full blur-3xl"></div>
-                <div className="absolute bottom-20 -right-40 w-80 h-80 bg-gradient-to-br from-[#B03982]/5 to-[#733C86]/5 rounded-full blur-3xl"></div>
-            </div>
-
-            <div className="relative container mx-auto px-4 md:px-6 lg:px-8">
-                {/* Header */}
-                <div className="max-w-3xl mx-auto text-center mb-16 md:mb-20">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-gray-200 shadow-sm mb-6">
-                        <div className="w-2 h-2 bg-gradient-to-r from-[#B03982] to-[#733C86] rounded-full animate-pulse"></div>
-                        <span className="text-sm font-medium text-gray-600">Ready to Connect</span>
+        <>
+            <section className="relative pt-44 pb-14 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-white">
+                    {/* Geometric Pattern */}
+                    <div className="absolute inset-0 opacity-5">
+                        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <pattern id="dots" width="40" height="40" patternUnits="userSpaceOnUse">
+                                    <circle cx="20" cy="20" r="1" fill="#B03982" opacity="0.3" />
+                                    <circle cx="60" cy="20" r="1" fill="#733C86" opacity="0.3" />
+                                </pattern>
+                            </defs>
+                            <rect width="100%" height="100%" fill="url(#dots)" />
+                        </svg>
                     </div>
 
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                        <span className="block text-gray-900">Let's Start Your</span>
-                        <span className="block mt-2 relative">
-                            <span className="relative z-10 bg-gradient-to-r from-[#B03982] via-[#a32c8d] to-[#733C86] bg-clip-text text-transparent">
-                                AI Transformation
+                    {/* Gradient Blobs */}
+                    <div className="absolute top-20 -left-40 w-80 h-80 bg-gradient-to-br from-[#B03982]/5 to-[#733C86]/5 rounded-full blur-3xl"></div>
+                    <div className="absolute bottom-20 -right-40 w-80 h-80 bg-gradient-to-br from-[#B03982]/5 to-[#733C86]/5 rounded-full blur-3xl"></div>
+                </div>
+                <div className="relative container mx-auto px-4 md:px-6 lg:px-8">
+                    <div className="max-w-3xl mx-auto text-center mb-16 md:mb-20">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-gray-200 shadow-sm mb-6">
+                            <div className="w-2 h-2 bg-gradient-to-r from-[#B03982] to-[#733C86] rounded-full animate-pulse"></div>
+                            <span className="text-sm font-medium text-gray-600">Ready to Connect</span>
+                        </div>
+
+                        <h1 className="text-5xl md:text-4xl lg:text-5xl font-bold mb-6">
+                            <span className="block text-gray-900">Let's Start Your</span>
+                            <span className="block mt-2 relative">
+                                <span className="relative z-10 bg-gradient-to-r from-[#B03982] via-[#a32c8d] to-[#733C86] bg-clip-text text-transparent">
+                                    AI Transformation
+                                </span>
+                                <span className="absolute -bottom-2 left-1/4 w-1/2 h-3 bg-gradient-to-r from-[#B03982]/10 to-[#733C86]/10 blur-xl -z-10"></span>
                             </span>
-                            <span className="absolute -bottom-2 left-1/4 w-1/2 h-3 bg-gradient-to-r from-[#B03982]/10 to-[#733C86]/10 blur-xl -z-10"></span>
-                        </span>
-                    </h1>
+                        </h1>
 
-                    <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-                        Connect with our team to discover how Nerdy Buddy can transform your organizational knowledge management.
-                    </p>
-                </div>
-
-                <div className="grid md:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3 gap-6 mb-10">
-                    {contactCards.map((card, index) => (
-                        <div
-                            key={index}
-                            className="group relative bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-xl transition-all duration-300"
-                        >
-                            {/* Corner Accent */}
-                            <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden">
-                                <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${card.gradient} opacity-5 group-hover:opacity-10 transition-opacity duration-500 transform rotate-45 translate-x-8 -translate-y-8`}></div>
-                            </div>
-
-                            {/* Badge */}
-                            <div className="absolute -top-3 -left-3 z-10">
-                                <div className="w-10 h-10 flex items-center justify-center bg-white rounded-full border border-gray-200 shadow-lg text-2xl">
-                                    {card.badge}
-                                </div>
-                            </div>
-
-                            <div className="space-y-4 relative">
-                                {/* Icon */}
-                                <div className={`w-12 h-12 flex items-center justify-center bg-gradient-to-br ${card.gradient} bg-opacity-10 rounded-xl`}>
-                                    <div className={`text-transparent bg-gradient-to-br ${card.gradient} bg-clip-text`}>
-                                        {card.icon}
-                                    </div>
-                                </div>
-
-                                {/* Content */}
-                                <div className="space-y-2">
-                                    <h3 className="text-xl font-bold text-gray-900">{card.title}</h3>
-                                    <p className="text-gray-600 text-sm">{card.description}</p>
-                                </div>
-
-                                {/* Details */}
-                                <div className="pt-3 border-t border-gray-100">
-                                    {card.address && (
-                                        <div className="space-y-1">
-                                            <div className="text-sm font-medium text-gray-900">{card.address}</div>
-                                            <div className="text-sm text-gray-500">{card.location}</div>
-                                        </div>
-                                    )}
-                                    {card.email && (
-                                        <div className="space-y-1">
-                                            <a
-                                                href={`mailto:${card.email}`}
-                                                className="text-lg font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent hover:from-[#c94594] hover:to-[#8a48a3] transition-all duration-300"
-                                            >
-                                                {card.email}
-                                            </a>
-                                            <div className="text-sm text-gray-500">{card.response}</div>
-                                        </div>
-                                    )}
-                                    {card.phone && (
-                                        <div className="space-y-1">
-                                            <a
-                                                href={`tel:${card.phone.replace(/\s+/g, '')}`}
-                                                className="text-lg font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent hover:from-[#c94594] hover:to-[#8a48a3] transition-all duration-300"
-                                            >
-                                                {card.phone}
-                                            </a>
-                                            <div className="text-sm text-gray-500">{card.hours}</div>
-                                        </div>
-                                    )}
-                                </div>
-
-                                {/* Action Button */}
-                                <div className="pt-3">
-                                    <button className="group flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-[#B03982] transition-colors duration-300">
-                                        <span>Get in touch</span>
-                                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                    </button>
-                                </div>
-                            </div>
-
-                            {/* Hover Line */}
-                            <div className="mt-4 relative">
-                                <div className="w-full h-0.5 bg-gray-100 rounded-full overflow-hidden">
-                                    <div className={`w-0 h-full bg-gradient-to-r ${card.gradient} rounded-full group-hover:w-full transition-all duration-700`}></div>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                {/* Right Column - Map & Quick Contact */}
-                <div className="grid md:grid-cols-3 lg:grid-cols-1 xl:grid-cols-2 gap-6">
-                    {/* Map Section */}
-                    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 to-black text-white">
-                        <div className="relative p-6 md:p-8">
-                            {/* Header */}
-                            <div className="mb-6">
-                                <div className="flex items-center gap-3 mb-3">
-                                    <Navigation className="w-6 h-6 text-[#B03982]" />
-                                    <h3 className="text-xl font-bold">London Headquarters</h3>
-                                </div>
-                                <p className="text-gray-300">
-                                    Visit our state-of-the-art office in the heart of London's business district
-                                </p>
-                            </div>
-
-                            {/* Address Card */}
-                            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20 mb-6">
-                                <div className="flex items-start gap-3">
-                                    <Building className="w-5 h-5 text-[#B03982] mt-0.5" />
-                                    <div className="flex-1">
-                                        <div className="text-lg font-bold mb-1">Skyline Business Village</div>
-                                        <div className="text-gray-300 text-sm">
-                                            32-33 Limeharbour<br />
-                                            London E14 9TS<br />
-                                            United Kingdom
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Map Placeholder */}
-                            <div className="relative h-48 md:h-64 rounded-xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900">
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <div className="text-center">
-                                        <div className="relative inline-block">
-                                            <div className="w-16 h-16 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-full flex items-center justify-center mb-3">
-                                                <MapPin className="w-8 h-8 text-white" />
-                                            </div>
-                                            <div className="absolute -inset-4 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-full blur-xl opacity-20"></div>
-                                        </div>
-                                        <div className="text-sm font-medium">Interactive Map View</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Action Buttons */}
-                            <div className="grid grid-cols-2 gap-3 mt-6">
-                                <a
-                                    href="https://maps.google.com/?q=32-33+Skyline+Business+Village+Limeharbour+London+E14+9TS"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="px-4 py-3 bg-white text-gray-900 rounded-lg font-medium hover:bg-gray-100 transition-colors duration-300 text-center"
-                                >
-                                    Open in Maps
-                                </a>
-                                <a
-                                    href="tel:+447895859216"
-                                    className="px-4 py-3 bg-gradient-to-r from-[#B03982] to-[#733C86] text-white rounded-lg font-medium hover:from-[#c94594] hover:to-[#8a48a3] transition-all duration-300 text-center"
-                                >
-                                    Get Directions
-                                </a>
-                            </div>
-                        </div>
+                        <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+                            Connect with our team to discover how Nerdy Buddy can transform your organizational knowledge management.
+                        </p>
                     </div>
-                    {/* Quick Contact Form */}
-                    <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 p-6">
-                        <div className="flex items-center gap-3 mb-6">
-                            <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-[#B03982]/10 to-[#733C86]/10 rounded-lg">
-                                <MessageSquare className="w-5 h-5 text-[#B03982]" />
-                            </div>
-                            <div>
-                                <h3 className="text-lg font-bold text-gray-900">Quick Inquiry</h3>
-                                <p className="text-sm text-gray-500">Send us a quick message</p>
-                            </div>
-                        </div>
-
-                        <form className="space-y-4">
-                            <div>
-                                <input
-                                    type="text"
-                                    placeholder="Your name"
-                                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B03982]/20 focus:border-[#B03982] transition-all duration-300"
-                                />
-                            </div>
-                            <div>
-                                <input
-                                    type="email"
-                                    placeholder="Email address"
-                                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B03982]/20 focus:border-[#B03982] transition-all duration-300"
-                                />
-                            </div>
-                            <div>
-                                <textarea
-                                    placeholder="Your message..."
-                                    rows="3"
-                                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B03982]/20 focus:border-[#B03982] transition-all duration-300 resize-none"
-                                ></textarea>
-                            </div>
-                            <button
-                                type="submit"
-                                className="w-full px-6 py-3 bg-gradient-to-r from-[#B03982] to-[#733C86] text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-[#B03982]/20 transition-all duration-300 hover:scale-[1.02]"
+                    <div className="grid md:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3 gap-6 mb-10">
+                        {contactCards.map((card, index) => (
+                            <div
+                                key={index}
+                                className="group relative bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-xl transition-all duration-300"
                             >
-                                Send Message
-                            </button>
-                        </form>
+                                {/* Corner Accent */}
+                                <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden">
+                                    <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${card.gradient} opacity-5 group-hover:opacity-10 transition-opacity duration-500 transform rotate-45 translate-x-8 -translate-y-8`}></div>
+                                </div>
 
-                        {/* Response Time */}
-                        <div className="mt-6 pt-6 border-t border-gray-100">
-                            <div className="flex items-center gap-2">
-                                <div className="w-2 h-2 bg-gradient-to-r from-[#B03982] to-[#733C86] rounded-full animate-pulse"></div>
-                                <span className="text-sm text-gray-600">Typical response time: 2-4 hours</span>
+                                {/* Badge */}
+                                <div className="absolute -top-3 -left-3 z-10">
+                                    <div className="w-10 h-10 flex items-center justify-center bg-white rounded-full border border-gray-200 shadow-lg text-2xl">
+                                        {card.badge}
+                                    </div>
+                                </div>
+
+                                <div className="space-y-4 relative">
+                                    {/* Icon */}
+                                    <div className={`w-12 h-12 flex items-center justify-center bg-gradient-to-br ${card.gradient} bg-opacity-10 rounded-xl`}>
+                                        <div className={`text-transparent bg-gradient-to-br ${card.gradient} bg-clip-text`}>
+                                            {card.icon}
+                                        </div>
+                                    </div>
+
+                                    {/* Content */}
+                                    <div className="space-y-2">
+                                        <h3 className="text-xl font-bold text-gray-900">{card.title}</h3>
+                                        <p className="text-gray-600 text-sm">{card.description}</p>
+                                    </div>
+
+                                    {/* Details */}
+                                    <div className="pt-3 border-t border-gray-100">
+                                        {card.address && (
+                                            <div className="space-y-1">
+                                                <div className="text-sm font-medium text-gray-900">{card.address}</div>
+                                                <div className="text-sm text-gray-500">{card.location}</div>
+                                            </div>
+                                        )}
+                                        {card.email && (
+                                            <div className="space-y-1">
+                                                <a
+                                                    href={`mailto:${card.email}`}
+                                                    className="text-lg font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent hover:from-[#c94594] hover:to-[#8a48a3] transition-all duration-300"
+                                                >
+                                                    {card.email}
+                                                </a>
+                                                <div className="text-sm text-gray-500">{card.response}</div>
+                                            </div>
+                                        )}
+                                        {card.phone && (
+                                            <div className="space-y-1">
+                                                <a
+                                                    href={`tel:${card.phone.replace(/\s+/g, '')}`}
+                                                    className="text-lg font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent hover:from-[#c94594] hover:to-[#8a48a3] transition-all duration-300"
+                                                >
+                                                    {card.phone}
+                                                </a>
+                                                <div className="text-sm text-gray-500">{card.hours}</div>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {/* Action Button */}
+                                    <div className="pt-3">
+                                        <button className="group flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-[#B03982] transition-colors duration-300">
+                                            <span>Get in touch</span>
+                                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                        </button>
+                                    </div>
+                                </div>
+
+                                {/* Hover Line */}
+                                <div className="mt-4 relative">
+                                    <div className="w-full h-0.5 bg-gray-100 rounded-full overflow-hidden">
+                                        <div className={`w-0 h-full bg-gradient-to-r ${card.gradient} rounded-full group-hover:w-full transition-all duration-700`}></div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                    <div className="grid md:grid-cols-3 lg:grid-cols-1 xl:grid-cols-2 gap-6">
+                        {/* Map Section */}
+                        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 to-black text-white">
+                            <div className="relative p-6 md:p-8">
+                                {/* Header */}
+                                <div className="mb-6">
+                                    <div className="flex items-center gap-3 mb-3">
+                                        <Navigation className="w-6 h-6 text-[#B03982]" />
+                                        <h3 className="text-xl font-bold">London Headquarters</h3>
+                                    </div>
+                                    <p className="text-gray-300">
+                                        Visit our state-of-the-art office in the heart of London's business district
+                                    </p>
+                                </div>
+
+                                {/* Address Card */}
+                                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20 mb-6">
+                                    <div className="flex items-start gap-3">
+                                        <Building className="w-5 h-5 text-[#B03982] mt-0.5" />
+                                        <div className="flex-1">
+                                            <div className="text-lg font-bold mb-1">Skyline Business Village</div>
+                                            <div className="text-gray-300 text-sm">
+                                                32-33 Limeharbour<br />
+                                                London E14 9TS<br />
+                                                United Kingdom
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Map Placeholder */}
+                                <div className="relative h-48 md:h-64 rounded-xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900">
+                                    <div className="absolute inset-0 flex items-center justify-center">
+                                        <div className="text-center">
+                                            <div className="relative inline-block">
+                                                <div className="w-16 h-16 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-full flex items-center justify-center mb-3">
+                                                    <MapPin className="w-8 h-8 text-white" />
+                                                </div>
+                                                <div className="absolute -inset-4 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-full blur-xl opacity-20"></div>
+                                            </div>
+                                            <div className="text-sm font-medium">Interactive Map View</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Action Buttons */}
+                                <div className="grid grid-cols-2 gap-3 mt-6">
+                                    <a
+                                        href="https://maps.google.com/?q=32-33+Skyline+Business+Village+Limeharbour+London+E14+9TS"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="px-4 py-3 bg-white text-gray-900 rounded-lg font-medium hover:bg-gray-100 transition-colors duration-300 text-center"
+                                    >
+                                        Open in Maps
+                                    </a>
+                                    <a
+                                        href="tel:+447895859216"
+                                        className="px-4 py-3 bg-gradient-to-r from-[#B03982] to-[#733C86] text-white rounded-lg font-medium hover:from-[#c94594] hover:to-[#8a48a3] transition-all duration-300 text-center"
+                                    >
+                                        Get Directions
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        {/* Quick Contact Form */}
+                        <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 p-6">
+                            <div className="flex items-center gap-3 mb-6">
+                                <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-[#B03982]/10 to-[#733C86]/10 rounded-lg">
+                                    <MessageSquare className="w-5 h-5 text-[#B03982]" />
+                                </div>
+                                <div>
+                                    <h3 className="text-lg font-bold text-gray-900">Quick Inquiry</h3>
+                                    <p className="text-sm text-gray-500">Send us a quick message</p>
+                                </div>
+                            </div>
+
+                            <form onSubmit={handleSubmit} className="space-y-6">
+                                {/* Form Header */}
+                                <div className="mb-6">
+                                    
+                                    <p className="text-gray-600">
+                                        Fill out the form below and our team will reach out to schedule your personalized demo.
+                                    </p>
+                                </div>
+
+                                {/* Name Field */}
+                                <div className="space-y-2">
+                                    <label className="block text-sm font-medium text-gray-700">
+                                        What is your name? *
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        required
+                                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B03982]/20 focus:border-[#B03982] transition-all duration-300"
+                                        placeholder="Enter your full name"
+                                    />
+                                </div>
+
+                                {/* Company Field */}
+                                <div className="space-y-2">
+                                    <label className="block text-sm font-medium text-gray-700">
+                                        What company do you represent?
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="company"
+                                        value={formData.company}
+                                        onChange={handleChange}
+                                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B03982]/20 focus:border-[#B03982] transition-all duration-300"
+                                        placeholder="Your company name"
+                                    />
+                                </div>
+
+                                {/* Phone and Email Fields */}
+                                <div className="grid md:grid-cols-2 gap-6">
+                                    <div className="space-y-2">
+                                        <label className="block text-sm font-medium text-gray-700">
+                                            Phone number *
+                                        </label>
+                                        <input
+                                            type="tel"
+                                            name="phone"
+                                            value={formData.phone}
+                                            onChange={handleChange}
+                                            required
+                                            className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B03982]/20 focus:border-[#B03982] transition-all duration-300"
+                                            placeholder="+1 (555) 123-4567"
+                                        />
+                                    </div>
+
+                                    <div className="space-y-2">
+                                        <label className="block text-sm font-medium text-gray-700">
+                                            E-mail *
+                                        </label>
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            value={formData.email}
+                                            onChange={handleChange}
+                                            required
+                                            className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B03982]/20 focus:border-[#B03982] transition-all duration-300"
+                                            placeholder="your.email@company.com"
+                                        />
+                                    </div>
+                                </div>
+
+                                {/* Message Field */}
+                                <div className="space-y-2">
+                                    <label className="block text-sm font-medium text-gray-700">
+                                        A few words about your company *
+                                    </label>
+                                    <textarea
+                                        name="message"
+                                        value={formData.message}
+                                        onChange={handleChange}
+                                        required
+                                        rows="4"
+                                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B03982]/20 focus:border-[#B03982] transition-all duration-300 resize-none"
+                                        placeholder="Tell us about your organization and what you're looking to achieve..."
+                                    />
+                                </div>
+
+                                {/* Submit Button */}
+                                <div className="pt-4">
+                                    <button
+                                        type="submit"
+                                        disabled={isSubmitting}
+                                        className="group relative w-full px-8 py-4 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-xl overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#B03982]/20 disabled:opacity-50 disabled:cursor-not-allowed"
+                                    >
+                                        {/* Animated Background */}
+                                        <div className="absolute inset-0 bg-gradient-to-br from-[#c94594] to-[#8a48a3] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                                        {/* Ripple Effect */}
+                                        <div className="absolute inset-0 overflow-hidden">
+                                            <div className="absolute -inset-10 bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:animate-shimmer"></div>
+                                        </div>
+
+                                        <div className="relative flex items-center justify-center gap-3">
+                                            <div className="relative">
+                                                <div className="absolute -inset-2 bg-white/20 rounded-full blur group-hover:animate-ping"></div>
+                                                <Send className="w-5 h-5 text-white relative z-10" />
+                                            </div>
+                                            <span className="font-semibold text-lg text-white">
+                                                {isSubmitting ? 'Submitting...' : 'Submit'}
+                                            </span>
+                                        </div>
+                                    </button>
+
+                                    {/* Form Note */}
+                                    <p className="text-xs text-gray-500 mt-4 text-center">
+                                        By submitting this form, you agree to our Privacy Policy and consent to being contacted by our team.
+                                    </p>
+                                </div>
+                            </form>
+
+                            {/* Response Time */}
+                            <div className="mt-6 pt-6 border-t border-gray-100">
+                                <div className="flex items-center gap-2">
+                                    <div className="w-2 h-2 bg-gradient-to-r from-[#B03982] to-[#733C86] rounded-full animate-pulse"></div>
+                                    <span className="text-sm text-gray-600">Typical response time: 2-4 hours</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+            <footer className="bg-gray-900 text-white py-16">
+                <div className="container mx-auto px-4 md:px-6">
+                    <div className="grid md:grid-cols-4 gap-12 mb-12">
+                        <div>
+                            <div className="flex items-center space-x-2 mb-6">
+                                <Brain className="w-8 h-8 text-[#B03982]" />
+                                <span className="text-2xl font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
+                                    AI Solutions
+                                </span>
+                            </div>
+                            <p className="text-gray-400 mb-6">
+                                Empowering businesses with cutting-edge AI solutions for knowledge management and automation.
+                            </p>
+                            <div className="flex space-x-4">
+                                <a href="#" className="text-gray-400 hover:text-white transition">
+                                    <Github className="w-5 h-5" />
+                                </a>
+                                <a href="#" className="text-gray-400 hover:text-white transition">
+                                    <Twitter className="w-5 h-5" />
+                                </a>
+                                <a href="#" className="text-gray-400 hover:text-white transition">
+                                    <Linkedin className="w-5 h-5" />
+                                </a>
+                                <a href="#" className="text-gray-400 hover:text-white transition">
+                                    <Facebook className="w-5 h-5" />
+                                </a>
+                                <a href="#" className="text-gray-400 hover:text-white transition">
+                                    <Youtube className="w-5 h-5" />
+                                </a>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 className="font-bold text-lg mb-4">Product</h4>
+                            <ul className="space-y-3">
+                                <li><a href="#" className="text-gray-400 hover:text-white transition">Features</a></li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition">Pricing</a></li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition">Security</a></li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition">Enterprise</a></li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition">Roadmap</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 className="font-bold text-lg mb-4">Resources</h4>
+                            <ul className="space-y-3">
+                                <li><a href="#" className="text-gray-400 hover:text-white transition">Documentation</a></li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition">API Reference</a></li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition">Blog</a></li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition">Case Studies</a></li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition">Webinars</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 className="font-bold text-lg mb-4">Company</h4>
+                            <ul className="space-y-3">
+                                <li><a href="#" className="text-gray-400 hover:text-white transition">About Us</a></li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition">Careers</a></li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition">Contact</a></li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition">Partners</a></li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition">Legal</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                        <p className="text-gray-400 text-sm">
+                            © 2024 AI Solutions. All rights reserved.
+                        </p>
+                        <div className="flex space-x-6 mt-4 md:mt-0">
+                            <a href="#" className="text-gray-400 hover:text-white text-sm transition">Privacy Policy</a>
+                            <a href="#" className="text-gray-400 hover:text-white text-sm transition">Terms of Service</a>
+                            <a href="#" className="text-gray-400 hover:text-white text-sm transition">Cookie Policy</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </>
     );
 };
 

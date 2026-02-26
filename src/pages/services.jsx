@@ -319,7 +319,7 @@ const ServicesPage = () => {
     {
       step: '01',
       title: 'Discovery',
-      description: 'We深入了解 your business, goals, and challenges',
+      description: 'We your business, goals, and challenges',
       icon: <Search className="w-8 h-8" />
     },
     {
@@ -417,9 +417,9 @@ const ServicesPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      
+
       {/* Navigation */}
-      
+
       {/* <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex items-center justify-between h-20">
@@ -472,9 +472,9 @@ const ServicesPage = () => {
                 With Our Expert Services
               </span>
             </h1>
-            
+
             <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
-              From AI implementation to digital transformation, we provide end-to-end technology solutions 
+              From AI implementation to digital transformation, we provide end-to-end technology solutions
               that drive innovation, efficiency, and growth for businesses of all sizes.
             </p>
 
@@ -512,11 +512,10 @@ const ServicesPage = () => {
           <div className="flex flex-wrap justify-center gap-4">
             <button
               onClick={() => setActiveService('all')}
-              className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
-                activeService === 'all'
+              className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${activeService === 'all'
                   ? 'bg-gradient-to-r from-[#B03982] to-[#733C86] text-white shadow-md'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
+                }`}
             >
               All Services
             </button>
@@ -524,11 +523,10 @@ const ServicesPage = () => {
               <button
                 key={service.id}
                 onClick={() => setActiveService(service.id)}
-                className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
-                  activeService === service.id
+                className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${activeService === service.id
                     ? `bg-gradient-to-r ${service.gradient} text-white shadow-md`
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
+                  }`}
               >
                 {service.title}
               </button>
@@ -541,8 +539,8 @@ const ServicesPage = () => {
       <section className="py-20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid lg:grid-cols-2 gap-8">
-            {(activeService === 'all' 
-              ? mainServices 
+            {(activeService === 'all'
+              ? mainServices
               : mainServices.filter(s => s.id === activeService)
             ).map((service, index) => (
               <div
@@ -557,7 +555,7 @@ const ServicesPage = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                   <div className={`absolute inset-0 bg-gradient-to-t ${service.gradient} opacity-60`}></div>
-                  
+
                   {/* Icon */}
                   <div className="absolute top-6 left-6">
                     <div className={`p-4 bg-white/20 backdrop-blur-lg rounded-2xl border border-white/30`}>
@@ -663,7 +661,7 @@ const ServicesPage = () => {
       </section>
 
       {/* Additional Services */}
-      <section className="py-20 bg-gray-50">
+      {/* <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4">
@@ -696,10 +694,10 @@ const ServicesPage = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Process Section */}
-      <section className="py-20">
+      <section className="pb-10">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4">
@@ -792,7 +790,7 @@ const ServicesPage = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-gradient-to-r from-[#B03982] to-[#733C86] relative overflow-hidden">
+      {/* <section className="py-20 bg-gradient-to-r from-[#B03982] to-[#733C86] relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
@@ -812,8 +810,8 @@ const ServicesPage = () => {
             {testimonials.map((testimonial, index) => (
               <div key={index} className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300">
                 <div className="flex items-center gap-4 mb-6">
-                  <img 
-                    src={testimonial.avatar} 
+                  <img
+                    src={testimonial.avatar}
                     alt={testimonial.name}
                     className="w-16 h-16 rounded-full object-cover border-2 border-white"
                   />
@@ -832,7 +830,7 @@ const ServicesPage = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* FAQ Section */}
       <section className="py-20">
@@ -858,9 +856,8 @@ const ServicesPage = () => {
                   <span className="font-semibold text-gray-900 group-hover:text-[#B03982] transition">
                     {faq.question}
                   </span>
-                  <ChevronRight className={`w-5 h-5 text-gray-500 transition-transform duration-300 ${
-                    expandedFaq === index ? 'rotate-90' : ''
-                  }`} />
+                  <ChevronRight className={`w-5 h-5 text-gray-500 transition-transform duration-300 ${expandedFaq === index ? 'rotate-90' : ''
+                    }`} />
                 </button>
                 {expandedFaq === index && (
                   <div className="p-6 bg-gray-50 rounded-xl border border-gray-200 mt-2">
@@ -874,40 +871,29 @@ const ServicesPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gray-900 relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-r from-[#B03982] to-[#733C86] relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-r from-[#B03982] to-[#733C86] rounded-full blur-3xl"></div>
+          <div className="absolute top-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
         </div>
-
         <div className="relative container mx-auto px-4 md:px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Ready to Transform Your Business?
           </h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Let's discuss how our services can help you achieve your goals and drive innovation.
+          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            Join hundreds of companies already using our AI solutions to save time, reduce costs, and improve efficiency.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-gradient-to-r from-[#B03982] to-[#733C86] text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-[#B03982]/20 transition-all duration-300 hover:scale-105">
-              Schedule a Consultation
+            <button className="px-8 py-4 bg-white text-[#B03982] rounded-xl font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105">
+              Start Free Trial
             </button>
-            <button className="px-8 py-4 border-2 border-white text-white rounded-xl font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300">
-              Contact Sales
+            <button className="px-8 py-4 border-2 border-white text-white rounded-xl font-semibold hover:bg-white hover:text-[#B03982] transition-all duration-300">
+              Schedule Demo
             </button>
           </div>
-          <div className="flex items-center justify-center gap-8 mt-12 text-gray-400">
-            <div className="flex items-center gap-2">
-              <Phone className="w-4 h-4" />
-              <span>+1 (888) 123-4567</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Mail className="w-4 h-4" />
-              <span>hello@aisolutions.com</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4" />
-              <span>Book a Meeting</span>
-            </div>
-          </div>
+          <p className="text-white/80 mt-6 text-sm">
+            No credit card required • 14-day free trial • Cancel anytime
+          </p>
         </div>
       </section>
 

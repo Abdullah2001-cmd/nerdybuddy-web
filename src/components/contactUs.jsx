@@ -24,13 +24,9 @@ const ContactFormSection = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate API call
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
-      
-      // Reset form after 3 seconds
       setTimeout(() => {
         setIsSubmitted(false);
         setFormData({
@@ -63,7 +59,7 @@ const ContactFormSection = () => {
                   </span>
                 </span>
               </h1>
-              
+
               <p className="text-lg text-gray-600 leading-relaxed">
                 Ready to transform your organization's knowledge management? Get in touch with our team to schedule a personalized demo and see how Nerdy Buddy can work for you.
               </p>
@@ -71,9 +67,9 @@ const ContactFormSection = () => {
 
             {/* Social Links */}
             <div className="flex items-center gap-4">
-              <a 
-                href="https://www.facebook.com/profile.php?id=61571851855164" 
-                target="_blank" 
+              <a
+                href="https://www.facebook.com/profile.php?id=61571851855164"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="group relative w-12 h-12 flex items-center justify-center bg-gradient-to-br from-white to-gray-50 rounded-xl border border-gray-200 hover:border-[#B03982]/50 transition-all duration-300 hover:scale-110 shadow-sm hover:shadow-md"
                 aria-label="Visit our Facebook page"
@@ -81,10 +77,10 @@ const ContactFormSection = () => {
                 <div className="absolute -inset-3 bg-gradient-to-br from-[#B03982]/10 to-[#733C86]/10 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <Facebook className="w-5 h-5 text-gray-700 group-hover:text-[#B03982] transition-colors duration-300" />
               </a>
-              
-              <a 
-                href="https://www.linkedin.com/company/106011349/admin/dashboard/" 
-                target="_blank" 
+
+              <a
+                href="https://www.linkedin.com/company/106011349/admin/dashboard/"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="group relative w-12 h-12 flex items-center justify-center bg-gradient-to-br from-white to-gray-50 rounded-xl border border-gray-200 hover:border-[#B03982]/50 transition-all duration-300 hover:scale-110 shadow-sm hover:shadow-md"
                 aria-label="Visit our LinkedIn page"
@@ -95,7 +91,7 @@ const ContactFormSection = () => {
             </div>
 
             {/* Clap Animation - Hidden on mobile */}
-            <div className="hidden md:block relative">
+            {/* <div className="hidden md:block relative">
               <div className="absolute -right-10 -top-10 animate-bounce">
                 <img
                   src="https://nerdybuddy.com/wp-content/uploads/2024/08/clap.png"
@@ -104,7 +100,7 @@ const ContactFormSection = () => {
                   loading="lazy"
                 />
               </div>
-            </div>
+            </div> */}
 
             {/* Features */}
             <div className="space-y-4 pt-8">
@@ -117,7 +113,7 @@ const ContactFormSection = () => {
                   <p className="text-sm text-gray-600">No obligation, just expert advice</p>
                 </div>
               </div>
-              
+
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-blue-100 to-cyan-100 rounded-lg">
                   <Users className="w-5 h-5 text-blue-600" />
@@ -127,7 +123,7 @@ const ContactFormSection = () => {
                   <p className="text-sm text-gray-600">Personalized implementation team</p>
                 </div>
               </div>
-              
+
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-purple-100 to-pink-100 rounded-lg">
                   <Building className="w-5 h-5 text-purple-600" />
@@ -225,7 +221,7 @@ const ContactFormSection = () => {
                         placeholder="+1 (555) 123-4567"
                       />
                     </div>
-                    
+
                     <div className="space-y-2">
                       <label className="block text-sm font-medium text-gray-700">
                         E-mail *
@@ -267,12 +263,12 @@ const ContactFormSection = () => {
                     >
                       {/* Animated Background */}
                       <div className="absolute inset-0 bg-gradient-to-br from-[#c94594] to-[#8a48a3] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                      
+
                       {/* Ripple Effect */}
                       <div className="absolute inset-0 overflow-hidden">
                         <div className="absolute -inset-10 bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:animate-shimmer"></div>
                       </div>
-                      
+
                       <div className="relative flex items-center justify-center gap-3">
                         <div className="relative">
                           <div className="absolute -inset-2 bg-white/20 rounded-full blur group-hover:animate-ping"></div>
@@ -283,7 +279,7 @@ const ContactFormSection = () => {
                         </span>
                       </div>
                     </button>
-                    
+
                     {/* Form Note */}
                     <p className="text-xs text-gray-500 mt-4 text-center">
                       By submitting this form, you agree to our Privacy Policy and consent to being contacted by our team.

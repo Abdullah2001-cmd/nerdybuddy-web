@@ -56,7 +56,7 @@ const DigitalColleagueLight = () => {
   return (
     <section className="relative py-20 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <div className="relative container mx-auto px-4 md:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Left Column - GIF */}
           <div className="relative order-2 lg:order-1 animate-fadeInLeft">
             <div className="relative">

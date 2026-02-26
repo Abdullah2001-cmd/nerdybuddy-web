@@ -64,7 +64,7 @@ const ProductOverview = () => {
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 -left-24 w-96 h-96 bg-gradient-to-br from-[#B03982]/5 to-[#733C86]/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 -right-24 w-96 h-96 bg-gradient-to-br from-[#B03982]/5 to-[#733C86]/5 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-1 bg-gradient-to-r from-transparent via-[#B03982]/10 to-transparent"></div>
+        {/* <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-1 bg-gradient-to-r from-transparent via-[#B03982]/10 to-transparent"></div> */}
       </div>
 
       <div className="relative container mx-auto px-4 md:px-6 lg:px-8">
@@ -84,7 +84,7 @@ const ProductOverview = () => {
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Left Column - Content */}
           <div className="space-y-10 animate-fadeInLeft">
             {/* What is Nerdy Buddy */}
