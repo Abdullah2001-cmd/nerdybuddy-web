@@ -80,9 +80,11 @@ const StripePaymentForm = ({ selectedPlan, setSelectedPlan, annualPlans, setShow
                     })
                 });
                 setProcessing(false)
-                setTimeout(() => {
-                    window.location.href = '/';
-                }, 1000);
+                setSelectedPlan(null)
+                setShowPaymentModal(false)
+                // setTimeout(() => {
+                //     window.location.href = '/';
+                // }, 1000);
             }
         } catch (err) {
             setError('An unexpected error occurred');
@@ -247,6 +249,8 @@ const PricingPage = () => {
     const [processing, setProcessing] = useState(false);
     const [error, setError] = useState(null);
     const [paymentSuccess, setPaymentSuccess] = useState(false);
+    const [isAuth, setIsAuth] = useState(!!localStorage.getItem('user'));
+    const authUser = JSON.parse(localStorage.getItem('user'))
 
     const navigate = useNavigate();
 
@@ -505,6 +509,7 @@ const PricingPage = () => {
                 body: JSON.stringify({
                     amount: Number(selectedPlan?.price) * 100,
                     currency: 'usd',
+                    email: authUser?.email,
                     metadata: {
                         planId: selectedPlan.id,
                         title: selectedPlan.title,
@@ -676,7 +681,6 @@ const PricingPage = () => {
                                 <div>
                                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                                         {implementationServices.map((service, index) => {
-                                            console.log(service?.id, selectedPlan?.id);
                                             return (
                                                 <div
                                                     key={service.id}
@@ -736,6 +740,7 @@ const PricingPage = () => {
 
                                                         {/* CTA Button */}
                                                         <button
+                                                            disabled={!isAuth}
                                                             onClick={() => handlePlanSelect(service)}
                                                             className="cursor-pointer w-full py-3 bg-gradient-to-r from-[#B03982] to-[#733C86] text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-[#B03982]/20 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
                                                         >
@@ -752,11 +757,6 @@ const PricingPage = () => {
                                                             )} */}
                                                             Get Started
                                                         </button>
-
-                                                        {/* Badge */}
-                                                        <div className="absolute -top-3 -right-3 w-12 h-12 flex items-center justify-center bg-white rounded-full border-2 border-[#B03982] text-[#B03982] font-bold text-lg shadow-lg">
-                                                            {index + 1}
-                                                        </div>
                                                     </div>
                                                 </div>
                                             )

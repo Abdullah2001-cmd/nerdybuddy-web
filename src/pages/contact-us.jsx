@@ -61,11 +61,19 @@ const ContactInformation = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
-        setTimeout(() => {
-            setIsSubmitting(false);
-            setIsSubmitted(true);
-            setTimeout(() => {
-                setIsSubmitted(false);
+        try {
+            const response = await fetch('https://payment-integration-plum.vercel.app/api/send-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    to: 'abdullah.320409@gmail.com',
+                    templateType: 'adminNotification',
+                    data: formData
+                })
+            });
+            const result = await response.json();
+            if (result.success) {
+                setIsSubmitted(true);
                 setFormData({
                     name: '',
                     company: '',
@@ -73,8 +81,16 @@ const ContactInformation = () => {
                     email: '',
                     message: ''
                 });
-            }, 3000);
-        }, 1500);
+                setTimeout(() => setIsSubmitted(false), 3000);
+            } else {
+                alert(result.message || 'Failed to send email.');
+            }
+        } catch (err) {
+            console.error(err);
+            alert('Something went wrong. Please try again.');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -128,13 +144,6 @@ const ContactInformation = () => {
                                 {/* Corner Accent */}
                                 <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden">
                                     <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${card.gradient} opacity-5 group-hover:opacity-10 transition-opacity duration-500 transform rotate-45 translate-x-8 -translate-y-8`}></div>
-                                </div>
-
-                                {/* Badge */}
-                                <div className="absolute -top-3 -left-3 z-10">
-                                    <div className="w-10 h-10 flex items-center justify-center bg-white rounded-full border border-gray-200 shadow-lg text-2xl">
-                                        {card.badge}
-                                    </div>
                                 </div>
 
                                 <div className="space-y-4 relative">
@@ -248,14 +257,14 @@ const ContactInformation = () => {
 
                                 {/* Action Buttons */}
                                 <div className="grid grid-cols-2 gap-3 mt-6">
-                                    <a
+                                    <iframe
                                         href="https://maps.google.com/?q=32-33+Skyline+Business+Village+Limeharbour+London+E14+9TS"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="px-4 py-3 bg-white text-gray-900 rounded-lg font-medium hover:bg-gray-100 transition-colors duration-300 text-center"
                                     >
                                         Open in Maps
-                                    </a>
+                                    </iframe>
                                     <a
                                         href="tel:+447895859216"
                                         className="px-4 py-3 bg-gradient-to-r from-[#B03982] to-[#733C86] text-white rounded-lg font-medium hover:from-[#c94594] hover:to-[#8a48a3] transition-all duration-300 text-center"
@@ -277,127 +286,154 @@ const ContactInformation = () => {
                                 </div>
                             </div>
 
-                            <form onSubmit={handleSubmit} className="space-y-6">
-                                {/* Form Header */}
-                                <div className="mb-6">
-                                    
-                                    <p className="text-gray-600">
-                                        Fill out the form below and our team will reach out to schedule your personalized demo.
-                                    </p>
-                                </div>
-
-                                {/* Name Field */}
-                                <div className="space-y-2">
-                                    <label className="block text-sm font-medium text-gray-700">
-                                        What is your name? *
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        value={formData.name}
-                                        onChange={handleChange}
-                                        required
-                                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B03982]/20 focus:border-[#B03982] transition-all duration-300"
-                                        placeholder="Enter your full name"
-                                    />
-                                </div>
-
-                                {/* Company Field */}
-                                <div className="space-y-2">
-                                    <label className="block text-sm font-medium text-gray-700">
-                                        What company do you represent?
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="company"
-                                        value={formData.company}
-                                        onChange={handleChange}
-                                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B03982]/20 focus:border-[#B03982] transition-all duration-300"
-                                        placeholder="Your company name"
-                                    />
-                                </div>
-
-                                {/* Phone and Email Fields */}
-                                <div className="grid md:grid-cols-2 gap-6">
-                                    <div className="space-y-2">
-                                        <label className="block text-sm font-medium text-gray-700">
-                                            Phone number *
-                                        </label>
-                                        <input
-                                            type="tel"
-                                            name="phone"
-                                            value={formData.phone}
-                                            onChange={handleChange}
-                                            required
-                                            className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B03982]/20 focus:border-[#B03982] transition-all duration-300"
-                                            placeholder="+1 (555) 123-4567"
-                                        />
-                                    </div>
-
-                                    <div className="space-y-2">
-                                        <label className="block text-sm font-medium text-gray-700">
-                                            E-mail *
-                                        </label>
-                                        <input
-                                            type="email"
-                                            name="email"
-                                            value={formData.email}
-                                            onChange={handleChange}
-                                            required
-                                            className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B03982]/20 focus:border-[#B03982] transition-all duration-300"
-                                            placeholder="your.email@company.com"
-                                        />
-                                    </div>
-                                </div>
-
-                                {/* Message Field */}
-                                <div className="space-y-2">
-                                    <label className="block text-sm font-medium text-gray-700">
-                                        A few words about your company *
-                                    </label>
-                                    <textarea
-                                        name="message"
-                                        value={formData.message}
-                                        onChange={handleChange}
-                                        required
-                                        rows="4"
-                                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B03982]/20 focus:border-[#B03982] transition-all duration-300 resize-none"
-                                        placeholder="Tell us about your organization and what you're looking to achieve..."
-                                    />
-                                </div>
-
-                                {/* Submit Button */}
-                                <div className="pt-4">
-                                    <button
-                                        type="submit"
-                                        disabled={isSubmitting}
-                                        className="group relative w-full px-8 py-4 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-xl overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#B03982]/20 disabled:opacity-50 disabled:cursor-not-allowed"
-                                    >
-                                        {/* Animated Background */}
-                                        <div className="absolute inset-0 bg-gradient-to-br from-[#c94594] to-[#8a48a3] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                                        {/* Ripple Effect */}
-                                        <div className="absolute inset-0 overflow-hidden">
-                                            <div className="absolute -inset-10 bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:animate-shimmer"></div>
+                            {/* Success Message */}
+                            {isSubmitted ? (
+                                <div className="text-center py-12 space-y-6 animate-fadeIn">
+                                    <div className="relative inline-block">
+                                        <div className="absolute -inset-4 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full blur opacity-50"></div>
+                                        <div className="relative w-16 h-16 flex items-center justify-center bg-gradient-to-br from-green-500 to-emerald-500 rounded-full mx-auto mb-4">
+                                            <CheckCircle className="w-8 h-8 text-white" />
                                         </div>
-
-                                        <div className="relative flex items-center justify-center gap-3">
-                                            <div className="relative">
-                                                <div className="absolute -inset-2 bg-white/20 rounded-full blur group-hover:animate-ping"></div>
-                                                <Send className="w-5 h-5 text-white relative z-10" />
-                                            </div>
-                                            <span className="font-semibold text-lg text-white">
-                                                {isSubmitting ? 'Submitting...' : 'Submit'}
+                                    </div>
+                                    <div>
+                                        <h3 className="text-2xl font-bold text-gray-900 mb-2">Thank You!</h3>
+                                        <p className="text-gray-600">
+                                            Your message has been received. Our team will contact you within 24 hours.
+                                        </p>
+                                    </div>
+                                    <div className="flex items-center justify-center gap-2">
+                                        <div className="w-2 h-2 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-full animate-pulse"></div>
+                                        <span className="text-sm text-gray-600">Preparing your demo...</span>
+                                    </div>
+                                </div>
+                            ) : (
+                                <form onSubmit={handleSubmit} className="space-y-6">
+                                    {/* Form Header */}
+                                    <div className="mb-6">
+                                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#B03982]/10 to-[#733C86]/10 rounded-full border border-[#B03982]/20 backdrop-blur-sm mb-4">
+                                            <Sparkles className="w-4 h-4 text-[#B03982]" />
+                                            <span className="text-sm font-medium bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
+                                                Get Started Today
                                             </span>
                                         </div>
-                                    </button>
+                                        <p className="text-gray-600">
+                                            Fill out the form below and our team will reach out to schedule your personalized demo.
+                                        </p>
+                                    </div>
 
-                                    {/* Form Note */}
-                                    <p className="text-xs text-gray-500 mt-4 text-center">
-                                        By submitting this form, you agree to our Privacy Policy and consent to being contacted by our team.
-                                    </p>
-                                </div>
-                            </form>
+                                    {/* Name Field */}
+                                    <div className="space-y-2">
+                                        <label className="block text-sm font-medium text-gray-700">
+                                            What is your name? *
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="name"
+                                            value={formData.name}
+                                            onChange={handleChange}
+                                            required
+                                            className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B03982]/20 focus:border-[#B03982] transition-all duration-300"
+                                            placeholder="Enter your full name"
+                                        />
+                                    </div>
+
+                                    {/* Company Field */}
+                                    <div className="space-y-2">
+                                        <label className="block text-sm font-medium text-gray-700">
+                                            What company do you represent?
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="company"
+                                            value={formData.company}
+                                            onChange={handleChange}
+                                            className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B03982]/20 focus:border-[#B03982] transition-all duration-300"
+                                            placeholder="Your company name"
+                                        />
+                                    </div>
+
+                                    {/* Phone and Email Fields */}
+                                    <div className="grid md:grid-cols-2 gap-6">
+                                        <div className="space-y-2">
+                                            <label className="block text-sm font-medium text-gray-700">
+                                                Phone number *
+                                            </label>
+                                            <input
+                                                type="tel"
+                                                name="phone"
+                                                value={formData.phone}
+                                                onChange={handleChange}
+                                                required
+                                                className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B03982]/20 focus:border-[#B03982] transition-all duration-300"
+                                                placeholder="+1 (555) 123-4567"
+                                            />
+                                        </div>
+
+                                        <div className="space-y-2">
+                                            <label className="block text-sm font-medium text-gray-700">
+                                                E-mail *
+                                            </label>
+                                            <input
+                                                type="email"
+                                                name="email"
+                                                value={formData.email}
+                                                onChange={handleChange}
+                                                required
+                                                className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B03982]/20 focus:border-[#B03982] transition-all duration-300"
+                                                placeholder="your.email@company.com"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    {/* Message Field */}
+                                    <div className="space-y-2">
+                                        <label className="block text-sm font-medium text-gray-700">
+                                            A few words about your company *
+                                        </label>
+                                        <textarea
+                                            name="message"
+                                            value={formData.message}
+                                            onChange={handleChange}
+                                            required
+                                            rows="4"
+                                            className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B03982]/20 focus:border-[#B03982] transition-all duration-300 resize-none"
+                                            placeholder="Tell us about your organization and what you're looking to achieve..."
+                                        />
+                                    </div>
+
+                                    {/* Submit Button */}
+                                    <div className="pt-4">
+                                        <button
+                                            type="submit"
+                                            disabled={isSubmitting}
+                                            className="cursor-pointer group relative w-full px-8 py-4 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-xl overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#B03982]/20 disabled:opacity-50 disabled:cursor-not-allowed"
+                                        >
+                                            {/* Animated Background */}
+                                            <div className="absolute inset-0 bg-gradient-to-br from-[#c94594] to-[#8a48a3] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                                            {/* Ripple Effect */}
+                                            <div className="absolute inset-0 overflow-hidden">
+                                                <div className="absolute -inset-10 bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:animate-shimmer"></div>
+                                            </div>
+
+                                            <div className="relative flex items-center justify-center gap-3">
+                                                <div className="relative">
+                                                    <div className="absolute -inset-2 bg-white/20 rounded-full blur group-hover:animate-ping"></div>
+                                                    <Send className="w-5 h-5 text-white relative z-10" />
+                                                </div>
+                                                <span className="font-semibold text-lg text-white">
+                                                    {isSubmitting ? 'Submitting...' : 'Submit'}
+                                                </span>
+                                            </div>
+                                        </button>
+
+                                        {/* Form Note */}
+                                        <p className="text-xs text-gray-500 mt-4 text-center">
+                                            By submitting this form, you agree to our Privacy Policy and consent to being contacted by our team.
+                                        </p>
+                                    </div>
+                                </form>
+                            )}
 
                             {/* Response Time */}
                             <div className="mt-6 pt-6 border-t border-gray-100">

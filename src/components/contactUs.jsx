@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Facebook, Linkedin, Send, CheckCircle, Sparkles, Users, Building } from 'lucide-react';
 
 const ContactFormSection = () => {
+
   const [formData, setFormData] = useState({
     name: '',
     company: '',
@@ -24,11 +25,19 @@ const ContactFormSection = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      setTimeout(() => {
-        setIsSubmitted(false);
+    try {
+      const response = await fetch('https://payment-integration-plum.vercel.app/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          to: 'abdullah.320409@gmail.com',
+          templateType: 'adminNotification',
+          data: formData
+        })
+      });
+      const result = await response.json();
+      if (result.success) {
+        setIsSubmitted(true);
         setFormData({
           name: '',
           company: '',
@@ -36,8 +45,16 @@ const ContactFormSection = () => {
           email: '',
           message: ''
         });
-      }, 3000);
-    }, 1500);
+        setTimeout(() => setIsSubmitted(false), 3000);
+      } else {
+        alert(result.message || 'Failed to send email.');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -259,7 +276,7 @@ const ContactFormSection = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="group relative w-full px-8 py-4 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-xl overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#B03982]/20 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="cursor-pointer group relative w-full px-8 py-4 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-xl overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#B03982]/20 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {/* Animated Background */}
                       <div className="absolute inset-0 bg-gradient-to-br from-[#c94594] to-[#8a48a3] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
