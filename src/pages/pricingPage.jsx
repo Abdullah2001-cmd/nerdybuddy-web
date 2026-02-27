@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
     CheckCircle,
     Settings,
@@ -19,7 +19,8 @@ import {
     Building2,
     Rocket,
     Puzzle,
-    Briefcase
+    Briefcase,
+    ArrowUp
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
@@ -628,6 +629,56 @@ const PricingPage = () => {
         setClientSecret(null); // Reset client secret when new plan is selected
     };
 
+    const [showScrollButton, setShowScrollButton] = useState(false);
+    const [isScrolling, setIsScrolling] = useState(false);
+    const [progress, setProgress] = useState(0);
+    const buttonRef = useRef(null);
+    const hasScrolledToTop = useRef(false);
+
+    // Smooth scroll to top when component mounts
+    useEffect(() => {
+        if (window.scrollY > 0 && !hasScrolledToTop.current) {
+            hasScrolledToTop.current = true;
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    }, []);
+
+    // Scroll progress and button visibility
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrolled = window.scrollY;
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrolled / maxScroll) * 100;
+            setProgress(scrollPercent);
+            setShowScrollButton(scrolled > 400);
+        };
+        window.addEventListener('scroll', handleScroll);
+        handleScroll();
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const scrollToTop = () => {
+        if (isScrolling) return;
+        setIsScrolling(true);
+
+        // Add ripple effect
+        const ripple = document.createElement('div');
+        ripple.className = 'absolute inset-0 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-full opacity-30 animate-ripple';
+        buttonRef.current?.appendChild(ripple);
+        setTimeout(() => {
+            ripple.remove();
+        }, 600);
+
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+        setTimeout(() => setIsScrolling(false), 1000);
+    };
+
     console.log(selectedPlan);
 
     return (
@@ -1033,19 +1084,19 @@ const PricingPage = () => {
                                         <th className="p-6 text-left text-white font-semibold text-lg w-72">Features</th>
                                         <th className="p-6 text-center text-white font-semibold text-lg w-56">
                                             <div>Starter</div>
-                                            <div className="text-sm font-normal text-white/80 mt-1">(Free)</div>
+                                            {/* <div className="text-sm font-normal text-white/80 mt-1">(Free)</div> */}
                                         </th>
                                         <th className="p-6 text-center text-white font-semibold text-lg w-56">
                                             <div>Standard</div>
-                                            <div className="text-sm font-normal text-white/80 mt-1">Growing Teams</div>
+                                            {/* <div className="text-sm font-normal text-white/80 mt-1">Growing Teams</div> */}
                                         </th>
-                                        <th className="p-6 text-center text-white font-semibold text-lg w-56">
+                                        {/* <th className="p-6 text-center text-white font-semibold text-lg w-56">
                                             <div>Enterprise Core</div>
                                             <div className="text-sm font-normal text-white/80 mt-1">Large Enterprises</div>
-                                        </th>
+                                        </th> */}
                                         <th className="p-6 text-center text-white font-semibold text-lg w-56">
                                             <div>Enterprise Integration</div>
-                                            <div className="text-sm font-normal text-white/80 mt-1">Complex Firms</div>
+                                            {/* <div className="text-sm font-normal text-white/80 mt-1">Complex Firms</div> */}
                                         </th>
                                     </tr>
                                 </thead>
@@ -1061,7 +1112,7 @@ const PricingPage = () => {
                                         <td className="p-5 font-medium text-gray-900">Company Creation</td>
                                         <td className="p-5 text-center">1</td>
                                         <td className="p-5 text-center">1</td>
-                                        <td className="p-5 text-center">Multiple</td>
+                                        {/* <td className="p-5 text-center">Multiple</td> */}
                                         <td className="p-5 text-center">Multiple</td>
                                     </tr>
 
@@ -1074,12 +1125,12 @@ const PricingPage = () => {
                                                 Unlimited
                                             </span>
                                         </td>
-                                        <td className="p-5 text-center">
+                                        {/* <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
                                                 Unlimited
                                             </span>
-                                        </td>
+                                        </td> */}
                                         <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
@@ -1092,7 +1143,7 @@ const PricingPage = () => {
                                         <td className="p-5 font-medium text-gray-900">Number of Users</td>
                                         <td className="p-5 text-center">1</td>
                                         <td className="p-5 text-center">up to 10</td>
-                                        <td className="p-5 text-center">up to 30 users</td>
+                                        {/* <td className="p-5 text-center">up to 30 users</td> */}
                                         <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
@@ -1110,12 +1161,12 @@ const PricingPage = () => {
                                                 Advanced - can create
                                             </span>
                                         </td>
-                                        <td className="p-5 text-center">
+                                        {/* <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
                                                 Advanced - can create
                                             </span>
-                                        </td>
+                                        </td> */}
                                         <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
@@ -1143,12 +1194,12 @@ const PricingPage = () => {
                                                 Yes
                                             </span>
                                         </td>
-                                        <td className="p-5 text-center">
+                                        {/* <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
                                                 Yes
                                             </span>
-                                        </td>
+                                        </td> */}
                                         <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
@@ -1171,12 +1222,12 @@ const PricingPage = () => {
                                                 Yes
                                             </span>
                                         </td>
-                                        <td className="p-5 text-center">
+                                        {/* <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
                                                 Yes
                                             </span>
-                                        </td>
+                                        </td> */}
                                         <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
@@ -1199,12 +1250,12 @@ const PricingPage = () => {
                                                 Yes
                                             </span>
                                         </td>
-                                        <td className="p-5 text-center">
+                                        {/* <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
                                                 Yes
                                             </span>
-                                        </td>
+                                        </td> */}
                                         <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
@@ -1227,12 +1278,12 @@ const PricingPage = () => {
                                                 Yes
                                             </span>
                                         </td>
-                                        <td className="p-5 text-center">
+                                        {/* <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
                                                 Yes
                                             </span>
-                                        </td>
+                                        </td> */}
                                         <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
@@ -1255,12 +1306,12 @@ const PricingPage = () => {
                                                 Yes
                                             </span>
                                         </td>
-                                        <td className="p-5 text-center">
+                                        {/* <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
                                                 Yes
                                             </span>
-                                        </td>
+                                        </td> */}
                                         <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
@@ -1278,7 +1329,7 @@ const PricingPage = () => {
                                         <td className="p-5 font-medium text-gray-900">Documents</td>
                                         <td className="p-5 text-center">100 pages (1 Time)</td>
                                         <td className="p-5 text-center">500 pages</td>
-                                        <td className="p-5 text-center">1M</td>
+                                        {/* <td className="p-5 text-center">1M</td> */}
                                         <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
@@ -1301,7 +1352,7 @@ const PricingPage = () => {
                                                 Yes
                                             </span>
                                         </td>
-                                        <td className="p-5 text-center">—</td>
+                                        {/* <td className="p-5 text-center">—</td> */}
                                         <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
@@ -1324,12 +1375,12 @@ const PricingPage = () => {
                                                 Yes
                                             </span>
                                         </td>
-                                        <td className="p-5 text-center">
+                                        {/* <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <X className="w-5 h-5 text-red-400" />
                                                 No
                                             </span>
-                                        </td>
+                                        </td> */}
                                         <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
@@ -1347,12 +1398,12 @@ const PricingPage = () => {
                                             </span>
                                         </td>
                                         <td className="p-5 text-center">500 pages</td>
-                                        <td className="p-5 text-center">
+                                        {/* <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
                                                 Yes
                                             </span>
-                                        </td>
+                                        </td> */}
                                         <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
@@ -1375,12 +1426,12 @@ const PricingPage = () => {
                                                 Yes
                                             </span>
                                         </td>
-                                        <td className="p-5 text-center">
+                                        {/* <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
                                                 Yes
                                             </span>
-                                        </td>
+                                        </td> */}
                                         <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
@@ -1403,7 +1454,7 @@ const PricingPage = () => {
                                             </span>
                                         </td>
                                         <td className="p-5 text-center">Manual + AI</td>
-                                        <td className="p-5 text-center">Manual + AI</td>
+                                        {/* <td className="p-5 text-center">Manual + AI</td> */}
                                         <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
@@ -1426,12 +1477,12 @@ const PricingPage = () => {
                                                 Yes
                                             </span>
                                         </td>
-                                        <td className="p-5 text-center">
+                                        {/* <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
                                                 Yes
                                             </span>
-                                        </td>
+                                        </td> */}
                                         <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
@@ -1454,12 +1505,12 @@ const PricingPage = () => {
                                                 Yes
                                             </span>
                                         </td>
-                                        <td className="p-5 text-center">
+                                        {/* <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
                                                 Yes
                                             </span>
-                                        </td>
+                                        </td> */}
                                         <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
@@ -1482,12 +1533,12 @@ const PricingPage = () => {
                                                 Yes
                                             </span>
                                         </td>
-                                        <td className="p-5 text-center">
+                                        {/* <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
                                                 Yes
                                             </span>
-                                        </td>
+                                        </td> */}
                                         <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
@@ -1505,12 +1556,12 @@ const PricingPage = () => {
                                         <td className="p-5 font-medium text-gray-900">User Portal – AI Queries</td>
                                         <td className="p-5 text-center">250k (20 qs)</td>
                                         <td className="p-5 text-center">5 million (~300 qs)</td>
-                                        <td className="p-5 text-center">
+                                        {/* <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
                                                 Unlimited
                                             </span>
-                                        </td>
+                                        </td> */}
                                         <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
@@ -1528,12 +1579,12 @@ const PricingPage = () => {
                                                 Yes
                                             </span>
                                         </td>
-                                        <td className="p-5 text-center">
+                                        {/* <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
                                                 Full
                                             </span>
-                                        </td>
+                                        </td> */}
                                         <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
@@ -1556,12 +1607,12 @@ const PricingPage = () => {
                                                 Yes
                                             </span>
                                         </td>
-                                        <td className="p-5 text-center">
+                                        {/* <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
                                                 Yes
                                             </span>
-                                        </td>
+                                        </td> */}
                                         <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
@@ -1584,12 +1635,12 @@ const PricingPage = () => {
                                                 Yes
                                             </span>
                                         </td>
-                                        <td className="p-5 text-center">
+                                        {/* <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
                                                 Yes
                                             </span>
-                                        </td>
+                                        </td> */}
                                         <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
@@ -1617,12 +1668,12 @@ const PricingPage = () => {
                                                 Yes
                                             </span>
                                         </td>
-                                        <td className="p-5 text-center">
+                                        {/* <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
                                                 Yes
                                             </span>
-                                        </td>
+                                        </td> */}
                                         <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
@@ -1645,7 +1696,7 @@ const PricingPage = () => {
                                                 No
                                             </span>
                                         </td>
-                                        <td className="p-5 text-center">Optional</td>
+                                        {/* <td className="p-5 text-center">Optional</td> */}
                                         <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
@@ -1668,12 +1719,12 @@ const PricingPage = () => {
                                                 No
                                             </span>
                                         </td>
-                                        <td className="p-5 text-center">
+                                        {/* <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <X className="w-5 h-5 text-red-400" />
                                                 No
                                             </span>
-                                        </td>
+                                        </td> */}
                                         <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
@@ -1701,12 +1752,12 @@ const PricingPage = () => {
                                                 No
                                             </span>
                                         </td>
-                                        <td className="p-5 text-center">
+                                        {/* <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
                                                 Dedicated
                                             </span>
-                                        </td>
+                                        </td> */}
                                         <td className="p-5 text-center">
                                             <span className="inline-flex items-center gap-1">
                                                 <CheckCircle className="w-5 h-5 text-emerald-500" />
@@ -1719,7 +1770,7 @@ const PricingPage = () => {
                                         <td className="p-5 font-medium text-gray-900">Support Level</td>
                                         <td className="p-5 text-center">Community / Email</td>
                                         <td className="p-5 text-center">Email / Whatsapp</td>
-                                        <td className="p-5 text-center">SLA Support</td>
+                                        {/* <td className="p-5 text-center">SLA Support</td> */}
                                         <td className="p-5 text-center">Priority SLA + CSM</td>
                                     </tr>
 
@@ -1735,11 +1786,11 @@ const PricingPage = () => {
                                                 Growing Teams
                                             </span>
                                         </td>
-                                        <td className="p-5 text-center">
+                                        {/* <td className="p-5 text-center">
                                             <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">
                                                 Large Enterprises
                                             </span>
-                                        </td>
+                                        </td> */}
                                         <td className="p-5 text-center">
                                             <span className="px-3 py-1 bg-[#B03982]/10 text-[#B03982] rounded-full text-sm font-medium">
                                                 Complex Enterprise Firms
@@ -1946,6 +1997,87 @@ const PricingPage = () => {
                         </div>
                     </div>
                 </footer>
+
+                {/* Scroll to Top Button */}
+                <button
+                    ref={buttonRef}
+                    onClick={scrollToTop}
+                    className={`fixed z-50 transition-all duration-700 ease-out-expo ${showScrollButton
+                        ? 'opacity-100 translate-y-0 pointer-events-auto'
+                        : 'opacity-0 translate-y-20 pointer-events-none'
+                        } ${isScrolling ? 'scale-95' : 'scale-100 hover:scale-110'}`}
+                    style={{
+                        bottom: '2rem',
+                        right: '2rem',
+                    }}
+                    aria-label="Scroll to top"
+                >
+                    {/* Floating animation container */}
+                    <div className="relative animate-float">
+                        {/* Outer glow */}
+                        <div className="absolute -inset-2 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
+
+                        {/* Progress ring */}
+                        <svg className="absolute -ins-1 w-14 h-14 transform -rotate-90" viewBox="0 0 36 36">
+                            <path
+                                d="M18 2.0845
+                                            a 15.9155 15.9155 0 0 1 0 31.831
+                                            a 15.9155 15.9155 0 0 1 0 -31.831"
+                                fill="none"
+                                stroke="url(#progress-gradient)"
+                                strokeWidth="2"
+                                strokeDasharray="100"
+                                strokeDashoffset={100 - progress}
+                                className="transition-all duration-300"
+                            />
+                            <defs>
+                                <linearGradient id="progress-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stopColor="#B03982" />
+                                    <stop offset="100%" stopColor="#733C86" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+
+                        {/* Main Button */}
+                        <div className="relative w-12 h-12 flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 rounded-full border border-gray-700/50 group-hover:border-transparent transition-all duration-300 shadow-2xl group-hover:shadow-[#B03982]/30 overflow-hidden">
+                            {/* Animated background */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-[#B03982] to-[#733C86] opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
+
+                            {/* Loading animation */}
+                            {isScrolling && (
+                                <div className="absolute inset-0 flex items-center justify-center">
+                                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                                </div>
+                            )}
+
+                            {/* Icon */}
+                            <div className={`relative transition-transform duration-300 ${isScrolling ? 'opacity-0' : 'opacity-100'}`}>
+                                <ArrowUp className="w-5 h-5 text-white" />
+                            </div>
+                        </div>
+
+                        {/* Particle effects */}
+                        {showScrollButton && !isScrolling && (
+                            <>
+                                <div className="absolute -top-1 -left-1 w-1.5 h-1.5 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-full animate-float-particles" style={{ animationDelay: '0s' }} />
+                                <div className="absolute -top-2 right-2 w-1 h-1 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-full animate-float-particles" style={{ animationDelay: '0.3s' }} />
+                            </>
+                        )}
+                    </div>
+
+                    {/* Pulse effect */}
+                    {showScrollButton && !isScrolling && (
+                        <div className="absolute inset-0 border-2 border-[#B03982]/30 rounded-full animate-ping opacity-0"></div>
+                    )}
+
+                    {/* Tooltip */}
+                    <div className="absolute right-14 bottom-1/2 transform translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none">
+                        <div className="relative bg-gradient-to-br from-gray-900 to-gray-800 text-white text-xs font-medium px-2 py-1 rounded-lg whitespace-nowrap border border-gray-700 shadow-xl">
+                            <span>Back to top</span>
+                            <div className="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 rotate-45 w-1.5 h-1.5 bg-gray-900 border-r border-b border-gray-700"></div>
+                        </div>
+                    </div>
+                </button>
 
                 {/* Animations */}
                 <style jsx>{`

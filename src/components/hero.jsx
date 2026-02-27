@@ -37,7 +37,7 @@ const HeroSection = ({ reveal }) => {
     return (
         <>
             <Chat />
-            <section className="relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-white pt-30">
+            <section className="relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-white pt-14">
                 <div className="absolute inset-0">
                     <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-white"></div>
                     <div className="absolute bottom-0 top-0 left-4 transform translate-y-1/6">
@@ -103,16 +103,16 @@ const HeroSection = ({ reveal }) => {
                                         </button>
                                     </div>
                                 </div>
-                                <div className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-gray-100">
-                                    <div className="text-center">
+                                <div className="grid grid-cols-3 mt-6 border-t border-gray-100">
+                                    <div>
                                         <div className="text-2xl font-bold text-gray-900">500+</div>
                                         <div className="text-sm text-gray-600">Organizations</div>
                                     </div>
-                                    <div className="text-center">
+                                    <div>
                                         <div className="text-2xl font-bold text-gray-900">24/7</div>
                                         <div className="text-sm text-gray-600">AI Support</div>
                                     </div>
-                                    <div className="text-center">
+                                    <div>
                                         <div className="text-2xl font-bold text-gray-900">99.9%</div>
                                         <div className="text-sm text-gray-600">Accuracy</div>
                                     </div>
@@ -132,7 +132,7 @@ const HeroSection = ({ reveal }) => {
                                     <img
                                         src="https://aiglobe.wpengine.com/wp-content/uploads/2023/12/chat-mob.png"
                                         alt="AI Chat Interface"
-                                        className="w-full max-w-sm mx-auto drop-shadow-2xl"
+                                        className="w-[360px] max-w-sm mx-auto drop-shadow-2xl"
                                     />
                                     <div
                                         id="hero-character-target"
@@ -169,7 +169,7 @@ const HeroSection = ({ reveal }) => {
                                         className="w-48 animate-pulse-slower"
                                     />
                                 </div>
-                                <div className="absolute -bottom-20 -right-8 bg-white rounded-2xl border border-gray-200 p-4 shadow-2xl">
+                                <div className="absolute -bottom-0 -right-8 bg-white rounded-2xl border border-gray-200 p-4 shadow-2xl">
                                     <div className="flex items-center gap-3">
                                         <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-xl">
                                             <Zap className="w-5 h-5 text-white" />
