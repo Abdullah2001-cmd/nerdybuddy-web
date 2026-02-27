@@ -27,8 +27,15 @@ import { Elements, CardElement, useStripe, useElements } from '@stripe/react-str
 
 const stripePromise = loadStripe('pk_test_51T4fwyEeXHx7jwBMFmN1Uru4b9yhohGg2ELnZU6ESS7hwISpH5Z08j8ygsksnUTgWdaqvEHuRLJw1fiu5IiOfgA500vyquOrEq');
 
-const StripePaymentForm = ({ selectedPlan, setSelectedPlan, annualPlans, setShowPaymentModal, clientSecret }) => {
-
+const StripePaymentForm = ({
+    selectedPlan,
+    setSelectedPlan,
+    annualPlans,
+    setShowPaymentModal,
+    clientSecret,
+    createPaymentIntent,
+    setClientSecret
+}) => {
     const stripe = useStripe();
     const elements = useElements();
     const [processing, setProcessing] = useState(false);
@@ -37,8 +44,34 @@ const StripePaymentForm = ({ selectedPlan, setSelectedPlan, annualPlans, setShow
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [company, setCompany] = useState('');
+    const [step, setStep] = useState('details'); // 'details' or 'payment'
+    const [creatingIntent, setCreatingIntent] = useState(false);
 
-    const handleSubmit = async (event) => {
+    const handleDetailsSubmit = async (e) => {
+        e.preventDefault();
+
+        // Validate email
+        if (!email) {
+            setError('Please enter your email');
+            return;
+        }
+
+        setCreatingIntent(true);
+        setError(null);
+
+        try {
+            const success = await createPaymentIntent(email);
+            if (success) {
+                setStep('payment');
+            }
+        } catch (err) {
+            setError('Failed to initialize payment');
+        } finally {
+            setCreatingIntent(false);
+        }
+    };
+
+    const handlePaymentSubmit = async (event) => {
         event.preventDefault();
 
         if (!stripe || !elements) {
@@ -79,12 +112,12 @@ const StripePaymentForm = ({ selectedPlan, setSelectedPlan, annualPlans, setShow
                         billingPeriod: selectedPlan.isYearly ? 'yearly' : 'monthly'
                     })
                 });
-                setProcessing(false)
-                setSelectedPlan(null)
-                setShowPaymentModal(false)
-                // setTimeout(() => {
-                //     window.location.href = '/';
-                // }, 1000);
+                setProcessing(false);
+                // Close modal after successful payment
+                setTimeout(() => {
+                    setSelectedPlan(null);
+                    setShowPaymentModal(false);
+                }, 2000);
             }
         } catch (err) {
             setError('An unexpected error occurred');
@@ -109,127 +142,182 @@ const StripePaymentForm = ({ selectedPlan, setSelectedPlan, annualPlans, setShow
         hidePostalCode: false,
     };
 
-    const planDetails = annualPlans?.find(p => p.id === selectedPlan?.id);
-    const price = selectedPlan?.isYearly ? planDetails?.price.yearly : planDetails?.price.monthly;
-
     return (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
             <div className="bg-white rounded-3xl max-w-md w-full p-8">
-                <h3 className="text-2xl font-bold mb-4">Complete Your Purchase</h3>
+                <h3 className="text-2xl font-bold mb-4">
+                    {step === 'details' ? 'Enter Your Details' : 'Complete Your Purchase'}
+                </h3>
 
-                <form onSubmit={handleSubmit}>
-                    {/* Customer Information */}
-                    <div className="space-y-4 mb-6">
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">
-                                Full Name
-                            </label>
-                            <input
-                                type="text"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                                required
-                                className="w-full mt-0 py-3 px-4 rounded-lg border-2 border-gray-200 focus:border-[#B03982] focus:ring-2 focus:ring-[#B03982]/20 outline-none transition-all duration-300 ease-out"
-                                placeholder="John Doe"
-                                disabled={processing || paymentSuccess}
-                            />
-                        </div>
+                {step === 'details' ? (
+                    // Step 1: Customer Details Form
+                    <form onSubmit={handleDetailsSubmit}>
+                        <div className="space-y-4 mb-6">
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">
+                                    Full Name *
+                                </label>
+                                <input
+                                    type="text"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                    required
+                                    className="w-full mt-0 py-3 px-4 rounded-lg border-2 border-gray-200 focus:border-[#B03982] focus:ring-2 focus:ring-[#B03982]/20 outline-none transition-all duration-300 ease-out"
+                                    placeholder="John Doe"
+                                    disabled={creatingIntent}
+                                />
+                            </div>
 
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">
-                                Email Address
-                            </label>
-                            <input
-                                type="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                required
-                                className="w-full mt-0 py-3 px-4 rounded-lg border-2 border-gray-200 focus:border-[#B03982] focus:ring-2 focus:ring-[#B03982]/20 outline-none transition-all duration-300 ease-out"
-                                placeholder="john@company.com"
-                                disabled={processing || paymentSuccess}
-                            />
-                        </div>
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">
+                                    Email Address *
+                                </label>
+                                <input
+                                    type="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    required
+                                    className="w-full mt-0 py-3 px-4 rounded-lg border-2 border-gray-200 focus:border-[#B03982] focus:ring-2 focus:ring-[#B03982]/20 outline-none transition-all duration-300 ease-out"
+                                    placeholder="john@company.com"
+                                    disabled={creatingIntent}
+                                />
+                            </div>
 
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">
-                                Company Name
-                            </label>
-                            <input
-                                type="text"
-                                value={company}
-                                onChange={(e) => setCompany(e.target.value)}
-                                required
-                                className="w-full mt-0 py-3 px-4 rounded-lg border-2 border-gray-200 focus:border-[#B03982] focus:ring-2 focus:ring-[#B03982]/20 outline-none transition-all duration-300 ease-out"
-                                placeholder="Acme Inc."
-                                disabled={processing || paymentSuccess}
-                            />
-                        </div>
-                    </div>
-
-                    {/* Stripe Card Element */}
-                    <div className="mb-6">
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
-                            Card Details
-                        </label>
-                        <div className="border border-gray-300 rounded-xl p-4 focus-within:ring-2 focus-within:ring-[#B03982] focus-within:border-transparent">
-                            <CardElement options={cardElementOptions} />
-                        </div>
-                    </div>
-
-                    {/* Order Summary */}
-                    <div className="bg-gray-50 rounded-xl p-4 mb-6">
-                        <h4 className="font-semibold mb-2">Order Summary</h4>
-                        <div className="flex justify-between text-sm">
-                            <span>{selectedPlan?.title} Plan ({selectedPlan?.isYearly ? 'Yearly' : 'Monthly'})</span>
-                            <span className="font-bold">
-                                ${selectedPlan?.price}
-                            </span>
-                        </div>
-                    </div>
-
-                    {paymentSuccess && (
-                        <div className="mb-4 p-4 bg-green-50 border border-green-200 rounded-xl">
-                            <div className="flex items-center gap-3">
-                                <div className="flex-shrink-0">
-                                    <CheckCircle className="w-6 h-6 text-green-500" />
-                                </div>
-                                <div>
-                                    <h4 className="text-green-800 font-semibold">Payment Successful!</h4>
-                                    <p className="text-green-600 text-sm">Your payment has been processed successfully.</p>
-                                </div>
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">
+                                    Company Name *
+                                </label>
+                                <input
+                                    type="text"
+                                    value={company}
+                                    onChange={(e) => setCompany(e.target.value)}
+                                    required
+                                    className="w-full mt-0 py-3 px-4 rounded-lg border-2 border-gray-200 focus:border-[#B03982] focus:ring-2 focus:ring-[#B03982]/20 outline-none transition-all duration-300 ease-out"
+                                    placeholder="Acme Inc."
+                                    disabled={creatingIntent}
+                                />
                             </div>
                         </div>
-                    )}
 
-                    {/* Error Message */}
-                    {error && (
-                        <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-xl text-center">
-                            {error}
+                        {/* Order Summary */}
+                        <div className="bg-gray-50 rounded-xl p-4 mb-6">
+                            <h4 className="font-semibold mb-2">Order Summary</h4>
+                            <div className="flex justify-between text-sm">
+                                <span>{selectedPlan?.title} Plan ({selectedPlan?.isYearly ? 'Yearly' : 'Monthly'})</span>
+                                <span className="font-bold">
+                                    ${selectedPlan?.price}
+                                </span>
+                            </div>
                         </div>
-                    )}
 
-                    {/* Buttons */}
-                    <div className="flex gap-3">
-                        <button
-                            type="button"
-                            onClick={() => {
-                                setShowPaymentModal(false)
-                                setSelectedPlan(null)
-                            }}
-                            className="cursor-pointer flex-1 py-3 border-2 border-gray-200 rounded-xl font-semibold hover:bg-gray-50 disabled:opacity-50"
-                            disabled={processing || paymentSuccess}
-                        >
-                            Cancel
-                        </button>
-                        <button
-                            type="submit"
-                            disabled={!stripe || processing || paymentSuccess}
-                            className="cursor-pointer flex-1 py-3 bg-gradient-to-r from-[#B03982] to-[#733C86] text-white rounded-xl font-semibold hover:shadow-lg disabled:opacity-50"
-                        >
-                            {processing ? 'Processing...' : paymentSuccess ? 'Paid!' : 'Pay Now'}
-                        </button>
-                    </div>
-                </form>
+                        {/* Error Message */}
+                        {error && (
+                            <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-xl text-center">
+                                {error}
+                            </div>
+                        )}
+
+                        {/* Buttons */}
+                        <div className="flex gap-3">
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    setShowPaymentModal(false);
+                                    setSelectedPlan(null);
+                                }}
+                                className="cursor-pointer flex-1 py-3 border-2 border-gray-200 rounded-xl font-semibold hover:bg-gray-50 disabled:opacity-50"
+                                disabled={creatingIntent}
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                type="submit"
+                                disabled={creatingIntent || !name || !email || !company}
+                                className="cursor-pointer flex-1 py-3 bg-gradient-to-r from-[#B03982] to-[#733C86] text-white rounded-xl font-semibold hover:shadow-lg disabled:opacity-50 flex items-center justify-center gap-2"
+                            >
+                                {creatingIntent ? (
+                                    <>
+                                        <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                        </svg>
+                                        <span>Processing...</span>
+                                    </>
+                                ) : (
+                                    'Continue to Payment'
+                                )}
+                            </button>
+                        </div>
+                    </form>
+                ) : (
+                    // Step 2: Payment Form
+                    <form onSubmit={handlePaymentSubmit}>
+                        {/* Stripe Card Element */}
+                        <div className="mb-6">
+                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                                Card Details
+                            </label>
+                            <div className="border border-gray-300 rounded-xl p-4 focus-within:ring-2 focus-within:ring-[#B03982] focus-within:border-transparent">
+                                <CardElement options={cardElementOptions} />
+                            </div>
+                        </div>
+
+                        {/* Order Summary */}
+                        <div className="bg-gray-50 rounded-xl p-4 mb-6">
+                            <h4 className="font-semibold mb-2">Order Summary</h4>
+                            <div className="flex justify-between text-sm">
+                                <span>{selectedPlan?.title} Plan ({selectedPlan?.isYearly ? 'Yearly' : 'Monthly'})</span>
+                                <span className="font-bold">
+                                    ${selectedPlan?.price}
+                                </span>
+                            </div>
+                            <div className="mt-2 text-xs text-gray-600">
+                                <p>Email: {email}</p>
+                                <p>Company: {company}</p>
+                            </div>
+                        </div>
+
+                        {paymentSuccess && (
+                            <div className="mb-4 p-4 bg-green-50 border border-green-200 rounded-xl">
+                                <div className="flex items-center gap-3">
+                                    <div className="flex-shrink-0">
+                                        <CheckCircle className="w-6 h-6 text-green-500" />
+                                    </div>
+                                    <div>
+                                        <h4 className="text-green-800 font-semibold">Payment Successful!</h4>
+                                        <p className="text-green-600 text-sm">Your payment has been processed successfully.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Error Message */}
+                        {error && (
+                            <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-xl text-center">
+                                {error}
+                            </div>
+                        )}
+
+                        {/* Buttons */}
+                        <div className="flex gap-3">
+                            <button
+                                type="button"
+                                onClick={() => setStep('details')}
+                                className="cursor-pointer flex-1 py-3 border-2 border-gray-200 rounded-xl font-semibold hover:bg-gray-50 disabled:opacity-50"
+                                disabled={processing || paymentSuccess}
+                            >
+                                Back
+                            </button>
+                            <button
+                                type="submit"
+                                disabled={!stripe || processing || paymentSuccess}
+                                className="cursor-pointer flex-1 py-3 bg-gradient-to-r from-[#B03982] to-[#733C86] text-white rounded-xl font-semibold hover:shadow-lg disabled:opacity-50"
+                            >
+                                {processing ? 'Processing...' : paymentSuccess ? 'Paid!' : 'Pay Now'}
+                            </button>
+                        </div>
+                    </form>
+                )}
             </div>
         </div>
     );
@@ -249,7 +337,6 @@ const PricingPage = () => {
     const [processing, setProcessing] = useState(false);
     const [error, setError] = useState(null);
     const [paymentSuccess, setPaymentSuccess] = useState(false);
-    const [isAuth, setIsAuth] = useState(!!localStorage.getItem('user'));
     const authUser = JSON.parse(localStorage.getItem('user'))
 
     const navigate = useNavigate();
@@ -343,6 +430,7 @@ const PricingPage = () => {
     // Annual Plans Data
     const annualPlans = [
         {
+            id: 'starter-annual',
             title: 'Starter',
             bestFor: 'Evaluation',
             icon: <Rocket className="w-6 h-6" />,
@@ -361,6 +449,7 @@ const PricingPage = () => {
             ]
         },
         {
+            id: 'standard-annual',
             title: 'Standard',
             bestFor: 'Growing Teams',
             icon: <Briefcase className="w-6 h-6" />,
@@ -379,6 +468,7 @@ const PricingPage = () => {
             ]
         },
         {
+            id: 'enterprise-annual',
             title: 'Enterprise',
             bestFor: 'Complex Enterprise Firms',
             icon: <Globe className="w-6 h-6" />,
@@ -493,23 +583,16 @@ const PricingPage = () => {
         { icon: <Star className="w-6 h-6" />, value: "4.9", label: "Client Rating" }
     ];
 
-    const getAmount = () => {
-        if (!selectedPlan) return 0;
-        const plan = annualPlans.find(p => p.id === selectedPlan.id);
-        if (!plan) return 0;
-        const amount = selectedPlan.isYearly ? plan.price.yearly : plan.price.monthly;
-        return amount * 100; // Convert to cents
-    };
-
-    const createPaymentIntent = async () => {
+    const createPaymentIntent = async (email) => {
         try {
+            setLoading(true);
             const response = await fetch('https://payment-integration-plum.vercel.app/api/create-payment-intent', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     amount: Number(selectedPlan?.price) * 100,
                     currency: 'usd',
-                    email: authUser?.email,
+                    email: email,
                     metadata: {
                         planId: selectedPlan.id,
                         title: selectedPlan.title,
@@ -520,12 +603,17 @@ const PricingPage = () => {
             const data = await response.json();
             if (data.success) {
                 setClientSecret(data.clientSecret);
+                return true;
             } else {
                 setError('Failed to initialize payment');
+                return false;
             }
         } catch (err) {
             setError('Error creating payment');
             console.error(err);
+            return false;
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -537,15 +625,11 @@ const PricingPage = () => {
         setSelectedPlan(planWithBilling);
         setShowPaymentModal(true);
         setError(null);
+        setClientSecret(null); // Reset client secret when new plan is selected
     };
 
-    useEffect(() => {
-        if (showPaymentModal && selectedPlan && selectedPlan.price !== "0" && selectedPlan.price !== 0) {
-            createPaymentIntent();
-        }
-    }, [showPaymentModal, selectedPlan]);
+    console.log(selectedPlan);
 
-    console.log(loading);
 
     return (
         <>
@@ -554,16 +638,35 @@ const PricingPage = () => {
 
             {showPaymentModal && selectedPlan && (
                 <>
-                    {selectedPlan.price !== "0" && selectedPlan.price !== 0 && clientSecret && (
-                        <Elements stripe={stripePromise} options={{ clientSecret }}>
+                    {selectedPlan.price !== "0" && selectedPlan.price !== 0 ? (
+                        <Elements stripe={stripePromise}>
                             <StripePaymentForm
                                 selectedPlan={selectedPlan}
                                 setSelectedPlan={setSelectedPlan}
                                 annualPlans={annualPlans}
                                 setShowPaymentModal={setShowPaymentModal}
                                 clientSecret={clientSecret}
+                                createPaymentIntent={createPaymentIntent}
+                                setClientSecret={setClientSecret}
                             />
                         </Elements>
+                    ) : (
+                        // Handle free plan
+                        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+                            <div className="bg-white rounded-3xl max-w-md w-full p-8">
+                                <h3 className="text-2xl font-bold mb-4">Free Plan Selected</h3>
+                                <p className="text-gray-600 mb-6">You've selected the Starter plan. This plan is completely free!</p>
+                                <button
+                                    onClick={() => {
+                                        setShowPaymentModal(false);
+                                        setSelectedPlan(null);
+                                    }}
+                                    className="w-full py-3 bg-gradient-to-r from-[#B03982] to-[#733C86] text-white rounded-xl font-semibold hover:shadow-lg"
+                                >
+                                    Close
+                                </button>
+                            </div>
+                        </div>
                     )}
                 </>
             )}
@@ -740,7 +843,6 @@ const PricingPage = () => {
 
                                                         {/* CTA Button */}
                                                         <button
-                                                            disabled={!isAuth}
                                                             onClick={() => handlePlanSelect(service)}
                                                             className="cursor-pointer w-full py-3 bg-gradient-to-r from-[#B03982] to-[#733C86] text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-[#B03982]/20 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
                                                         >
