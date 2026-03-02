@@ -36,7 +36,7 @@ const HeroSection = ({ reveal }) => {
 
     return (
         <>
-            <Chat />
+            {/* <Chat /> */}
             <section className="relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-white pt-14">
                 <div className="absolute inset-0">
                     <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-white"></div>

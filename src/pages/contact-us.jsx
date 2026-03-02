@@ -262,66 +262,34 @@ const ContactInformation = () => {
                     </div>
                     <div className="grid md:grid-cols-3 lg:grid-cols-1 xl:grid-cols-2 gap-6">
                         {/* Map Section */}
-                        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 to-black text-white">
-                            <div className="relative p-6 md:p-8">
-                                {/* Header */}
-                                <div className="mb-6">
-                                    <div className="flex items-center gap-3 mb-3">
-                                        <Navigation className="w-6 h-6 text-[#B03982]" />
-                                        <h3 className="text-xl font-bold">London Headquarters</h3>
-                                    </div>
-                                    <p className="text-gray-300">
-                                        Visit our state-of-the-art office in the heart of London's business district
-                                    </p>
+                        <div className="rounded-2xl bg-gradient-to-br from-gray-900 to-black text-white p-6 md:p-8">
+                            {/* Header */}
+                            <div className="mb-6">
+                                <div className="flex items-center gap-3 mb-3">
+                                    <Navigation className="w-6 h-6 text-[#B03982]" />
+                                    <h3 className="text-xl font-bold">London Headquarters</h3>
                                 </div>
+                                <p className="text-gray-300">
+                                    Visit our state-of-the-art office in the heart of London's business district
+                                </p>
+                            </div>
 
-                                {/* Address Card */}
-                                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20 mb-6">
-                                    <div className="flex items-start gap-3">
-                                        <Building className="w-5 h-5 text-[#B03982] mt-0.5" />
-                                        <div className="flex-1">
-                                            <div className="text-lg font-bold mb-1">Skyline Business Village</div>
-                                            <div className="text-gray-300 text-sm">
-                                                32-33 Limeharbour<br />
-                                                London E14 9TS<br />
-                                                United Kingdom
-                                            </div>
+                            {/* Address Card */}
+                            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20 mb-6">
+                                <div className="flex items-start gap-3">
+                                    <Building className="w-5 h-5 text-[#B03982] mt-0.5" />
+                                    <div className="flex-1">
+                                        <div className="text-lg font-bold mb-1">Skyline Business Village</div>
+                                        <div className="text-gray-300 text-sm">
+                                            32-33 Limeharbour<br />
+                                            London E14 9TS<br />
+                                            United Kingdom
                                         </div>
                                     </div>
                                 </div>
-
-                                {/* Map Placeholder */}
-                                <div className="relative h-48 md:h-64 rounded-xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900">
-                                    <div className="absolute inset-0 flex items-center justify-center">
-                                        <div className="text-center">
-                                            <div className="relative inline-block">
-                                                <div className="w-16 h-16 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-full flex items-center justify-center mb-3">
-                                                    <MapPin className="w-8 h-8 text-white" />
-                                                </div>
-                                                <div className="absolute -inset-4 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-full blur-xl opacity-20"></div>
-                                            </div>
-                                            <div className="text-sm font-medium">Interactive Map View</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Action Buttons */}
-                                <div className="grid grid-cols-2 gap-3 mt-6">
-                                    <iframe
-                                        href="https://maps.google.com/?q=32-33+Skyline+Business+Village+Limeharbour+London+E14+9TS"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="px-4 py-3 bg-white text-gray-900 rounded-lg font-medium hover:bg-gray-100 transition-colors duration-300 text-center"
-                                    >
-                                        Open in Maps
-                                    </iframe>
-                                    <a
-                                        href="tel:+447895859216"
-                                        className="px-4 py-3 bg-gradient-to-r from-[#B03982] to-[#733C86] text-white rounded-lg font-medium hover:from-[#c94594] hover:to-[#8a48a3] transition-all duration-300 text-center"
-                                    >
-                                        Get Directions
-                                    </a>
-                                </div>
+                            </div>
+                            <div className="h-48 md:h-64 rounded-xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900">
+                                <iframe className='w-full h-full' loading="lazy" src="https://maps.google.com/maps?q=32-33%20Skyline%20Business%20Village%20Limeharbour%20London%20E14%209TS.&amp;t=m&amp;z=16&amp;output=embed&amp;iwloc=near" title="32-33 Skyline Business Village Limeharbour London E14 9TS." aria-label="32-33 Skyline Business Village Limeharbour London E14 9TS."></iframe>
                             </div>
                         </div>
                         {/* Quick Contact Form */}
