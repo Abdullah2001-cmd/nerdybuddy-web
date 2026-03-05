@@ -11,19 +11,23 @@ import {
   CheckCircle,
   Sparkles
 } from 'lucide-react';
+import { CiSearch } from "react-icons/ci";
+import { IoChatboxEllipsesOutline } from "react-icons/io5";
+import { HiOutlineNewspaper } from "react-icons/hi2";
+import { IoSearch } from "react-icons/io5";
 
 const DigitalColleagueLight = () => {
 
   const benefits = [
     {
       icon: <Users className="w-5 h-5" />,
-      title: "Complete Organizational Knowledge Available to every employee",
+      title: "Organizational Knowledge Available to every employee",
       color: "text-pink-500",
       bgColor: "bg-pink-50"
     },
     {
       icon: <Lock className="w-5 h-5" />,
-      title: "Documents copying and sharing outside the Organization not possible",
+      title: "Documents leaking outside the organization not possible",
       color: "text-red-500",
       bgColor: "bg-red-50"
     },
@@ -47,7 +51,7 @@ const DigitalColleagueLight = () => {
     },
     {
       icon: <TrendingUp className="w-5 h-5" />,
-      title: "Reduce support burden, boost organizational efficiency and cost savings",
+      title: "Reduce burden, boost organizational efficiency",
       color: "text-cyan-500",
       bgColor: "bg-cyan-50"
     }
@@ -66,7 +70,7 @@ const DigitalColleagueLight = () => {
                   <div className="absolute -inset-2 bg-gradient-to-br from-[#B03982]/20 to-[#733C86]/20 rounded-full blur-xl opacity-30"></div>
                   <div className="relative bg-white px-4 py-2 rounded-full border border-[#B03982]/20 shadow-sm backdrop-blur-sm">
                     <span className="text-sm font-medium text-[#733C86]">
-                      AI Assistant Live Demo
+                      AI Assistant
                     </span>
                   </div>
                 </div>
@@ -114,16 +118,19 @@ const DigitalColleagueLight = () => {
               {/* Stats Bar - Light */}
               <div className="mt-8 grid grid-cols-3 gap-4">
                 {[
-                  { value: "24/7", label: "Availability" },
-                  { value: "99.9%", label: "Uptime" },
-                  { value: "10s", label: "Response Time" }
+                  { icon: <IoSearch className="w-10 h-10" />, value: "24/7", label: "Smart Search Experience" },
+                  { icon: <IoChatboxEllipsesOutline className="w-10 h-10" />, value: "99.9%", label: "Ask in Natural Language" },
+                  { icon: <HiOutlineNewspaper className="w-10 h-10" />, value: "10s", label: "Reference-Backed Answers" }
                 ].map((stat, index) => (
                   <div
                     key={index}
                     className="bg-white rounded-xl border border-gray-200 p-4 text-center group hover:border-[#B03982]/40 hover:shadow-md transition-all duration-300"
                   >
-                    <div className="text-xl font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
+                    {/* <div className="text-xl font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
                       {stat.value}
+                    </div> */}
+                    <div className="flex justify-center text-[#B03982] group-hover:text-[#B03982] transition-colors duration-300">
+                      {stat.icon}
                     </div>
                     <div className="text-xs text-gray-600 mt-1">{stat.label}</div>
                   </div>
@@ -143,7 +150,7 @@ const DigitalColleagueLight = () => {
                 </span>
               </div>
 
-              <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold leading-tight">
+              <h2 className="text-4xl md:text-4xl lg:text-4xl font-bold leading-tight">
                 <span className="block text-gray-900">Meet your new</span>
                 <span className="block mt-2">
                   <span className="relative">
@@ -158,64 +165,67 @@ const DigitalColleagueLight = () => {
               <p className="text-lg text-gray-600 max-w-lg">
                 An AI-powered assistant that transforms how your team accesses and interacts with organizational knowledge.
               </p>
+
             </div>
 
             {/* Benefits List - Light */}
             <div className="space-y-4">
-              {benefits.map((benefit, index) => (
-                <div
-                  key={index}
-                  className="group relative bg-gradient-to-br from-white to-gray-50 backdrop-blur-sm rounded-2xl border border-gray-200 p-5 hover:border-[#B03982]/50 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#B03982]/5 shadow-sm"
-                  style={{
-                    animationDelay: `${index * 100}ms`
-                  }}
-                >
-                  {/* Light Background Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#B03982]/0 to-[#733C86]/0 group-hover:from-[#B03982]/5 group-hover:to-[#733C86]/5 rounded-2xl transition-all duration-500"></div>
+              <div className="grid lg:grid-cols-2 gap-4 items-center">
+                {benefits.map((benefit, index) => (
+                  <div
+                    key={index}
+                    className="group relative bg-gradient-to-br from-white to-gray-50 backdrop-blur-sm rounded-2xl border border-gray-200 py-3 px-3 hover:border-[#B03982]/50 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#B03982]/5 shadow-sm"
+                    style={{
+                      animationDelay: `${index * 100}ms`
+                    }}
+                  >
+                    {/* Light Background Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#B03982]/0 to-[#733C86]/0 group-hover:from-[#B03982]/5 group-hover:to-[#733C86]/5 rounded-2xl transition-all duration-500"></div>
 
-                  <div className="relative flex items-start gap-4">
-                    {/* Light Icon Container */}
-                    <div className="relative">
-                      <div className="absolute -inset-3 bg-gradient-to-br from-[#B03982]/10 to-[#733C86]/10 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                      <div className={`relative w-12 h-12 flex items-center justify-center ${benefit.bgColor} rounded-xl border border-gray-200 group-hover:border-transparent transition-all duration-300`}>
-                        <div className={`${benefit.color} transform group-hover:scale-110 transition-transform duration-300`}>
-                          {benefit.icon}
+                    <div className="relative flex items-start gap-4">
+                      {/* Light Icon Container */}
+                      <div className="relative">
+                        <div className="absolute -inset-3 bg-gradient-to-br from-[#B03982]/10 to-[#733C86]/10 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div className={`relative w-12 h-12 flex items-center justify-center ${benefit.bgColor} rounded-xl border border-gray-200 group-hover:border-transparent transition-all duration-300`}>
+                          <div className={`${benefit.color} transform group-hover:scale-110 transition-transform duration-300`}>
+                            {benefit.icon}
+                          </div>
                         </div>
                       </div>
-                    </div>
 
-                    {/* Text Content */}
-                    <div className="flex-1">
-                      <h3 className="font-semibold text-gray-900 mb-2 leading-relaxed">
-                        {benefit.title}
-                      </h3>
+                      {/* Text Content */}
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-gray-900 mb-2 leading-relaxed">
+                          {benefit.title}
+                        </h3>
 
-                      {/* Progress Bar Effect - Light */}
-                      <div className="mt-3 relative">
-                        <div className="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
-                          <div
-                            className={`h-full bg-gradient-to-r ${benefit.color.replace('text', 'from')} ${benefit.color} rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}
-                          ></div>
+                        {/* Progress Bar Effect - Light */}
+                        <div className="mt-3 relative">
+                          <div className="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
+                            <div
+                              className={`h-full bg-gradient-to-r ${benefit.color.replace('text', 'from')} ${benefit.color} rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}
+                            ></div>
+                          </div>
                         </div>
                       </div>
-                    </div>
 
-                    {/* Check Indicator - Light */}
-                    <div className="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      {/* Check Indicator - Light */}
+                      {/* <div className="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <CheckCircle className="w-5 h-5 text-[#B03982]" />
+                    </div> */}
                     </div>
-                  </div>
 
-                  {/* Floating Number - Light */}
-                  <div className="absolute -left-3 -top-3 w-8 h-8 flex items-center justify-center bg-white rounded-full border border-gray-300 text-xs font-bold text-gray-600 group-hover:text-white group-hover:bg-gradient-to-r group-hover:from-[#B03982] group-hover:to-[#733C86] transition-all duration-300">
-                    {index + 1}
+                    {/* Floating Number - Light */}
+                    {/* <div className="absolute -left-3 -top-3 w-8 h-8 flex items-center justify-center bg-white rounded-full border border-gray-300 text-xs font-bold text-gray-600 group-hover:text-white group-hover:bg-gradient-to-r group-hover:from-[#B03982] group-hover:to-[#733C86] transition-all duration-300">
+                      {index + 1}
+                    </div> */}
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
 
             {/* CTA Button - Light */}
-            <div className="pt-8">
+            <div>
               <button className="group relative px-8 py-4 bg-gradient-to-r from-[#B03982] to-[#733C86] rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl">
                 {/* Light Ripple Effect */}
                 <div className="absolute inset-0 overflow-hidden">
@@ -249,7 +259,7 @@ const DigitalColleagueLight = () => {
       </div>
 
       {/* Floating Badges - Light */}
-      <div className="absolute bottom-10 left-10 hidden lg:block">
+      <div className="absolute bottom-4 left-10 hidden lg:block">
         <div className="bg-white rounded-2xl border border-gray-200 p-4 transform rotate-3 hover:rotate-0 transition-transform duration-300 shadow-sm">
           <div className="text-2xl font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
             10x

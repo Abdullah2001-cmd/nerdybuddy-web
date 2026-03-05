@@ -214,7 +214,9 @@ const ContactInformation = () => {
                                     <div className="pt-3 border-t border-gray-100">
                                         {card.address && (
                                             <div className="space-y-1">
-                                                <div className="text-sm font-medium text-gray-900">{card.address}</div>
+                                                <div
+                                                    className="text-lg font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent hover:from-[#c94594] hover:to-[#8a48a3] transition-all duration-300"
+                                                >{card.address}</div>
                                                 <div className="text-sm text-gray-500">{card.location}</div>
                                             </div>
                                         )}

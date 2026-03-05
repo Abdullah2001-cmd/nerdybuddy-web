@@ -11,8 +11,17 @@ import {
   ArrowRight,
   Lock,
   Brain,
-  FileText
+  FileText,
+  BrainIcon,
+  BracesIcon,
+  CloudLightning,
+  ChartBar,
+  Notebook,
+  ChartArea
 } from 'lucide-react';
+import { TfiBarChart } from "react-icons/tfi";
+import { MdOutlineOfflineBolt } from "react-icons/md";
+import { FaCheck } from "react-icons/fa";
 
 const ProductOverview = () => {
   const [activeTab, setActiveTab] = useState('what');
@@ -47,13 +56,18 @@ const ProductOverview = () => {
       description: "We handle everything from setup to maintenance"
     },
     {
-      icon: <Zap className="w-5 h-5" />,
+      icon: <FaCheck className="w-5 h-5" />,
       title: "Turnkey setup included",
       description: "Get up and running in hours, not weeks"
     },
     {
       icon: <Sparkles className="w-5 h-5" />,
       title: "Engaging, intuitive UX",
+      description: "Beautiful interface that employees love to use"
+    },
+    {
+      icon: <Sparkles className="w-5 h-5" />,
+      title: "Intellectual Property Is At Risk",
       description: "Beautiful interface that employees love to use"
     }
   ];
@@ -116,12 +130,12 @@ const ProductOverview = () => {
             </div>
 
             {/* Tabs Navigation */}
-            <div className="flex space-x-2 border-b border-gray-200">
+            {/* <div className="flex space-x-2 border-b border-gray-200">
               <button
                 onClick={() => setActiveTab('how')}
                 className={`px-6 py-3 font-medium text-lg transition-all duration-300 relative ${activeTab === 'how'
-                    ? 'text-gray-900'
-                    : 'text-gray-500 hover:text-gray-900'
+                  ? 'text-gray-900'
+                  : 'text-gray-500 hover:text-gray-900'
                   }`}
               >
                 How It Works
@@ -132,8 +146,8 @@ const ProductOverview = () => {
               <button
                 onClick={() => setActiveTab('why')}
                 className={`px-6 py-3 font-medium text-lg transition-all duration-300 relative ${activeTab === 'why'
-                    ? 'text-gray-900'
-                    : 'text-gray-500 hover:text-gray-900'
+                  ? 'text-gray-900'
+                  : 'text-gray-500 hover:text-gray-900'
                   }`}
               >
                 Why It's Different
@@ -141,10 +155,10 @@ const ProductOverview = () => {
                   <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#B03982] to-[#733C86]"></div>
                 )}
               </button>
-            </div>
+            </div> */}
 
             {/* Tab Content */}
-            <div className="transition-all duration-500">
+            {/* <div className="transition-all duration-500">
               {activeTab === 'how' ? (
                 <div className="space-y-6 animate-fadeIn">
                   <h4 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
@@ -197,6 +211,66 @@ const ProductOverview = () => {
                   </div>
                 </div>
               )}
+            </div> */}
+
+            <div className="transition-all duration-500">
+              <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+                {/* How It Works Section */}
+                <div className="space-y-6 animate-fadeIn">
+                  <h4 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+                    How It <span className="bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">Works</span>
+                  </h4>
+
+                  <div className="grid md:grid-cols-1 gap-4">
+                    {howItWorks.map((item, index) => (
+                      <div
+                        key={index}
+                        className="group bg-gradient-to-br from-gray-50 to-white backdrop-blur-sm rounded-xl border border-gray-200 p-2 hover:border-[#B03982]/50 transition-all duration-300 hover:scale-[1.02] shadow-sm hover:shadow-md"
+                      >
+                        <div className="flex items-center gap-4">
+                          <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-gradient-to-br from-[#B03982]/10 to-[#733C86]/10 rounded-lg group-hover:from-[#B03982]/20 group-hover:to-[#733C86]/20 transition-all duration-300">
+                            <div className="text-[#B03982] group-hover:text-[#B03982] transition-colors duration-300">
+                              {item.icon}
+                            </div>
+                          </div>
+                          {/* <div> */}
+                            <h5 className="font-semibold text-gray-900 mb-1">{item.title}</h5>
+                            {/* <p className="text-sm text-gray-600">{item.description}</p> */}
+                          {/* </div> */}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Why It's Different Section */}
+                <div className="space-y-6 animate-fadeIn">
+                  <h4 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+                    Why It's <span className="bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">Different</span>
+                  </h4>
+
+                  <div className="space-y-4">
+                    {whyDifferent.map((item, index) => (
+                      <div
+                        key={index}
+                        className="group bg-gradient-to-br from-gray-50 to-white backdrop-blur-sm rounded-xl border border-gray-200 p-2 hover:border-[#B03982]/50 transition-all duration-300 hover:scale-[1.02] shadow-sm hover:shadow-md"
+                      >
+                        <div className="flex items-center gap-4">
+                          <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-gradient-to-br from-[#B03982]/10 to-[#733C86]/10 rounded-lg group-hover:from-[#B03982]/20 group-hover:to-[#733C86]/20 transition-all duration-300">
+                            <div className="text-[#B03982] group-hover:text-[#B03982] transition-colors duration-300">
+                              {item.icon}
+                            </div>
+                          </div>
+                          {/* <div> */}
+                            <h5 className="font-semibold text-gray-900 mb-1">{item.title}</h5>
+                            {/* <p className="text-sm text-gray-600">{item.description}</p> */}
+                          {/* </div> */}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* CTA Button */}
@@ -260,17 +334,25 @@ const ProductOverview = () => {
 
             {/* Stats Cards */}
             <div className="grid grid-cols-2 gap-4 mt-8">
-              <div className="bg-gradient-to-br from-gray-50 to-white backdrop-blur-sm rounded-xl border border-gray-200 p-4 text-center shadow-sm">
-                <div className="text-2xl font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
-                  10x
-                </div>
-                <div className="text-sm text-gray-600 mt-1">Faster Access</div>
-              </div>
-              <div className="bg-gradient-to-br from-gray-50 to-white backdrop-blur-sm rounded-xl border border-gray-200 p-4 text-center shadow-sm">
-                <div className="text-2xl font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
+              <div className="bg-gradient-to-br from-gray-50 to-white backdrop-blur-sm rounded-xl border border-gray-200 p-4 text-center shadow-sm flex flex-col justify-center items-center">
+                {/* <div className="text-2xl font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
                   99%
+                </div> */}
+                <MdOutlineOfflineBolt className="w-12 h-12 text-[#B03982]" />
+                <div className="text-sm text-gray-600 mt-1 flex items-center justify-center gap-1">
+                  <p>Instant Answers</p>
+                  {/* <Brain className="w-5 h-5 text-[#B03982]" /> */}
                 </div>
-                <div className="text-sm text-gray-600 mt-1">Accuracy Rate</div>
+              </div>
+              <div className="bg-gradient-to-br from-gray-50 to-white backdrop-blur-sm rounded-xl border border-gray-200 p-4 text-center shadow-sm flex flex-col justify-center items-center">
+                {/* <div className="text-2xl font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
+                  99%
+                </div> */}
+                <TfiBarChart className="w-12 h-12 text-[#B03982]" />
+                <div className="text-sm text-gray-600 mt-1 flex items-center justify-center gap-1">
+                  <p>Smart Interpretations</p>
+                  {/* <Brain className="w-5 h-5 text-[#B03982]" /> */}
+                </div>
               </div>
             </div>
 

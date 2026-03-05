@@ -351,8 +351,8 @@ function Home({ isLoading }) {
           : 'opacity-0 translate-y-20 pointer-events-none'
           } ${isScrolling ? 'scale-95' : 'scale-100 hover:scale-110'}`}
         style={{
-          bottom: '6rem',
-          right: '2rem',
+          bottom: '1rem',
+          right: '1rem',
         }}
         aria-label="Scroll to top"
       >

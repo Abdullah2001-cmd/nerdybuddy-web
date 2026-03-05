@@ -429,7 +429,7 @@
 //                 AI Solutions
 //               </span>
 //             </div>
-            
+
 //             <div className="hidden md:flex items-center space-x-8">
 //               <a href="#" className="text-gray-700 hover:text-[#B03982] transition">Home</a>
 //               <a href="#" className="text-[#B03982] font-semibold">Services</a>
@@ -438,7 +438,7 @@
 //               <a href="#" className="text-gray-700 hover:text-[#B03982] transition">About</a>
 //               <a href="#" className="text-gray-700 hover:text-[#B03982] transition">Contact</a>
 //             </div>
-            
+
 //             <div className="flex items-center space-x-4">
 //               <button className="hidden md:block px-4 py-2 text-gray-700 hover:text-[#B03982] transition">
 //                 Sign In
@@ -980,63 +980,63 @@
 //           from { opacity: 0; transform: translateY(20px); }
 //           to { opacity: 1; transform: translateY(0); }
 //         }
-        
+
 //         @keyframes slideInLeft {
 //           from { opacity: 0; transform: translateX(-30px); }
 //           to { opacity: 1; transform: translateX(0); }
 //         }
-        
+
 //         @keyframes slideInRight {
 //           from { opacity: 0; transform: translateX(30px); }
 //           to { opacity: 1; transform: translateX(0); }
 //         }
-        
+
 //         @keyframes scaleIn {
 //           from { opacity: 0; transform: scale(0.9); }
 //           to { opacity: 1; transform: scale(1); }
 //         }
-        
+
 //         @keyframes float {
 //           0% { transform: translateY(0px); }
 //           50% { transform: translateY(-10px); }
 //           100% { transform: translateY(0px); }
 //         }
-        
+
 //         .animate-fadeIn {
 //           animation: fadeIn 0.6s ease-out forwards;
 //         }
-        
+
 //         .animate-slideInLeft {
 //           animation: slideInLeft 0.6s ease-out forwards;
 //         }
-        
+
 //         .animate-slideInRight {
 //           animation: slideInRight 0.6s ease-out forwards;
 //         }
-        
+
 //         .animate-scaleIn {
 //           animation: scaleIn 0.5s ease-out forwards;
 //         }
-        
+
 //         .animate-float {
 //           animation: float 3s ease-in-out infinite;
 //         }
-        
+
 //         .hover-lift {
 //           transition: transform 0.3s ease;
 //         }
-        
+
 //         .hover-lift:hover {
 //           transform: translateY(-5px);
 //         }
-        
+
 //         .gradient-border {
 //           position: relative;
 //           background: linear-gradient(white, white) padding-box,
 //                       linear-gradient(45deg, #B03982, #733C86) border-box;
 //           border: 2px solid transparent;
 //         }
-        
+
 //         .text-gradient {
 //           background: linear-gradient(135deg, #B03982, #733C86);
 //           -webkit-background-clip: text;
@@ -1150,7 +1150,7 @@ const ServicesPage = () => {
   const scrollToTop = () => {
     if (isScrolling) return;
     setIsScrolling(true);
-    
+
     // Add ripple effect
     const ripple = document.createElement('div');
     ripple.className = 'absolute inset-0 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-full opacity-30 animate-ripple';
@@ -1181,7 +1181,7 @@ const ServicesPage = () => {
       title: 'AI & Machine Learning',
       shortDesc: 'Cutting-edge AI solutions tailored to your business needs',
       icon: <Brain className="w-8 h-8" />,
-      gradient: 'from-purple-500 to-pink-500',
+      gradient: 'bg-gradient-to-r from-[#B03982] to-[#733C86]',
       color: 'purple',
       image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       features: [
@@ -1216,7 +1216,7 @@ const ServicesPage = () => {
       title: 'Cloud & Infrastructure',
       shortDesc: 'Scalable, secure cloud solutions for modern businesses',
       icon: <Cloud className="w-8 h-8" />,
-      gradient: 'from-blue-500 to-cyan-500',
+      gradient: 'bg-gradient-to-r from-[#B03982] to-[#733C86]',
       color: 'blue',
       image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       features: [
@@ -1251,7 +1251,7 @@ const ServicesPage = () => {
       title: 'Data Analytics & BI',
       shortDesc: 'Transform raw data into actionable insights',
       icon: <BarChart3 className="w-8 h-8" />,
-      gradient: 'from-green-500 to-emerald-500',
+      gradient: 'bg-gradient-to-r from-[#B03982] to-[#733C86]',
       color: 'green',
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       features: [
@@ -1286,7 +1286,7 @@ const ServicesPage = () => {
       title: 'Cybersecurity',
       shortDesc: 'Comprehensive security solutions for digital assets',
       icon: <Shield className="w-8 h-8" />,
-      gradient: 'from-red-500 to-orange-500',
+      gradient: 'bg-gradient-to-r from-[#B03982] to-[#733C86]',
       color: 'red',
       image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       features: [
@@ -1321,7 +1321,7 @@ const ServicesPage = () => {
       title: 'Digital Transformation',
       shortDesc: 'Modernize your business for the digital age',
       icon: <Rocket className="w-8 h-8" />,
-      gradient: 'from-yellow-500 to-orange-500',
+      gradient: 'bg-gradient-to-r from-[#B03982] to-[#733C86]',
       color: 'yellow',
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       features: [
@@ -1356,7 +1356,7 @@ const ServicesPage = () => {
       title: 'IT Consulting',
       shortDesc: 'Expert guidance for technology decisions',
       icon: <Users className="w-8 h-8" />,
-      gradient: 'from-indigo-500 to-purple-500',
+      gradient: 'bg-gradient-to-r from-[#B03982] to-[#733C86]',
       color: 'indigo',
       image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       features: [
@@ -1482,40 +1482,34 @@ const ServicesPage = () => {
   // FAQ Data
   const faqs = [
     {
-      question: 'How do you ensure project success?',
-      answer: 'We follow a proven methodology that includes thorough discovery, clear communication, agile development, and continuous testing. Our team assigns a dedicated project manager to ensure milestones are met and expectations are exceeded.'
+      question: "How does AI Convert text to video , automatically?",
+      answer: "Enables us to focus more on content rather than makes our smoother thanks to the Figma plugin. Workflow smoother than us to focus more on content rather than makes",
     },
     {
-      question: 'What industries do you serve?',
-      answer: 'We serve a wide range of industries including healthcare, finance, retail, manufacturing, technology, and professional services. Our solutions are tailored to meet industry-specific requirements and compliance needs.'
+      question: "Affordable video production starting at $30/month",
+      answer: "Enables us to focus more on content rather than makes our smoother thanks to the Figma plugin. Workflow smoother than us to focus more on content rather than makes",
     },
     {
-      question: 'How long does a typical project take?',
-      answer: 'Project timelines vary based on scope and complexity. A typical project can range from 4-12 weeks for implementation, with ongoing optimization and support available.'
+      question: "Web-based app accessible in your browser ?",
+      answer: "Enables us to focus more on content rather than makes our smoother thanks to the Figma plugin. Workflow smoother than us to focus more on content rather than makes",
     },
     {
-      question: 'Do you provide ongoing support?',
-      answer: 'Yes, we offer comprehensive maintenance and support packages to ensure your solutions continue to perform optimally. This includes regular updates, security patches, and technical support.'
+      question: "How does AI Convert text to video , automatically ?",
+      answer: "Enables us to focus more on content rather than makes our smoother thanks to the Figma plugin. Workflow smoother than us to focus more on content rather than makes",
     },
-    {
-      question: 'How do you handle data security?',
-      answer: 'Security is our top priority. We implement industry-best practices including encryption, access controls, regular audits, and compliance with standards like GDPR, HIPAA, and SOC2.'
-    },
-    {
-      question: 'Can you scale with our business?',
-      answer: 'Absolutely. Our solutions are built to scale with your business. Whether you\'re a startup or enterprise, we design systems that grow with you.'
-    }
   ];
 
   // Partners/Clients
   const partners = [
-    { name: 'TechCorp', logo: 'https://via.placeholder.com/150x50?text=TechCorp' },
-    { name: 'InnovateLabs', logo: 'https://via.placeholder.com/150x50?text=InnovateLabs' },
-    { name: 'DataDrive', logo: 'https://via.placeholder.com/150x50?text=DataDrive' },
-    { name: 'CloudNine', logo: 'https://via.placeholder.com/150x50?text=CloudNine' },
-    { name: 'SecureSys', logo: 'https://via.placeholder.com/150x50?text=SecureSys' },
-    { name: 'FutureGen', logo: 'https://via.placeholder.com/150x50?text=FutureGen' }
+    { name: 'TechCorp', logo: 'https://picsum.photos/id/1/150/50' },
+    { name: 'InnovateLabs', logo: 'https://picsum.photos/id/2/150/50' },
+    { name: 'DataDrive', logo: 'https://picsum.photos/id/3/150/50' },
+    { name: 'CloudNine', logo: 'https://picsum.photos/id/4/150/50' },
+    { name: 'SecureSys', logo: 'https://picsum.photos/id/5/150/50' },
+    { name: 'FutureGen', logo: 'https://picsum.photos/id/6/150/50' }
   ];
+
+  const [hoveredPartner, setHoveredPartner] = useState(null);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
@@ -1561,7 +1555,7 @@ const ServicesPage = () => {
       </nav> */}
 
       {/* Hero Section */}
-      <section className="relative pt-44 pb-20 overflow-hidden">
+      <section className="relative pt-44 pb-0 overflow-hidden">
         {/* Background Pattern */}
         {/* <div className="absolute inset-0 opacity-5">
           <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-full blur-3xl"></div>
@@ -1598,7 +1592,7 @@ const ServicesPage = () => {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {stats.map((stat, index) => (
                 <div key={index} className="text-center">
                   <div className="flex justify-center mb-3">
@@ -1610,20 +1604,20 @@ const ServicesPage = () => {
                   <div className="text-sm text-gray-600">{stat.label}</div>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
 
       {/* Services Filter */}
-      <section className="py-12 bg-white border-y border-gray-200">
+      <section className="py-0 bg-white border-y border-gray-200">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-wrap justify-center gap-4">
             <button
               onClick={() => setActiveService('all')}
               className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${activeService === 'all'
-                  ? 'bg-gradient-to-r from-[#B03982] to-[#733C86] text-white shadow-md'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                ? 'bg-gradient-to-r from-[#B03982] to-[#733C86] text-white shadow-md'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
             >
               All Services
@@ -1632,9 +1626,9 @@ const ServicesPage = () => {
               <button
                 key={service.id}
                 onClick={() => setActiveService(service.id)}
-                className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${activeService === service.id
-                    ? `bg-gradient-to-r ${service.gradient} text-white shadow-md`
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                className={`cursor-pointer px-6 py-3 rounded-xl font-medium transition-all duration-300 ${activeService === service.id
+                  ? `bg-gradient-to-r ${service.gradient} text-white shadow-md`
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
               >
                 {service.title}
@@ -1890,8 +1884,69 @@ const ServicesPage = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
             {partners.map((partner, index) => (
-              <div key={index} className="grayscale hover:grayscale-0 transition-all duration-300">
-                <img src={partner.logo} alt={partner.name} className="w-full h-auto" />
+              <div
+                key={index}
+                className="group relative"
+                onMouseEnter={() => setHoveredPartner(index)}
+                onMouseLeave={() => setHoveredPartner(null)}
+              >
+                {/* Card Container */}
+                <div className={`
+                relative bg-white rounded-xl p-6 shadow-md
+                transform transition-all duration-300 ease-out
+                hover:shadow-xl hover:-translate-y-2
+                ${hoveredPartner === index ? 'ring-2 ring-blue-500 ring-opacity-50' : ''}
+              `}>
+                  {/* Logo Container */}
+                  <div className="relative h-24 flex items-center justify-center mb-3">
+                    <img
+                      src={partner.logo}
+                      alt={partner.name}
+                      className={`
+                      w-auto max-h-16 object-contain
+                      transition-all duration-500
+                      ${hoveredPartner === index
+                          ? 'grayscale-0 scale-110'
+                          : 'grayscale opacity-70 group-hover:opacity-100'
+                        }
+                    `}
+                      loading="lazy"
+                    />
+
+                    {/* Hover Overlay Effect */}
+                    <div className={`
+                    absolute inset-0 bg-gradient-to-t from-blue-500/0 to-transparent
+                    transition-opacity duration-300
+                    ${hoveredPartner === index ? 'opacity-100' : 'opacity-0'}
+                  `} />
+                  </div>
+
+                  {/* Partner Name & Category */}
+                  <div className="text-center">
+                    <h3 className={`
+                    font-semibold text-gray-800 mb-1
+                    transition-all duration-300
+                    ${hoveredPartner === index ? 'text-blue-600' : ''}
+                  `}>
+                      {partner.name}
+                    </h3>
+                    <p className="text-xs text-gray-500">
+                      {partner.category}
+                    </p>
+                  </div>
+
+                  {/* Decorative Corner */}
+                  <div className={`
+                  absolute top-2 right-2 w-2 h-2 rounded-full
+                  transition-all duration-300
+                  ${hoveredPartner === index ? 'bg-blue-500' : 'bg-gray-300'}
+                `} />
+                </div>
+
+                {/* Connection Lines Animation (for larger screens) */}
+                {index < partners.length - 1 && (
+                  <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-gradient-to-r from-gray-300 to-transparent" />
+                )}
               </div>
             ))}
           </div>

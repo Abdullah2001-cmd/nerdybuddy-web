@@ -23,16 +23,11 @@ const HeroSection = ({ reveal }) => {
         highlightedWords: [" Nerdy", "Buddy"],
         description: "Nerdy Buddy is your AI-powered digital colleague that makes organizational knowledgeinstantly accessible, secure, and actionable.",
         features: [
-            "Automation up to 42%",
-            "Turn visitor into playing customers",
-            "Supercharge your customer service team"
+            "Instant answers from company-approved documents",
+            "Role-based access with built-in security controls",
+            "Works on Web, Mobile, and Smart Kiosks",
         ]
     };
-
-    console.log({
-        "reveal": reveal, 
-        "isVisible": isVisible
-    });
 
     return (
         <>
@@ -64,9 +59,9 @@ const HeroSection = ({ reveal }) => {
                                     <span className="text-base font-semibold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
                                         AI-Powered Solutions
                                     </span>
-                                    <div className="ml-2 px-2 py-1 bg-gradient-to-r from-[#B03982]/10 to-[#733C86]/10 rounded-full">
+                                    {/* <div className="ml-2 px-2 py-1 bg-gradient-to-r from-[#B03982]/10 to-[#733C86]/10 rounded-full">
                                         <span className="text-xs font-medium text-[#733C86]">New</span>
-                                    </div>
+                                    </div> */}
                                 </div>
                                 <div className="space-y-6 relative">
                                     <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold leading">
@@ -103,7 +98,7 @@ const HeroSection = ({ reveal }) => {
                                         </button>
                                     </div>
                                 </div>
-                                <div className="grid grid-cols-3 mt-6 border-t border-gray-100">
+                                {/* <div className="grid grid-cols-3 mt-6 border-t border-gray-100">
                                     <div>
                                         <div className="text-2xl font-bold text-gray-900">500+</div>
                                         <div className="text-sm text-gray-600">Organizations</div>
@@ -116,7 +111,7 @@ const HeroSection = ({ reveal }) => {
                                         <div className="text-2xl font-bold text-gray-900">99.9%</div>
                                         <div className="text-sm text-gray-600">Accuracy</div>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                         <div
@@ -169,7 +164,7 @@ const HeroSection = ({ reveal }) => {
                                         className="w-48 animate-pulse-slower"
                                     />
                                 </div>
-                                <div className="absolute -bottom-0 -right-8 bg-white rounded-2xl border border-gray-200 p-4 shadow-2xl">
+                                <div className="absolute top-10 -right-14 bg-white rounded-2xl border border-gray-200 p-4 shadow-2xl">
                                     <div className="flex items-center gap-3">
                                         <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-xl">
                                             <Zap className="w-5 h-5 text-white" />

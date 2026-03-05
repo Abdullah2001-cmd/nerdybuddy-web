@@ -54,10 +54,10 @@ const WhyChooseNow = () => {
   ];
 
   const stats = [
-    { value: "3.6h", label: "Weekly Search Time", icon: <Clock className="w-4 h-4" /> },
-    { value: "89%", label: "Expect AI", icon: <Brain className="w-4 h-4" /> },
-    { value: "68%", label: "Data Risk", icon: <Shield className="w-4 h-4" /> },
-    { value: "$1.2K", label: "Training Cost", icon: <BarChart3 className="w-4 h-4" /> }
+    { value: "3.6h", label: "Weekly Search Time", icon: <Clock className="w-10 h-10" /> },
+    { value: "89%", label: "Expect AI", icon: <Brain className="w-10 h-10" /> },
+    { value: "68%", label: "Data Risk", icon: <Shield className="w-10 h-10" /> },
+    { value: "$1.2K", label: "Training Cost", icon: <BarChart3 className="w-10 h-10" /> }
   ];
 
   return (
@@ -161,9 +161,9 @@ const WhyChooseNow = () => {
                     <div className="text-[#B03982]">
                       {stat.icon}
                     </div>
-                    <div className="text-xl font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
+                    {/* <div className="text-xl font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
                       {stat.value}
-                    </div>
+                    </div> */}
                   </div>
                   <div className="text-xs text-gray-600">{stat.label}</div>
                 </div>

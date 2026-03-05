@@ -1,17 +1,24 @@
 import React from 'react';
-import { 
-  Brain, 
-  FileStack, 
-  ShieldAlert, 
-  TrendingUp, 
+import {
+  Brain,
+  FileStack,
+  ShieldAlert,
+  TrendingUp,
   MessageSquare,
   AlertCircle,
   Target,
   BarChart3,
-  Users
+  Users,
+  BrainCircuit
 } from 'lucide-react';
+import { LuBrain } from "react-icons/lu";
+import { TbFileCertificate } from "react-icons/tb";
+import { HiCurrencyDollar } from "react-icons/hi2";
+import { MdOutlineFeedback } from "react-icons/md";
+import { RiRecycleLine } from "react-icons/ri";
 
 const ProblemStatement = () => {
+  
   const problems = [
     {
       icon: <Brain className="w-8 h-8" />,
@@ -51,10 +58,10 @@ const ProblemStatement = () => {
   ];
 
   const stats = [
-    { value: "70%", label: "Unused Knowledge", color: "text-red-500" },
-    { value: "42%", label: "Contradictions", color: "text-yellow-500" },
-    { value: "$1.2K", label: "Training Cost", color: "text-blue-500" },
-    { value: "23%", label: "Feedback Rate", color: "text-green-500" }
+    { icon: <LuBrain className="w-14 h-14" />, value: "70%", label: "Unused Knowledge", color: "text-red-500" },
+    { icon: <RiRecycleLine className="w-14 h-14" />, value: "42%", label: "Contradictions", color: "text-yellow-500" },
+    { icon: <HiCurrencyDollar className="w-14 h-14" />, value: "$1.2K", label: "Training Cost", color: "text-blue-500" },
+    { icon: <MdOutlineFeedback className="w-14 h-14" />, value: "23%", label: "Feedback Rate", color: "text-green-500" }
   ];
 
   return (
@@ -68,14 +75,14 @@ const ProblemStatement = () => {
               The Challenge We Solve
             </span>
           </div>
-          
+
           <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold mb-6 flex justify-center gap-4">
             <span className="block text-gray-900">Problem</span>
             <span className="block bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
               Statement
             </span>
           </h2>
-          
+
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Organizations face critical challenges in knowledge management that impact productivity, security, and growth.
           </p>
@@ -88,12 +95,15 @@ const ProblemStatement = () => {
               key={index}
               className="bg-gradient-to-br from-white to-gray-50 backdrop-blur-sm rounded-xl border border-gray-200 p-6 text-center group hover:border-[#B03982]/50 transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md"
             >
-              <div className={`text-3xl md:text-4xl font-bold mb-2 ${stat.color}`}>
+              {/* <div className={`text-3xl md:text-4xl font-bold mb-2 ${stat.color}`}>
                 {stat.value}
+              </div> */}
+              <div className={`flex justify-center text-[#B03982] group-hover:text-[#B03982] transition-colors duration-300 mb-2 ${stat.color}`}>
+                {stat.icon}
               </div>
-              <div className="text-sm text-gray-600">{stat.label}</div>
+              <div className="text-md text-gray-600">{stat.label}</div>
               <div className="mt-3 h-1 w-16 mx-auto bg-gradient-to-r from-gray-300 to-gray-400 rounded-full overflow-hidden">
-                <div 
+                <div
                   className="h-full bg-gradient-to-r from-[#B03982] to-[#733C86] rounded-full animate-pulse"
                   style={{ width: `${70 - index * 15}%` }}
                 ></div>
@@ -111,7 +121,7 @@ const ProblemStatement = () => {
             >
               {/* Animated Background */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#B03982]/0 to-[#733C86]/0 group-hover:from-[#B03982]/5 group-hover:to-[#733C86]/5 rounded-2xl transition-all duration-500"></div>
-              
+
               <div className="relative">
                 {/* Icon */}
                 <div className="mb-6">
@@ -130,11 +140,11 @@ const ProblemStatement = () => {
                   <h3 className="text-xl font-bold text-gray-900 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#B03982] group-hover:to-[#733C86] group-hover:bg-clip-text transition-all duration-300">
                     {problem.title}
                   </h3>
-                  
+
                   <p className="text-gray-600 leading-relaxed">
                     {problem.description}
                   </p>
-                  
+
                   <div className="pt-4 border-t border-gray-200">
                     <div className="flex items-center justify-between">
                       <span className="text-sm font-medium text-gray-700">{problem.stats}</span>
@@ -163,7 +173,7 @@ const ProblemStatement = () => {
             >
               {/* Animated Background */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#B03982]/0 to-[#733C86]/0 group-hover:from-[#B03982]/5 group-hover:to-[#733C86]/5 rounded-2xl transition-all duration-500"></div>
-              
+
               <div className="relative flex items-start gap-6">
                 {/* Icon */}
                 <div className="flex-shrink-0">
@@ -182,11 +192,11 @@ const ProblemStatement = () => {
                   <h3 className="text-xl font-bold text-gray-900 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#B03982] group-hover:to-[#733C86] group-hover:bg-clip-text transition-all duration-300">
                     {problem.title}
                   </h3>
-                  
+
                   <p className="text-gray-600 leading-relaxed">
                     {problem.description}
                   </p>
-                  
+
                   <div className="pt-4 border-t border-gray-200">
                     <div className="flex items-center justify-between">
                       <span className="text-sm font-medium text-gray-700">{problem.stats}</span>
@@ -214,12 +224,12 @@ const ProblemStatement = () => {
                 The Impact of Unresolved Problems
               </h3>
               <p className="text-gray-600 leading-relaxed">
-                These knowledge management challenges lead to decreased productivity, increased operational costs, 
-                employee frustration, and ultimately, hindered organizational growth. Without proper solutions, 
+                These knowledge management challenges lead to decreased productivity, increased operational costs,
+                employee frustration, and ultimately, hindered organizational growth. Without proper solutions,
                 organizations continue to lose valuable time and resources.
               </p>
             </div>
-            
+
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <Target className="w-5 h-5 text-[#B03982]" />
@@ -235,7 +245,7 @@ const ProblemStatement = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Impact Meter */}
           <div className="mt-8">
             <div className="flex items-center justify-between mb-2">
@@ -270,7 +280,7 @@ const ProblemStatement = () => {
       <div className="absolute top-20 left-10 hidden lg:block">
         <div className="w-24 h-24 bg-gradient-to-br from-[#B03982]/5 to-[#733C86]/5 rounded-full border border-[#B03982]/10 backdrop-blur-sm animate-pulse"></div>
       </div>
-      
+
       <div className="absolute bottom-20 right-10 hidden lg:block">
         <div className="w-32 h-32 bg-gradient-to-br from-[#B03982]/5 to-[#733C86]/5 rounded-full border border-[#B03982]/10 backdrop-blur-sm animate-pulse animation-delay-1000"></div>
       </div>

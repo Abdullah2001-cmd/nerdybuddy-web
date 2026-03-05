@@ -345,22 +345,19 @@ const PricingPage = () => {
     // Implementation Services Data
     const implementationServices = [
         {
-            id: 'starter',
-            title: "Starter",
+            id: 'Technical Implementation',
+            title: "Technical Implementation",
             shortDesc: "Perfect for evaluation and small teams",
             icon: <Rocket className="w-8 h-8" />,
             price: "0",
             setupFee: "No setup fee",
             features: [
-                "1 Company Creation",
-                "1 Department",
-                "1 User",
-                "Basic Pre-Defined Roles",
-                "Admin Portal Access",
-                "100 Pages Documents (One Time)",
-                "User Portal Access",
-                "250k AI Query Credits (~20 queries)",
-                "Community/Email Support"
+                "Seamless IT System Integration",
+                "Robust ERP System Integration",
+                "Flexible Cloud or On-Prem Deployment",
+                "Flexible Platform Customization",
+                "Enterprise-Grade SSO Integration",
+                "Comprehensive Data Security & User Auth",
             ],
             gradient: "from-blue-400 to-cyan-500",
             color: "blue",
@@ -371,24 +368,19 @@ const PricingPage = () => {
             ]
         },
         {
-            id: 'standard',
-            title: "Standard",
+            id: 'Functional Implementation',
+            title: "Functional Implementation",
             shortDesc: "Ideal for growing teams",
             icon: <Briefcase className="w-8 h-8" />,
             price: "99",
             setupFee: "Contact for setup",
             features: [
-                "Up to 10 Users",
-                "Unlimited Departments",
-                "Advanced Roles (Can Create)",
-                "Full LMS Access",
-                "Onboarding & OJT Modules",
-                "500 Pages Documents",
-                "Confidential Documents (500pg)",
-                "AI-Friendly Documents",
-                "Manual + AI Quiz Generation",
-                "Mobile App Access",
-                "Email/WhatsApp Support"
+                "Company structure configuration",
+                "Departments creation",
+                "User role definition and permissions",
+                "Document type setup",
+                "Uploading & tagging of organizational documents",
+                "QA and approval testing with key users",
             ],
             gradient: "from-purple-400 to-pink-500",
             color: "purple",
@@ -399,24 +391,42 @@ const PricingPage = () => {
             ]
         },
         {
-            id: 'enterprise-integration',
-            title: "Enterprise Integration",
+            id: 'AI-Efficiency Enhancements',
+            title: "AI-Efficiency Enhancements",
             shortDesc: "Complex enterprise firms with custom needs",
             icon: <Globe className="w-8 h-8" />,
             price: "599",
             setupFee: "Custom setup",
             features: [
-                "Unlimited Users",
-                "Multiple Companies",
-                "Fully Custom Permissions",
-                "Unlimited Documents",
-                "OJT Documents Unlimited",
-                "Custom + AI Quiz Generation",
-                "Custom Integrations",
-                "Kiosk Mode Included",
-                "Full User Portal Access",
-                "Dedicated CSM",
-                "Priority SLA Support"
+                "Continuous Usage Tuning",
+                "Quarterly AI Performance Review",
+                "Log and feedback analysis",
+                "Smarter Document Interpretation",
+                "AI Prompt & Context Refinement",
+                "Optimized Answers for User Satisfaction",
+            ],
+            gradient: "from-pink-400 to-rose-500",
+            color: "pink",
+            stats: [
+                { label: "Users", value: "∞" },
+                { label: "Documents", value: "∞" },
+                { label: "Support", value: "Priority" }
+            ]
+        },
+        {
+            id: 'Maintenance & Support',
+            title: "Maintenance & Support",
+            shortDesc: "Complex enterprise firms with custom needs",
+            icon: <Globe className="w-8 h-8" />,
+            price: "599",
+            setupFee: "Custom setup",
+            features: [
+                "Dedicated Support for Issue Resolution",
+                "Regular Software Updates & Patch Management",
+                "Dedicated Support for Issues",
+                "Minor Customizations On Demand",
+                "Reliable Monitoring & Uptime",
+                "Feedback collection for ongoing improvement",
             ],
             gradient: "from-pink-400 to-rose-500",
             color: "pink",
@@ -520,35 +530,25 @@ const PricingPage = () => {
     // FAQ Data
     const faqs = [
         {
-            question: "How long does implementation typically take?",
-            answer: "Implementation time varies based on your needs. Technical implementation typically takes 4-6 weeks, functional implementation 3-4 weeks. We'll work with you to create a timeline that fits your schedule.",
+            question: "How does AI Convert text to video , automatically?",
+            answer: "Enables us to focus more on content rather than makes our smoother thanks to the Figma plugin. Workflow smoother than us to focus more on content rather than makes",
             category: "implementation"
         },
         {
-            question: "Can I switch between plans?",
-            answer: "Yes, you can upgrade or downgrade your plan at any time. Changes will be reflected in your next billing cycle. Our team will assist you in transitioning smoothly.",
+            question: "Affordable video production starting at $30/month",
+            answer: "Enables us to focus more on content rather than makes our smoother thanks to the Figma plugin. Workflow smoother than us to focus more on content rather than makes",
             category: "billing"
         },
         {
-            question: "What kind of support do you provide?",
-            answer: "We offer tiered support based on your plan: Email support for Starter, priority chat for Professional, and 24/7 phone support with dedicated account manager for Enterprise.",
+            question: "Web-based app accessible in your browser ?",
+            answer: "Enables us to focus more on content rather than makes our smoother thanks to the Figma plugin. Workflow smoother than us to focus more on content rather than makes",
             category: "support"
         },
         {
-            question: "Is there a free trial?",
-            answer: "Yes! All plans come with a 14-day free trial. No credit card required. You'll have full access to all features to test and evaluate our platform.",
+            question: "How does AI Convert text to video , automatically ?",
+            answer: "Enables us to focus more on content rather than makes our smoother thanks to the Figma plugin. Workflow smoother than us to focus more on content rather than makes",
             category: "trial"
         },
-        {
-            question: "Do you offer custom enterprise solutions?",
-            answer: "Absolutely! Our Enterprise plan can be fully customized to meet your specific needs. Contact our sales team for a tailored solution.",
-            category: "enterprise"
-        },
-        {
-            question: "How secure is my data?",
-            answer: "We take security seriously. All data is encrypted at rest and in transit. We're SOC2 compliant and offer SSO, 2FA, and regular security audits.",
-            category: "security"
-        }
     ];
 
     // Testimonials
@@ -832,7 +832,7 @@ const PricingPage = () => {
                         <div className="transition-all duration-500">
                             {activeTab === 'implementation' ? (
                                 <div>
-                                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                                         {implementationServices.map((service, index) => {
                                             return (
                                                 <div
@@ -866,19 +866,19 @@ const PricingPage = () => {
                                                             <div className="text-4xl font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
                                                                 ${service.price}
                                                             </div>
-                                                            <div className="text-sm text-gray-600">Per hour</div>
-                                                            <div className="text-xs text-gray-500 mt-1">{service.setupFee} setup</div>
+                                                            {/* <div className="text-sm text-gray-600">Per hour</div> */}
+                                                            {/* <div className="text-xs text-gray-500 mt-1">{service.setupFee} setup</div> */}
                                                         </div>
 
                                                         {/* Stats */}
-                                                        <div className="grid grid-cols-3 gap-2 mb-6 p-3 bg-gray-50 rounded-xl">
+                                                        {/* <div className="grid grid-cols-3 gap-2 mb-6 p-3 bg-gray-50 rounded-xl">
                                                             {service.stats.map((stat, idx) => (
                                                                 <div key={idx} className="text-center">
                                                                     <div className="text-xs font-bold text-gray-900">{stat.value}</div>
                                                                     <div className="text-xs text-gray-600">{stat.label}</div>
                                                                 </div>
                                                             ))}
-                                                        </div>
+                                                        </div> */}
 
                                                         {/* Features */}
                                                         <div className="space-y-3 mb-8">
@@ -907,7 +907,7 @@ const PricingPage = () => {
                                                             ) : (
                                                                 'Get Started'
                                                             )} */}
-                                                            Get Started
+                                                            Start Plan
                                                         </button>
                                                     </div>
                                                 </div>
