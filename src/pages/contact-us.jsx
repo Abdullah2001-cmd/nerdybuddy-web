@@ -481,17 +481,8 @@ const ContactInformation = () => {
                                 Empowering businesses with cutting-edge AI solutions for knowledge management and automation.
                             </p>
                             <div className="flex space-x-4">
-                                <a href="#" className="text-gray-400 hover:text-white transition">
-                                    <Github className="w-5 h-5" />
-                                </a>
-                                <a href="#" className="text-gray-400 hover:text-white transition">
-                                    <Twitter className="w-5 h-5" />
-                                </a>
-                                <a href="#" className="text-gray-400 hover:text-white transition">
+                                <a href="https://www.linkedin.com/company/nerdy-buddy/" className="text-gray-400 hover:text-white transition">
                                     <Linkedin className="w-5 h-5" />
-                                </a>
-                                <a href="#" className="text-gray-400 hover:text-white transition">
-                                    <Facebook className="w-5 h-5" />
                                 </a>
                                 <a href="#" className="text-gray-400 hover:text-white transition">
                                     <Youtube className="w-5 h-5" />
@@ -499,7 +490,7 @@ const ContactInformation = () => {
                             </div>
                         </div>
 
-                        <div>
+                        {/* <div>
                             <h4 className="font-bold text-lg mb-4">Product</h4>
                             <ul className="space-y-3">
                                 <li><a href="#" className="text-gray-400 hover:text-white transition">Features</a></li>
@@ -508,7 +499,7 @@ const ContactInformation = () => {
                                 <li><a href="#" className="text-gray-400 hover:text-white transition">Enterprise</a></li>
                                 <li><a href="#" className="text-gray-400 hover:text-white transition">Roadmap</a></li>
                             </ul>
-                        </div>
+                        </div> */}
 
                         <div>
                             <h4 className="font-bold text-lg mb-4">Resources</h4>
@@ -530,7 +521,7 @@ const ContactInformation = () => {
 
                     <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
                         <p className="text-gray-400 text-sm">
-                            © 2024 AI Solutions. All rights reserved.
+                            © 2026 AI Solutions. All rights reserved.
                         </p>
                         <div className="flex space-x-6 mt-4 md:mt-0">
                             <a href="#" className="text-gray-400 hover:text-white text-sm transition">Privacy Policy</a>

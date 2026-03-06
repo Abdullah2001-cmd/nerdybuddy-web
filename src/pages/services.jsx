@@ -963,7 +963,7 @@
 
 //           <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
 //             <p className="text-gray-400 text-sm">
-//               © 2024 AI Solutions. All rights reserved.
+//               © 2026 AI Solutions. All rights reserved.
 //             </p>
 //             <div className="flex space-x-6 mt-4 md:mt-0">
 //               <a href="#" className="text-gray-400 hover:text-white text-sm transition">Privacy Policy</a>
@@ -2076,22 +2076,16 @@ const ServicesPage = () => {
                 Empowering businesses with innovative technology solutions for the digital age.
               </p>
               <div className="flex space-x-4">
-                <a href="#" className="text-gray-400 hover:text-white transition">
-                  <Github className="w-5 h-5" />
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white transition">
-                  <Twitter className="w-5 h-5" />
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white transition">
+                <a href="https://www.linkedin.com/company/nerdy-buddy/" className="text-gray-400 hover:text-white transition">
                   <Linkedin className="w-5 h-5" />
                 </a>
                 <a href="#" className="text-gray-400 hover:text-white transition">
-                  <Facebook className="w-5 h-5" />
+                  <Youtube className="w-5 h-5" />
                 </a>
               </div>
             </div>
 
-            <div>
+            {/* <div>
               <h4 className="font-bold text-lg mb-4">Services</h4>
               <ul className="space-y-3">
                 <li><a href="#" className="text-gray-400 hover:text-white transition">AI & Machine Learning</a></li>
@@ -2100,7 +2094,7 @@ const ServicesPage = () => {
                 <li><a href="#" className="text-gray-400 hover:text-white transition">Cybersecurity</a></li>
                 <li><a href="#" className="text-gray-400 hover:text-white transition">Digital Transformation</a></li>
               </ul>
-            </div>
+            </div> */}
 
             <div>
               <h4 className="font-bold text-lg mb-4">Company</h4>
@@ -2127,7 +2121,7 @@ const ServicesPage = () => {
 
           <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © 2024 AI Solutions. All rights reserved.
+              © 2026 AI Solutions. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-gray-400 hover:text-white text-sm transition">Privacy Policy</a>
