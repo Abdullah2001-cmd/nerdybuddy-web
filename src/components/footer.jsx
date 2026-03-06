@@ -469,11 +469,9 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-lg mb-4">Resources</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-400 hover:text-white transition">Documentation</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition">API Reference</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition">Blog</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition">Case Studies</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition">Webinars</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition">Implementation</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition">Use Cases</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition">Problem Statement</a></li>
             </ul>
           </div>
 
@@ -481,10 +479,7 @@ const Footer = () => {
             <h4 className="font-bold text-lg mb-4">Company</h4>
             <ul className="space-y-3">
               <li><a href="#" className="text-gray-400 hover:text-white transition">About Us</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition">Careers</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white transition">Contact</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition">Partners</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition">Legal</a></li>
             </ul>
           </div>
         </div>

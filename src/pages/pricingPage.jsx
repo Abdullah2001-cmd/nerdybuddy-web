@@ -1916,10 +1916,11 @@ const PricingPage = () => {
                         <div className="grid md:grid-cols-4 gap-12 mb-12">
                             <div>
                                 <div className="flex items-center space-x-2 mb-6">
-                                    <Brain className="w-8 h-8 text-[#B03982]" />
-                                    <span className="text-2xl font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
-                                        AI Solutions
-                                    </span>
+                                    <img
+                                        src="https://nerdybuddy.com/wp-content/uploads/2024/08/Nerdy-Buddy-scaled.png"
+                                        alt="Nerdy Buddy"
+                                        className="h-8 w-auto transition-all duration-300"
+                                    />
                                 </div>
                                 <p className="text-gray-400 mb-6">
                                     Empowering businesses with cutting-edge AI solutions for knowledge management and automation.
@@ -1957,11 +1958,9 @@ const PricingPage = () => {
                             <div>
                                 <h4 className="font-bold text-lg mb-4">Resources</h4>
                                 <ul className="space-y-3">
-                                    <li><a href="#" className="text-gray-400 hover:text-white transition">Documentation</a></li>
-                                    <li><a href="#" className="text-gray-400 hover:text-white transition">API Reference</a></li>
-                                    <li><a href="#" className="text-gray-400 hover:text-white transition">Blog</a></li>
-                                    <li><a href="#" className="text-gray-400 hover:text-white transition">Case Studies</a></li>
-                                    <li><a href="#" className="text-gray-400 hover:text-white transition">Webinars</a></li>
+                                    <li><a href="#" className="text-gray-400 hover:text-white transition">Implementation</a></li>
+                                    <li><a href="#" className="text-gray-400 hover:text-white transition">Use Cases</a></li>
+                                    <li><a href="#" className="text-gray-400 hover:text-white transition">Problem Statement</a></li>
                                 </ul>
                             </div>
 
@@ -1969,10 +1968,7 @@ const PricingPage = () => {
                                 <h4 className="font-bold text-lg mb-4">Company</h4>
                                 <ul className="space-y-3">
                                     <li><a href="#" className="text-gray-400 hover:text-white transition">About Us</a></li>
-                                    <li><a href="#" className="text-gray-400 hover:text-white transition">Careers</a></li>
                                     <li><a href="#" className="text-gray-400 hover:text-white transition">Contact</a></li>
-                                    <li><a href="#" className="text-gray-400 hover:text-white transition">Partners</a></li>
-                                    <li><a href="#" className="text-gray-400 hover:text-white transition">Legal</a></li>
                                 </ul>
                             </div>
                         </div>
