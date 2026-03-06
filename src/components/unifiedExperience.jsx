@@ -42,7 +42,7 @@ const UnifiedExperience = () => {
 
   const platformStats = [
     { value: "100%", label: "Sync Across All Devices", icon: <Zap className="w-4 h-4" /> },
-    { value: "24/7", label: "Availability", icon: <Cpu className="w-4 h-4" /> },
+    { value: "24/7", label: "AI Availability", icon: <Cpu className="w-4 h-4" /> },
     { value: "Enterprise", label: "Security Level", icon: <ShieldCheck className="w-4 h-4" /> },
     { value: "Unified", label: "User Experience", icon: <Users className="w-4 h-4" /> }
   ];

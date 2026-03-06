@@ -345,19 +345,22 @@ const PricingPage = () => {
     // Implementation Services Data
     const implementationServices = [
         {
-            id: 'Technical Implementation',
-            title: "Technical Implementation",
+            id: 'Starter (Free)',
+            title: "Starter (Free)",
             shortDesc: "Perfect for evaluation and small teams",
             icon: <Rocket className="w-8 h-8" />,
-            price: "0",
+            price: "Free",
             setupFee: "No setup fee",
             features: [
-                "Seamless IT System Integration",
-                "Robust ERP System Integration",
-                "Flexible Cloud or On-Prem Deployment",
-                "Flexible Platform Customization",
-                "Enterprise-Grade SSO Integration",
-                "Comprehensive Data Security & User Auth",
+                "Company Creation",
+                "Department Creation",
+                "Number of Users: 1",
+                "Roles & Permissions: Basic - Pre Defined Roles",
+                "Admin Portal Access: Yes",
+                "LMS Access (Admin): No",
+                "Leaderboard: No",
+                "Onboarding Module: No",
+                "On-Job Training Module: No",
             ],
             gradient: "from-blue-400 to-cyan-500",
             color: "blue",
@@ -368,19 +371,22 @@ const PricingPage = () => {
             ]
         },
         {
-            id: 'Functional Implementation',
-            title: "Functional Implementation",
+            id: 'Standard',
+            title: "Standard",
             shortDesc: "Ideal for growing teams",
             icon: <Briefcase className="w-8 h-8" />,
-            price: "99",
+            price: "200",
             setupFee: "Contact for setup",
             features: [
-                "Company structure configuration",
-                "Departments creation",
-                "User role definition and permissions",
-                "Document type setup",
-                "Uploading & tagging of organizational documents",
-                "QA and approval testing with key users",
+                "Company Creation: 1",
+                "Department Creation: Unlimited",
+                "Number of Users: Up to 10",
+                "Roles & Permissions: Advanced - can create",
+                "Admin Portal Access: Yes",
+                "LMS Access (Admin): Yes",
+                "Leaderboard: Yes",
+                "Onboarding Module: Yes",
+                "On-Job Training Module: Yes",
             ],
             gradient: "from-purple-400 to-pink-500",
             color: "purple",
@@ -391,19 +397,22 @@ const PricingPage = () => {
             ]
         },
         {
-            id: 'AI-Efficiency Enhancements',
-            title: "AI-Efficiency Enhancements",
+            id: 'Enterprise (Integration)',
+            title: "Enterprise (Integration)",
             shortDesc: "Complex enterprise firms with custom needs",
             icon: <Globe className="w-8 h-8" />,
-            price: "599",
+            price: "Custom",
             setupFee: "Custom setup",
             features: [
-                "Continuous Usage Tuning",
-                "Quarterly AI Performance Review",
-                "Log and feedback analysis",
-                "Smarter Document Interpretation",
-                "AI Prompt & Context Refinement",
-                "Optimized Answers for User Satisfaction",
+                "Company Creation: Multiple",
+                "Department Creation: Unlimited",
+                "Number of Users: Unlimited",
+                "Roles & Permissions: Fully Custom",
+                "Admin Portal Access: Yes",
+                "LMS Access (Admin): Yes",
+                "Leaderboard: Yes",
+                "Onboarding Module: Yes",
+                "On-Job Training Module: Yes",
             ],
             gradient: "from-pink-400 to-rose-500",
             color: "pink",
@@ -413,29 +422,6 @@ const PricingPage = () => {
                 { label: "Support", value: "Priority" }
             ]
         },
-        {
-            id: 'Maintenance & Support',
-            title: "Maintenance & Support",
-            shortDesc: "Complex enterprise firms with custom needs",
-            icon: <Globe className="w-8 h-8" />,
-            price: "599",
-            setupFee: "Custom setup",
-            features: [
-                "Dedicated Support for Issue Resolution",
-                "Regular Software Updates & Patch Management",
-                "Dedicated Support for Issues",
-                "Minor Customizations On Demand",
-                "Reliable Monitoring & Uptime",
-                "Feedback collection for ongoing improvement",
-            ],
-            gradient: "from-pink-400 to-rose-500",
-            color: "pink",
-            stats: [
-                { label: "Users", value: "∞" },
-                { label: "Documents", value: "∞" },
-                { label: "Support", value: "Priority" }
-            ]
-        }
     ];
 
     // Annual Plans Data
@@ -724,7 +710,7 @@ const PricingPage = () => {
             <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
 
                 {/* Hero Section */}
-                <section className="relative pt-44 pb-20 overflow-hidden">
+                <section className="relative pt-44 overflow-hidden">
                     <div className="relative container mx-auto px-4 md:px-6 text-center">
                         <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#B03982]/10 to-[#733C86]/10 rounded-full border border-[#B03982]/20 mb-8">
                             <Sparkles className="w-4 h-4 text-[#B03982] mr-2" />
@@ -744,7 +730,7 @@ const PricingPage = () => {
                         </p>
 
                         {/* Stats */}
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                        {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
                             {stats.map((stat, index) => (
                                 <div key={index} className="text-center">
                                     <div className="flex justify-center mb-3">
@@ -756,15 +742,15 @@ const PricingPage = () => {
                                     <div className="text-sm text-gray-600">{stat.label}</div>
                                 </div>
                             ))}
-                        </div>
+                        </div> */}
                     </div>
                 </section>
 
                 {/* Main Pricing Section */}
-                <section className="py-10 bg-gray-50">
+                <section className="bg-gray-50">
                     <div className="container mx-auto px-4 md:px-6">
                         {/* Section Header */}
-                        <div className="text-center mb-12">
+                        {/* <div className="text-center mb-12">
                             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                                 Flexible Plans for{' '}
                                 <span className="bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
@@ -774,7 +760,7 @@ const PricingPage = () => {
                             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                                 Choose the perfect plan for your organization's needs. All plans include core features.
                             </p>
-                        </div>
+                        </div> */}
 
                         {/* Tabs Navigation */}
                         <div className="flex flex-col items-center mb-12">
@@ -832,7 +818,7 @@ const PricingPage = () => {
                         <div className="transition-all duration-500">
                             {activeTab === 'implementation' ? (
                                 <div>
-                                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                                         {implementationServices.map((service, index) => {
                                             return (
                                                 <div
@@ -850,7 +836,7 @@ const PricingPage = () => {
                                                         {/* Icon */}
                                                         <div className="relative mb-6">
                                                             <div className="absolute -inset-3 bg-gradient-to-br from-[#B03982]/20 to-[#733C86]/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                                            <div className={`relative w-16 h-16 flex items-center justify-center bg-gradient-to-br from-${service.color}-50 to-white rounded-2xl border border-${service.color}-200 group-hover:border-transparent transition-all duration-300`}>
+                                                            <div className={`relative w-16 h-16 flex items-center justify-center bg-gradient-to-br from-${service.color}-50 to-white rounded-2xl border border-gray-200 group-hover:border-transparent transition-all duration-300`}>
                                                                 <div className={`text-${service.color}-600 transform group-hover:scale-110 transition-transform duration-300`}>
                                                                     {service.icon}
                                                                 </div>
@@ -864,7 +850,7 @@ const PricingPage = () => {
                                                         {/* Price */}
                                                         <div className="mb-4">
                                                             <div className="text-4xl font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
-                                                                ${service.price}
+                                                                {service.price === 'Free' ? 'Free' : service.price === 'Custom' ? 'Custom' : `$ ${service.price}`}
                                                             </div>
                                                             {/* <div className="text-sm text-gray-600">Per hour</div> */}
                                                             {/* <div className="text-xs text-gray-500 mt-1">{service.setupFee} setup</div> */}
@@ -883,7 +869,7 @@ const PricingPage = () => {
                                                         {/* Features */}
                                                         <div className="space-y-3 mb-8">
                                                             <h4 className="font-semibold text-gray-900">Key Features:</h4>
-                                                            {service.features.slice(0, 5).map((feature, idx) => (
+                                                            {service.features.map((feature, idx) => (
                                                                 <div key={idx} className="flex items-start gap-2">
                                                                     <CheckCircle className={`w-4 h-4 text-${service.color}-600 flex-shrink-0 mt-0.5`} />
                                                                     <span className="text-sm text-gray-700">{feature}</span>
@@ -893,7 +879,13 @@ const PricingPage = () => {
 
                                                         {/* CTA Button */}
                                                         <button
-                                                            onClick={() => handlePlanSelect(service)}
+                                                            onClick={() => {
+                                                                if (service.title === 'Enterprise (Integration)') {
+                                                                    navigate('/contact-us')
+                                                                } else {
+                                                                    handlePlanSelect(service)
+                                                                }
+                                                            }}
                                                             className="cursor-pointer w-full py-3 bg-gradient-to-r from-[#B03982] to-[#733C86] text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-[#B03982]/20 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
                                                         >
                                                             {/* {() ? (
@@ -907,7 +899,7 @@ const PricingPage = () => {
                                                             ) : (
                                                                 'Get Started'
                                                             )} */}
-                                                            Start Plan
+                                                            {service.title === 'Enterprise (Integration)' ? 'Contact Sales' : 'Start Plan'}
                                                         </button>
                                                     </div>
                                                 </div>
@@ -1062,7 +1054,7 @@ const PricingPage = () => {
                 </section>
 
                 {/* Comparison Table */}
-                <section className="bg-gray-50">
+                <section className="bg-gray-50 mt-10">
                     <div className="container pb-10 mx-auto px-4 md:px-6">
                         <div className="text-center mb-12">
                             <h2 className="text-4xl font-bold mb-4">

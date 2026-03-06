@@ -19,7 +19,7 @@ const Navbar = () => {
     const menuItems = [
         { name: 'Home', href: '/', active: location.pathname === '/' },
         { name: 'Pricing', href: '/pricing', active: location.pathname === '/pricing' },
-        { name: 'Services', href: '/services', active: location.pathname === '/services' },
+        // { name: 'Services', href: '/services', active: location.pathname === '/services' },
         { name: 'About us', href: '/about', active: location.pathname === '/about' },
         { name: 'Contact us', href: '/contact-us', active: location.pathname === '/contact-us' },
     ];

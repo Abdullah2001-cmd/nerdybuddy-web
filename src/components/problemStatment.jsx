@@ -18,7 +18,7 @@ import { MdOutlineFeedback } from "react-icons/md";
 import { RiRecycleLine } from "react-icons/ri";
 
 const ProblemStatement = () => {
-  
+
   const problems = [
     {
       icon: <Brain className="w-8 h-8" />,
@@ -30,29 +30,29 @@ const ProblemStatement = () => {
     {
       icon: <FileStack className="w-8 h-8" />,
       title: "Scattered Documents, Confusing Contradictions",
-      description: "Critical information spread across multiple platforms with conflicting versions",
-      stats: "42% of employees encounter contradictory information",
+      description: "Critical policies are spread across multiple files, folders, and versions.",
+      stats: "Employees spend nearly 1.8 hours per day.",
       gradient: "from-yellow-400 to-amber-500"
-    },
-    {
-      icon: <ShieldAlert className="w-8 h-8" />,
-      title: "Plagiarism Risk vs Accessibility",
-      description: "Balancing security with easy access to organizational knowledge",
-      stats: "68% of organizations face internal data leakage",
-      gradient: "from-purple-400 to-pink-500"
     },
     {
       icon: <TrendingUp className="w-8 h-8" />,
       title: "High Cost of Training and Communication",
-      description: "Expensive training programs and inefficient communication channels",
+      description: "Organizations repeatedly invest in training employees on policies that are rarely revisited.",
       stats: "$1,286 average cost per employee for training",
       gradient: "from-blue-400 to-cyan-500"
     },
     {
+      icon: <ShieldAlert className="w-8 h-8" />,
+      title: "Plagiarism Risk vs Accessibility",
+      description: "Organizations must share documents internally while protecting them from misuse or copying.",
+      stats: "Over 60% of companies report risks from internal data.",
+      gradient: "from-purple-400 to-pink-500"
+    },
+    {
       icon: <MessageSquare className="w-8 h-8" />,
       title: "No Bottom-Up Feedback",
-      description: "Lack of structured channels for employee insights and suggestions",
-      stats: "Only 23% of organizations collect regular feedback",
+      description: "Employees often lack structured channels to share insights from real operational challenges.s",
+      stats: "Only about 14% of employees feel their feedback truly reaches leadership.",
       gradient: "from-green-400 to-teal-500"
     }
   ];
@@ -69,12 +69,7 @@ const ProblemStatement = () => {
       <div className="relative container mx-auto px-4 md:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 md:mb-20">
-          <div className="inline-flex items-center gap-2 mb-4">
-            <AlertCircle className="w-5 h-5 text-[#B03982]" />
-            <span className="text-sm font-medium text-gray-600 uppercase tracking-wider">
-              The Challenge We Solve
-            </span>
-          </div>
+
 
           <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold mb-6 flex justify-center gap-4">
             <span className="block text-gray-900">Problem</span>
@@ -86,6 +81,12 @@ const ProblemStatement = () => {
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Organizations face critical challenges in knowledge management that impact productivity, security, and growth.
           </p>
+          <div className="inline-flex items-center gap-2 mt-4">
+            <AlertCircle className="w-5 h-5 text-[#B03982]" />
+            <span className="text-sm font-medium text-gray-600 uppercase tracking-wider">
+              The Challenge We Solve
+            </span>
+          </div>
         </div>
 
         {/* Stats Overview */}
@@ -113,53 +114,77 @@ const ProblemStatement = () => {
         </div>
 
         {/* Problems Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr mb-4">
           {problems.slice(0, 3).map((problem, index) => (
             <div
               key={index}
-              className="group relative bg-gradient-to-br from-white to-gray-50 backdrop-blur-sm rounded-2xl border border-gray-200 p-8 hover:border-[#B03982]/50 transition-all duration-300 hover:scale-[1.02] shadow-sm hover:shadow-md"
+              className="group relative bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_20px_40px_-12px_rgba(176,57,130,0.2)] transition-all duration-500 overflow-hidden"
             >
-              {/* Animated Background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#B03982]/0 to-[#733C86]/0 group-hover:from-[#B03982]/5 group-hover:to-[#733C86]/5 rounded-2xl transition-all duration-500"></div>
+              {/* Gradient Border Effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-[#B03982]/0 via-[#B03982]/0 to-[#733C86]/0 group-hover:from-[#B03982]/20 group-hover:via-[#B03982]/5 group-hover:to-[#733C86]/20 transition-all duration-700"></div>
 
-              <div className="relative">
-                {/* Icon */}
-                <div className="mb-6">
-                  <div className="relative">
-                    <div className="absolute -inset-3 bg-gradient-to-br from-[#B03982]/10 to-[#733C86]/10 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div className="relative w-16 h-16 flex items-center justify-center bg-gradient-to-br from-gray-100 to-white rounded-xl border border-gray-300 group-hover:border-transparent transition-all duration-300 shadow-sm">
-                      <div className="text-gray-800 transform group-hover:scale-110 transition-transform duration-300">
-                        {problem.icon}
+              {/* Main Content Container */}
+              <div className="relative h-full p-8 flex flex-col">
+
+                {/* Top Section with Icon and Decorative Elements */}
+                <div className="relative mb-8">
+                  {/* Background Blob */}
+                  <div className="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-br from-[#B03982]/5 to-[#733C86]/5 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+
+                  {/* Icon Container */}
+                  <div className="relative flex items-center justify-between">
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-gradient-to-r from-[#B03982] to-[#733C86] rounded-2xl blur opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
+                      <div className="relative w-16 h-16 flex items-center justify-center bg-white rounded-2xl border border-gray-100 shadow-sm group-hover:shadow-lg group-hover:border-transparent transition-all duration-300">
+                        <div className="text-3xl text-gray-700 group-hover:text-[#B03982] transition-colors duration-300">
+                          {problem.icon}
+                        </div>
                       </div>
                     </div>
+
+                    {/* Index Number */}
+                    <span className="text-5xl font-black text-gray-100 group-hover:text-[#B03982]/10 transition-colors duration-500">
+                      {(index + 1).toString().padStart(2, '0')}
+                    </span>
                   </div>
                 </div>
 
-                {/* Content */}
-                <div className="space-y-4">
-                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#B03982] group-hover:to-[#733C86] group-hover:bg-clip-text transition-all duration-300">
-                    {problem.title}
-                  </h3>
-
-                  <p className="text-gray-600 leading-relaxed">
+                {/* Content Section */}
+                <div className="flex-1 space-y-4">
+                  <div className="space-y-2">
+                    <h3 className="text-2xl font-bold text-gray-900 leading-tight">
+                      {problem.title}
+                    </h3>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed mb-4">
                     {problem.description}
                   </p>
+                </div>
 
-                  <div className="pt-4 border-t border-gray-200">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-gray-700">{problem.stats}</span>
-                      <div className="w-8 h-1 bg-gradient-to-r from-gray-300 to-gray-400 rounded-full overflow-hidden">
-                        <div className="w-full h-full bg-gradient-to-r from-red-400 to-orange-500 rounded-full animate-pulse"></div>
-                      </div>
+                {/* Bottom Stats Section */}
+                <div className="pt-6 border-t border-gray-100">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-2">
+                      {/* Pulse Indicator */}
+                      <span className="relative flex h-3 w-3">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#B03982] opacity-20"></span>
+                        <span className="relative inline-flex rounded-full h-3 w-3 bg-gradient-to-r from-[#B03982] to-[#733C86]"></span>
+                      </span>
+                      <span className="text-sm font-semibold text-gray-900">{problem.stats}</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Number Badge */}
-                <div className="absolute -top-3 -left-3 w-10 h-10 flex items-center justify-center bg-gradient-to-br from-white to-gray-100 rounded-full border border-gray-300 text-sm font-bold text-gray-600 group-hover:text-white group-hover:bg-gradient-to-r group-hover:from-[#B03982] group-hover:to-[#733C86] transition-all duration-300 shadow-sm">
-                  {index + 1}
-                </div>
+                {/* Interactive Hover Card */}
+                <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-[#B03982] to-[#733C86] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
               </div>
+
+              {/* Floating Action Button on Hover */}
+              <button className="absolute bottom-4 right-4 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 hover:bg-gradient-to-r hover:from-[#B03982] hover:to-[#733C86] group/btn">
+                <svg className="w-5 h-5 text-gray-600 group-hover/btn:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
             </div>
           ))}
         </div>
@@ -169,49 +194,84 @@ const ProblemStatement = () => {
           {problems.slice(3).map((problem, index) => (
             <div
               key={index}
-              className="group relative bg-gradient-to-br from-white to-gray-50 backdrop-blur-sm rounded-2xl border border-gray-200 p-8 hover:border-[#B03982]/50 transition-all duration-300 hover:scale-[1.02] shadow-sm hover:shadow-md"
+              className="group relative bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_20px_40px_-12px_rgba(176,57,130,0.2)] transition-all duration-500 overflow-hidden"
             >
-              {/* Animated Background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#B03982]/0 to-[#733C86]/0 group-hover:from-[#B03982]/5 group-hover:to-[#733C86]/5 rounded-2xl transition-all duration-500"></div>
+              {/* Gradient Border Effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-[#B03982]/0 via-[#B03982]/0 to-[#733C86]/0 group-hover:from-[#B03982]/20 group-hover:via-[#B03982]/5 group-hover:to-[#733C86]/20 transition-all duration-700"></div>
 
-              <div className="relative flex items-start gap-6">
-                {/* Icon */}
-                <div className="flex-shrink-0">
-                  <div className="relative">
-                    <div className="absolute -inset-3 bg-gradient-to-br from-[#B03982]/10 to-[#733C86]/10 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div className="relative w-16 h-16 flex items-center justify-center bg-gradient-to-br from-gray-100 to-white rounded-xl border border-gray-300 group-hover:border-transparent transition-all duration-300 shadow-sm">
-                      <div className="text-gray-800 transform group-hover:scale-110 transition-transform duration-300">
-                        {problem.icon}
+              {/* Main Content Container */}
+              <div className="relative h-full p-8 flex flex-col">
+
+                {/* Top Section with Icon and Decorative Elements */}
+                <div className="relative mb-8">
+                  {/* Background Blob */}
+                  <div className="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-br from-[#B03982]/5 to-[#733C86]/5 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+
+                  {/* Icon Container */}
+                  <div className="relative flex items-center justify-between">
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-gradient-to-r from-[#B03982] to-[#733C86] rounded-2xl blur opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
+                      <div className="relative w-16 h-16 flex items-center justify-center bg-white rounded-2xl border border-gray-100 shadow-sm group-hover:shadow-lg group-hover:border-transparent transition-all duration-300">
+                        <div className="text-3xl text-gray-700 group-hover:text-[#B03982] transition-colors duration-300">
+                          {problem.icon}
+                        </div>
                       </div>
                     </div>
+
+                    {/* Index Number */}
+                    <span className="text-5xl font-black text-gray-100 group-hover:text-[#B03982]/10 transition-colors duration-500">
+                      {(index + 1).toString().padStart(2, '0')}
+                    </span>
                   </div>
                 </div>
 
-                {/* Content */}
+                {/* Content Section */}
                 <div className="flex-1 space-y-4">
-                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#B03982] group-hover:to-[#733C86] group-hover:bg-clip-text transition-all duration-300">
-                    {problem.title}
-                  </h3>
-
-                  <p className="text-gray-600 leading-relaxed">
+                  <div className="space-y-2">
+                    <h3 className="text-2xl font-bold text-gray-900 leading-tight">
+                      {problem.title}
+                    </h3>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed mb-4">
                     {problem.description}
                   </p>
+                </div>
 
-                  <div className="pt-4 border-t border-gray-200">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-gray-700">{problem.stats}</span>
-                      <div className="w-24 h-2 bg-gradient-to-r from-gray-300 to-gray-400 rounded-full overflow-hidden">
-                        <div className={`h-full bg-gradient-to-r ${problem.gradient} rounded-full animate-pulse`}></div>
-                      </div>
+                {/* Bottom Stats Section */}
+                <div className="pt-6 border-t border-gray-100">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-2">
+                      {/* Pulse Indicator */}
+                      <span className="relative flex h-3 w-3">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#B03982] opacity-20"></span>
+                        <span className="relative inline-flex rounded-full h-3 w-3 bg-gradient-to-r from-[#B03982] to-[#733C86]"></span>
+                      </span>
+                      <span className="text-sm font-semibold text-gray-900">{problem.stats}</span>
                     </div>
+
+                    {/* Progress Indicator */}
+                    {/* <div className="flex items-center space-x-2">
+                      <span className="text-xs text-gray-400">Impact</span>
+                      <div className="w-16 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                        <div
+                          className="h-full bg-gradient-to-r from-[#B03982] to-[#733C86] rounded-full transform origin-left transition-transform duration-1000"
+                          style={{ transform: `scaleX(${0.3 + (index * 0.2)})` }}
+                        ></div>
+                      </div>
+                    </div> */}
                   </div>
                 </div>
 
-                {/* Number Badge */}
-                <div className="absolute -top-3 -right-3 w-10 h-10 flex items-center justify-center bg-gradient-to-br from-white to-gray-100 rounded-full border border-gray-300 text-sm font-bold text-gray-600 group-hover:text-white group-hover:bg-gradient-to-r group-hover:from-[#B03982] group-hover:to-[#733C86] transition-all duration-300 shadow-sm">
-                  {index + 4}
-                </div>
+                {/* Interactive Hover Card */}
+                <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-[#B03982] to-[#733C86] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
               </div>
+
+              {/* Floating Action Button on Hover */}
+              <button className="absolute bottom-4 right-4 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 hover:bg-gradient-to-r hover:from-[#B03982] hover:to-[#733C86] group/btn">
+                <svg className="w-5 h-5 text-gray-600 group-hover/btn:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
             </div>
           ))}
         </div>

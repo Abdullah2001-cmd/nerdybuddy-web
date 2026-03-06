@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Sparkles, Check, Zap, MessageSquare, Globe, Smartphone } from 'lucide-react';
 import logoImage from '../assets/logo2.png'
-import Chat from './chat';
+import chatUI from '../assets/chat-ui.png'
+// import Chat from './chat';
 
 const HeroSection = ({ reveal }) => {
 
@@ -125,9 +126,10 @@ const HeroSection = ({ reveal }) => {
                             <div className="flex justify-center">
                                 <div className='relative'>
                                     <img
-                                        src="https://aiglobe.wpengine.com/wp-content/uploads/2023/12/chat-mob.png"
+                                        // src="https://aiglobe.wpengine.com/wp-content/uploads/2023/12/chat-mob.png"
+                                        src={chatUI}
                                         alt="AI Chat Interface"
-                                        className="w-[360px] max-w-sm mx-auto drop-shadow-2xl"
+                                        className="w-full mx-auto drop-shadow-2xl"
                                     />
                                     <div
                                         id="hero-character-target"
@@ -164,7 +166,7 @@ const HeroSection = ({ reveal }) => {
                                         className="w-48 animate-pulse-slower"
                                     />
                                 </div>
-                                <div className="absolute top-10 -right-14 bg-white rounded-2xl border border-gray-200 p-4 shadow-2xl">
+                                <div className="absolute -top-24 -right-14 bg-white rounded-2xl border border-gray-200 p-4 shadow-2xl">
                                     <div className="flex items-center gap-3">
                                         <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-xl">
                                             <Zap className="w-5 h-5 text-white" />

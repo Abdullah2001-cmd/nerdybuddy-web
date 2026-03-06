@@ -15,12 +15,13 @@ import {
 } from 'lucide-react';
 
 const WhyChooseNow = () => {
+  
   const reasons = [
     {
       icon: <Brain className="w-5 h-5" />,
       title: "Information Overload is Real",
       description: "Employees are overwhelmed by scattered information across multiple platforms",
-      stat: "3.6 hours/week wasted searching for info",
+      stat: "Within 7 days, new hires forget 70% of what they learned—simply because they can't find it when needed.",
       gradient: "from-red-400 to-orange-500"
     },
     {
@@ -34,7 +35,7 @@ const WhyChooseNow = () => {
       icon: <Shield className="w-5 h-5" />,
       title: "Security & IP Protection Demands Are Growing",
       description: "Protecting sensitive data while enabling access is critical",
-      stat: "68% of businesses face internal data risks",
+      stat: "A determined employee can exfiltrate 40GB of sensitive data in under 30 minutes",
       gradient: "from-purple-400 to-pink-500"
     },
     {
@@ -48,7 +49,7 @@ const WhyChooseNow = () => {
       icon: <TrendingUp className="w-5 h-5" />,
       title: "Training & Onboarding Costs Are Soaring",
       description: "Traditional methods are expensive and inefficient",
-      stat: "$1,286 average training cost per employee",
+      stat: "Replacing a single employee can cost up to 200% of their annual salary—far more than fixing your onboarding.",
       gradient: "from-yellow-400 to-amber-500"
     }
   ];
@@ -63,10 +64,12 @@ const WhyChooseNow = () => {
   return (
     <section className="relative py-20 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-50">
       <div className="relative container mx-auto px-4 md:px-6 lg:px-8">
+        
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
-          {/* Left Column - Content */}
-          <div className="space-y-8">
-            {/* Header */}
+          
+          {/* Left Column - GIF */}
+          <div className="relative">
+
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#B03982]/10 to-[#733C86]/10 rounded-full border border-[#B03982]/20 backdrop-blur-sm">
                 <Sparkles className="w-4 h-4 text-[#B03982]" />
@@ -90,89 +93,6 @@ const WhyChooseNow = () => {
               </p>
             </div>
 
-            {/* Real Problems Section */}
-            <div className="space-y-6">
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
-                Solving Real-Life Problems:
-              </h3>
-
-              {/* Reasons List */}
-              <div className="space-y-4">
-                {reasons.map((reason, index) => (
-                  <div
-                    key={index}
-                    className="group relative bg-gradient-to-br from-white to-gray-50 backdrop-blur-sm rounded-2xl border border-gray-200 p-5 hover:border-[#B03982]/50 transition-all duration-300 shadow-sm hover:shadow-md"
-                  >
-                    {/* Animated Background */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#B03982]/0 to-[#733C86]/0 group-hover:from-[#B03982]/5 group-hover:to-[#733C86]/5 rounded-2xl transition-all duration-500"></div>
-
-                    <div className="relative flex items-start gap-4">
-                      {/* Icon */}
-                      <div className="relative flex-shrink-0">
-                        <div className="absolute -inset-2 bg-gradient-to-br from-[#B03982]/10 to-[#733C86]/10 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div className="relative w-12 h-12 flex items-center justify-center bg-gradient-to-br from-gray-100 to-white rounded-xl border border-gray-300 group-hover:border-transparent transition-all duration-300 shadow-sm">
-                          <div className="text-gray-800 transform group-hover:scale-110 transition-transform duration-300">
-                            {reason.icon}
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Content */}
-                      <div className="flex-1 space-y-2">
-                        <div className="flex items-start justify-between">
-                          <h4 className="font-semibold text-gray-900 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#B03982] group-hover:to-[#733C86] group-hover:bg-clip-text transition-all duration-300">
-                            {reason.title}
-                          </h4>
-                          <CheckCircle className="w-5 h-5 text-gray-400 group-hover:text-[#B03982] transition-colors duration-300" />
-                        </div>
-
-                        <p className="text-sm text-gray-600">
-                          {reason.description}
-                        </p>
-
-                        {/* Stat Badge */}
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-gray-100 to-gray-50 rounded-full border border-gray-200">
-                          <span className="text-xs font-medium text-gray-700">{reason.stat}</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Progress Indicator */}
-                    <div className="mt-4 relative">
-                      <div className="w-full h-1 bg-gray-200 rounded-full overflow-hidden">
-                        <div
-                          className={`h-full bg-gradient-to-r ${reason.gradient} rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left`}
-                        ></div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Quick Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6">
-              {stats.map((stat, index) => (
-                <div
-                  key={index}
-                  className="bg-gradient-to-br from-white to-gray-50 backdrop-blur-sm rounded-xl border border-gray-200 p-4 text-center group hover:border-[#B03982]/50 transition-all duration-300 shadow-sm hover:shadow-md"
-                >
-                  <div className="flex items-center justify-center gap-2 mb-2">
-                    <div className="text-[#B03982]">
-                      {stat.icon}
-                    </div>
-                    {/* <div className="text-xl font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
-                      {stat.value}
-                    </div> */}
-                  </div>
-                  <div className="text-xs text-gray-600">{stat.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Right Column - GIF */}
-          <div className="relative">
             {/* Floating Badge */}
             <div className="absolute -top-4 -right-4 z-10">
               <div className="relative">
@@ -268,7 +188,7 @@ const WhyChooseNow = () => {
             </div>
 
             {/* Timeline Indicator */}
-            <div className="mt-8 p-4 bg-gradient-to-br from-white to-gray-50 backdrop-blur-sm rounded-xl border border-gray-200 shadow-sm">
+            {/* <div className="mt-8 p-4 bg-gradient-to-br from-white to-gray-50 backdrop-blur-sm rounded-xl border border-gray-200 shadow-sm">
               <div className="flex items-center justify-between mb-3">
                 <span className="text-sm font-medium text-gray-700">Time to Value</span>
                 <span className="text-sm font-bold text-[#B03982]">Rapid</span>
@@ -281,8 +201,94 @@ const WhyChooseNow = () => {
                 <span>Integration</span>
                 <span>Results</span>
               </div>
+            </div> */}
+          </div>
+          
+          {/* Right Column - Content */}
+          <div className="space-y-8">
+            {/* Header */}
+
+            {/* Real Problems Section */}
+            <div className="space-y-6">
+              {/* <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
+                Solving Real-Life Problems:
+              </h3> */}
+
+              {/* Reasons List */}
+              <div className="space-y-4">
+                {reasons.map((reason, index) => (
+                  <div
+                    key={index}
+                    className="group relative bg-gradient-to-br from-white to-gray-50 backdrop-blur-sm rounded-2xl border border-gray-200 p-5 hover:border-[#B03982]/50 transition-all duration-300 shadow-sm hover:shadow-md"
+                  >
+                    {/* Animated Background */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#B03982]/0 to-[#733C86]/0 group-hover:from-[#B03982]/5 group-hover:to-[#733C86]/5 rounded-2xl transition-all duration-500"></div>
+
+                    <div className="relative flex items-start gap-4">
+                      {/* Icon */}
+                      <div className="relative flex-shrink-0">
+                        <div className="absolute -inset-2 bg-gradient-to-br from-[#B03982]/10 to-[#733C86]/10 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div className="relative w-12 h-12 flex items-center justify-center bg-gradient-to-br from-gray-100 to-white rounded-xl border border-gray-300 group-hover:border-transparent transition-all duration-300 shadow-sm">
+                          <div className="text-gray-800 transform group-hover:scale-110 transition-transform duration-300">
+                            {reason.icon}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Content */}
+                      <div className="flex-1 space-y-2">
+                        <div className="flex items-start justify-between">
+                          <h4 className="font-semibold text-gray-900 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#B03982] group-hover:to-[#733C86] group-hover:bg-clip-text transition-all duration-300">
+                            {reason.title}
+                          </h4>
+                          <CheckCircle className="w-5 h-5 text-gray-400 group-hover:text-[#B03982] transition-colors duration-300" />
+                        </div>
+
+                        <p className="text-sm text-gray-600">
+                          {reason.description}
+                        </p>
+
+                        {/* Stat Badge */}
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-gray-100 to-gray-50 rounded-full border border-gray-200">
+                          <span className="text-xs font-medium text-gray-700">{reason.stat}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Progress Indicator */}
+                    <div className="mt-4 relative">
+                      <div className="w-full h-1 bg-gray-200 rounded-full overflow-hidden">
+                        <div
+                          className={`h-full bg-gradient-to-r ${reason.gradient} rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left`}
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Quick Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-3">
+              {stats.map((stat, index) => (
+                <div
+                  key={index}
+                  className="bg-gradient-to-br from-white to-gray-50 backdrop-blur-sm rounded-xl border border-gray-200 p-4 text-center group hover:border-[#B03982]/50 transition-all duration-300 shadow-sm hover:shadow-md"
+                >
+                  <div className="flex items-center justify-center gap-2 mb-2">
+                    <div className="text-[#B03982]">
+                      {stat.icon}
+                    </div>
+                    {/* <div className="text-xl font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
+                      {stat.value}
+                    </div> */}
+                  </div>
+                  <div className="text-xs text-gray-600">{stat.label}</div>
+                </div>
+              ))}
             </div>
           </div>
+          
         </div>
 
         {/* CTA Section */}

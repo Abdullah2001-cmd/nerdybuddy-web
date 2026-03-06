@@ -149,7 +149,7 @@ const ImplementationServices = () => {
         </div>
 
         {/* Tabs Navigation */}
-        <div className="flex justify-center mb-12">
+        {/* <div className="flex justify-center mb-12">
           <div className="inline-flex bg-gradient-to-br from-gray-100 to-white rounded-full border border-gray-200 p-1 shadow-sm">
             <button
               onClick={() => setActiveTab('monthly')}
@@ -173,7 +173,7 @@ const ImplementationServices = () => {
               </span>
             </button>
           </div>
-        </div>
+        </div> */}
 
         {/* Tab Content */}
         <div className="transition-all duration-500">
@@ -200,14 +200,14 @@ const ImplementationServices = () => {
                     <h3 className="text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
 
                     {/* Price if exists */}
-                    {service.price && (
+                    {/* {service.price && (
                       <div className="mt-4">
                         <div className="text-3xl font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
                           ${service.price}
                         </div>
                         <div className="text-sm text-gray-600">Per hour</div>
                       </div>
-                    )}
+                    )} */}
                   </div>
 
                   {/* Features List */}
@@ -237,9 +237,9 @@ const ImplementationServices = () => {
                   </div> */}
 
                   {/* Badge */}
-                  <div className="absolute -top-3 -right-3 w-12 h-12 flex items-center justify-center bg-gradient-to-br from-white to-gray-100 rounded-full border border-gray-300 text-xs font-bold text-gray-600 group-hover:text-white group-hover:bg-gradient-to-r group-hover:from-[#B03982] group-hover:to-[#733C86] transition-all duration-300 shadow-sm">
+                  {/* <div className="absolute -top-3 -right-3 w-12 h-12 flex items-center justify-center bg-gradient-to-br from-white to-gray-100 rounded-full border border-gray-300 text-xs font-bold text-gray-600 group-hover:text-white group-hover:bg-gradient-to-r group-hover:from-[#B03982] group-hover:to-[#733C86] transition-all duration-300 shadow-sm">
                     {index + 1}
-                  </div>
+                  </div> */}
                 </div>
               ))}
             </div>

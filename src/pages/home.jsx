@@ -324,9 +324,9 @@ function Home({ isLoading }) {
         <UseCases />
       </Reveal>
 
-      {/* <Reveal side="left">
+      <Reveal side="left">
         <ImplementationServices />
-      </Reveal> */}
+      </Reveal>
 
       <Reveal side="right">
         <ContactFormSection />
