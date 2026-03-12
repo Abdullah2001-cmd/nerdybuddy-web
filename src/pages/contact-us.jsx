@@ -390,12 +390,12 @@ const ContactInformation = () => {
                                         </p>
                                     </div>
 
-                                    <div className="flex items-center justify-center gap-2">
+                                    {/* <div className="flex items-center justify-center gap-2">
                                         <div className="w-2 h-2 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-full animate-pulse"></div>
                                         <span className="text-xs sm:text-sm text-gray-600">
                                             Preparing your demo...
                                         </span>
-                                    </div>
+                                    </div> */}
 
                                 </div>
                             ) : (

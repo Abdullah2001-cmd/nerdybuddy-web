@@ -268,7 +268,7 @@ const WhyChooseNow = () => {
         </div>
 
         {/* Floating Elements - Hidden on mobile */}
-        <div className="absolute top-32 left-10 hidden xl:block">
+        <div className="absolute top-0 left-70 hidden xl:block">
           <div className="w-16 lg:w-20 h-16 lg:h-20 bg-gradient-to-br from-[#B03982]/5 to-[#733C86]/5 rounded-full border border-[#B03982]/10 backdrop-blur-sm animate-pulse"></div>
         </div>
 

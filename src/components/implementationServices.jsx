@@ -14,10 +14,11 @@ import {
   Server,
   TrendingUp
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const ImplementationServices = () => {
   const [activeTab, setActiveTab] = useState('monthly');
-
+  const navigate = useNavigate()
   const services = [
     {
       id: 'technical',
@@ -352,7 +353,7 @@ const ImplementationServices = () => {
               <h4 className="text-xl font-bold text-gray-900 mb-2">Ready to get started?</h4>
               <p className="text-gray-600">Schedule a free consultation with our experts</p>
             </div>
-            <button className="px-8 py-3 bg-gradient-to-r from-[#B03982] to-[#733C86] text-white rounded-xl font-semibold hover:shadow-xl hover:shadow-[#B03982]/20 transition-all duration-300 hover:scale-105">
+            <button onClick={() => navigate('/contact-us')} className="cursor-pointer px-8 py-3 bg-gradient-to-r from-[#B03982] to-[#733C86] text-white rounded-xl font-semibold hover:shadow-xl hover:shadow-[#B03982]/20 transition-all duration-300 hover:scale-105">
               Book a Demo
             </button>
           </div>

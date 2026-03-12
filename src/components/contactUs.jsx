@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Facebook, Linkedin, Send, CheckCircle, Sparkles, Users, Building } from 'lucide-react';
+import { Facebook, Linkedin, Send, CheckCircle, Sparkles, Users, Building, Youtube } from 'lucide-react';
 
 const ContactFormSection = () => {
 
@@ -85,25 +85,25 @@ const ContactFormSection = () => {
             {/* Social Links */}
             <div className="flex items-center gap-4">
               <a
-                href="https://www.facebook.com/profile.php?id=61571851855164"
+                href="https://www.linkedin.com/company/nerdy-buddy/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative w-12 h-12 flex items-center justify-center bg-gradient-to-br from-white to-gray-50 rounded-xl border border-gray-200 hover:border-[#B03982]/50 transition-all duration-300 hover:scale-110 shadow-sm hover:shadow-md"
                 aria-label="Visit our Facebook page"
               >
                 <div className="absolute -inset-3 bg-gradient-to-br from-[#B03982]/10 to-[#733C86]/10 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <Facebook className="w-5 h-5 text-gray-700 group-hover:text-[#B03982] transition-colors duration-300" />
+                <Linkedin className="w-5 h-5 text-gray-700 group-hover:text-[#B03982] transition-colors duration-300" />
               </a>
 
               <a
-                href="https://www.linkedin.com/company/106011349/admin/dashboard/"
+                href="https://www.youtube.com/@NerdyBuddy-AI"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative w-12 h-12 flex items-center justify-center bg-gradient-to-br from-white to-gray-50 rounded-xl border border-gray-200 hover:border-[#B03982]/50 transition-all duration-300 hover:scale-110 shadow-sm hover:shadow-md"
                 aria-label="Visit our LinkedIn page"
               >
                 <div className="absolute -inset-3 bg-gradient-to-br from-[#B03982]/10 to-[#733C86]/10 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <Linkedin className="w-5 h-5 text-gray-700 group-hover:text-[#B03982] transition-colors duration-300" />
+                <Youtube className="w-5 h-5 text-gray-700 group-hover:text-[#B03982] transition-colors duration-300" />
               </a>
             </div>
 
@@ -171,10 +171,10 @@ const ContactFormSection = () => {
                       Your message has been received. Our team will contact you within 24 hours.
                     </p>
                   </div>
-                  <div className="flex items-center justify-center gap-2">
+                  {/* <div className="flex items-center justify-center gap-2">
                     <div className="w-2 h-2 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-full animate-pulse"></div>
                     <span className="text-sm text-gray-600">Preparing your demo...</span>
-                  </div>
+                  </div> */}
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">

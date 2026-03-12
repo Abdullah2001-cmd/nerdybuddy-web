@@ -274,7 +274,7 @@ const ProductOverview = () => {
             </div>
 
             {/* CTA Button */}
-            <div className="pt-4">
+            {/* <div className="pt-4">
               <button className="cursor-pointer group relative px-8 py-4 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#B03982]/20">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#c94594] to-[#8a48a3] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative flex items-center justify-center gap-3">
@@ -283,7 +283,7 @@ const ProductOverview = () => {
                   <ArrowRight className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" />
                 </div>
               </button>
-            </div>
+            </div> */}
           </div>
 
           {/* Right Column - GIF/Image */}

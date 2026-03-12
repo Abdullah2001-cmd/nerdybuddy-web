@@ -100,12 +100,12 @@ const ProblemStatement = () => {
                 </div>
               </div>
               <div className="text-xs sm:text-sm md:text-base text-gray-600 line-clamp-2">{stat.label}</div>
-              <div className="mt-2 sm:mt-3 h-1 w-12 sm:w-16 mx-auto bg-gradient-to-r from-gray-300 to-gray-400 rounded-full overflow-hidden">
+              {/* <div className="mt-2 sm:mt-3 h-1 w-12 sm:w-16 mx-auto bg-gradient-to-r from-gray-300 to-gray-400 rounded-full overflow-hidden">
                 <div
                   className="h-full bg-gradient-to-r from-[#B03982] to-[#733C86] rounded-full animate-pulse"
                   style={{ width: `${70 - index * 15}%` }}
                 ></div>
-              </div>
+              </div> */}
             </div>
           ))}
         </div>
@@ -136,9 +136,9 @@ const ProblemStatement = () => {
                     </div>
 
                     {/* Index Number */}
-                    <span className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-100 group-hover:text-[#B03982]/10 transition-colors duration-500">
+                    {/* <span className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-100 group-hover:text-[#B03982]/10 transition-colors duration-500">
                       {(index + 1).toString().padStart(2, '0')}
-                    </span>
+                    </span> */}
                   </div>
                 </div>
 
@@ -173,11 +173,11 @@ const ProblemStatement = () => {
               </div>
 
               {/* Floating Action Button on Hover */}
-              <button className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-white rounded-full shadow-lg flex items-center justify-center opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 hover:bg-gradient-to-r hover:from-[#B03982] hover:to-[#733C86] group/btn">
+              {/* <button className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-white rounded-full shadow-lg flex items-center justify-center opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 hover:bg-gradient-to-r hover:from-[#B03982] hover:to-[#733C86] group/btn">
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 group-hover/btn:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
-              </button>
+              </button> */}
             </div>
           ))}
         </div>
@@ -208,9 +208,9 @@ const ProblemStatement = () => {
                     </div>
 
                     {/* Index Number */}
-                    <span className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-100 group-hover:text-[#B03982]/10 transition-colors duration-500">
+                    {/* <span className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-100 group-hover:text-[#B03982]/10 transition-colors duration-500">
                       {(index + 1).toString().padStart(2, '0')}
-                    </span>
+                    </span> */}
                   </div>
                 </div>
 
@@ -245,11 +245,11 @@ const ProblemStatement = () => {
               </div>
 
               {/* Floating Action Button on Hover */}
-              <button className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-white rounded-full shadow-lg flex items-center justify-center opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 hover:bg-gradient-to-r hover:from-[#B03982] hover:to-[#733C86] group/btn">
+              {/* <button className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-white rounded-full shadow-lg flex items-center justify-center opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 hover:bg-gradient-to-r hover:from-[#B03982] hover:to-[#733C86] group/btn">
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 group-hover/btn:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
-              </button>
+              </button> */}
             </div>
           ))}
         </div>
@@ -301,9 +301,9 @@ const ProblemStatement = () => {
           <div className="w-16 lg:w-24 h-16 lg:h-24 bg-gradient-to-br from-[#B03982]/5 to-[#733C86]/5 rounded-full border border-[#B03982]/10 backdrop-blur-sm animate-pulse"></div>
         </div>
 
-        <div className="absolute bottom-20 right-10 hidden lg:block">
+        {/* <div className="absolute bottom-20 right-10 hidden lg:block">
           <div className="w-24 lg:w-32 h-24 lg:w-32 bg-gradient-to-br from-[#B03982]/5 to-[#733C86]/5 rounded-full border border-[#B03982]/10 backdrop-blur-sm animate-pulse animation-delay-1000"></div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
