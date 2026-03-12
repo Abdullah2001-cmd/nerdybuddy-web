@@ -44,7 +44,7 @@ const HeroSection = ({ reveal }) => {
                         />
                     </div>
                 </div>
-                <div className="relative mx-10 px-4 md:px-6 lg:px-8 py-20">
+                <div className="relative container mx-auto px-4 md:px-6 lg:px-8 py-20">
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                         <div
                             className="transform"
@@ -55,17 +55,14 @@ const HeroSection = ({ reveal }) => {
                             }}
                         >
                             <div className="relative">
-                                <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-white/80 to-white/60 backdrop-blur-sm rounded-full border border-white/40 shadow-lg shadow-[#B03982]/5 mb-8">
+                                <div className="inline-flex justify-center items-center gap-2 px-6 py-3 bg-gradient-to-r from-white/80 to-white/60 backdrop-blur-sm rounded-full border border-white/40 shadow-lg shadow-[#B03982]/5 mb-8">
                                     <Sparkles className="w-5 h-5 text-[#B03982]" />
                                     <span className="text-base font-semibold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
                                         AI-Powered Solutions
                                     </span>
-                                    {/* <div className="ml-2 px-2 py-1 bg-gradient-to-r from-[#B03982]/10 to-[#733C86]/10 rounded-full">
-                                        <span className="text-xs font-medium text-[#733C86]">New</span>
-                                    </div> */}
                                 </div>
                                 <div className="space-y-6 relative">
-                                    <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold leading">
+                                    <h2 className="w-full md:w-[600px] lg:w-[600px] text-3xl text-left md:text-4xl lg:text-5xl font-bold leading">
                                         <span className="text-gray-900">{slide.title}</span>
                                         <span className="relative">
                                             <span className="bg-gradient-to-r from-[#B03982] via-[#a32c8d] to-[#733C86] bg-clip-text text-transparent">
@@ -74,7 +71,7 @@ const HeroSection = ({ reveal }) => {
                                             <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#B03982]/30 to-[#733C86]/30 blur-sm"></span>
                                         </span>
                                     </h2>
-                                    <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+                                    <p className="text-left text-md md:text-xl text-gray-600 leading-relaxed">
                                         {slide.description}
                                     </p>
                                     <ul className="space-y-3">
@@ -90,7 +87,7 @@ const HeroSection = ({ reveal }) => {
                                     <div className="pt-6">
                                         <button
                                             onClick={() => window.location.href = '/pricing'}
-                                            className="group relative px-8 py-4 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#B03982]/30"
+                                            className="w-full md:w-auto lg:w-auto group relative px-8 py-4 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#B03982]/30"
                                         >
                                             <div className="relative flex items-center justify-center gap-3">
                                                 <span className="font-semibold text-lg text-white">Get Started</span>
@@ -166,7 +163,7 @@ const HeroSection = ({ reveal }) => {
                                         className="w-48 animate-pulse-slower"
                                     />
                                 </div>
-                                <div className="absolute -top-24 -right-14 bg-white rounded-2xl border border-gray-200 p-4 shadow-2xl">
+                                <div className="hidden md:block lg:block absolute -top-24 right-0 bg-white rounded-2xl border border-gray-200 p-4 shadow-2xl">
                                     <div className="flex items-center gap-3">
                                         <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-xl">
                                             <Zap className="w-5 h-5 text-white" />

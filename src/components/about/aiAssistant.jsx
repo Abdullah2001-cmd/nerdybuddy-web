@@ -71,39 +71,39 @@ const AIAssistantFeatures = () => {
     <section className="relative w-full min-h-screen bg-white overflow-hidden">
       {/* Background image section */}
       <div className="absolute top-0 left-0 w-full h-full">
-        <img 
-          src="https://nerdybuddy.com/wp-content/uploads/2025/05/12345.png" 
+        <img
+          src="https://nerdybuddy.com/wp-content/uploads/2025/05/12345.png"
           alt="Background pattern"
-          className="w-full h-full object-cover opacity-10"
+          className="w-full h-full object-cover opacity-5 sm:opacity-10"
         />
       </div>
 
-      {/* Robot image */}
-      <div className="absolute left-1/4 top-1/4 z-10 hidden lg:block">
-        <img 
-          src="https://nerdybuddy.com/wp-content/uploads/2024/11/robot-ss4-h4.webp" 
+      {/* Robot image - Hidden on mobile/tablet */}
+      <div className="absolute left-1/4 top-1/4 z-10 hidden xl:block">
+        <img
+          src="https://nerdybuddy.com/wp-content/uploads/2024/11/robot-ss4-h4.webp"
           alt="AI Assistant Robot"
-          className="w-48 h-auto"
+          className="w-40 xl:w-48 h-auto"
         />
       </div>
 
-      <div className="container mx-auto px-4 py-16 relative z-20">
-        <div className="flex flex-col lg:flex-row gap-12">
+      <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 relative z-20">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
           {/* Left Column */}
-          <div className="lg:w-1/2 sticky top-8 self-start">
-            <div className="mb-8">
-              <div className="mb-4">
-                <span className="text-lg font-medium text-gray-600 relative inline-block">
+          <div className="lg:w-1/3 xl:w-1/2 lg:sticky lg:top-8 lg:self-start">
+            <div className="mb-6 lg:mb-8">
+              <div className="mb-3 lg:mb-4">
+                <span className="text-base sm:text-lg font-medium text-gray-600 relative inline-block">
                   <span className="relative z-10">Key Features Of</span>
                 </span>
               </div>
-              
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 lg:mb-6 leading-tight">
                 AI Assistant for Smarter Workplaces
               </h2>
 
-              <div className="bg-gradient-to-r from-blue-50 to-gray-50 rounded-xl p-6 border border-gray-200 shadow-sm mb-8">
-                <p className="text-gray-700 leading-relaxed">
+              <div className="bg-gradient-to-r from-blue-50 to-gray-50 rounded-xl p-5 sm:p-6 border border-gray-200 shadow-sm">
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                   Nerdy Buddy is an AI-powered assistant that helps employees find information, complete training, and stay productive – all while keeping your data secure.
                 </p>
               </div>
@@ -111,20 +111,20 @@ const AIAssistantFeatures = () => {
           </div>
 
           {/* Right Column - Features Grid */}
-          <div className="lg:w-1/2 h-[1000px] overflow-auto">
-            <div className="grid grid-cols-1 gap-8">
+          <div className="lg:w-2/3 xl:w-1/2 h-[1000px] overflow-auto">
+            <div className="grid grid-cols-1 gap-6 sm:gap-8">
               {features.map((feature, index) => (
-                <div 
+                <div
                   key={feature.id}
-                  className="group relative bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-blue-300 transition-all duration-300 hover:shadow-xl"
+                  className="group relative bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-gray-200 hover:border-blue-300 transition-all duration-300 hover:shadow-xl"
                   data-wow-delay="ms"
                 >
                   <a className="absolute inset-0 z-10" href="#"></a>
-                  
-                  <div className="flex flex-col md:flex-row items-start p-6">
+
+                  <div className="flex flex-col sm:flex-row items-start p-4 sm:p-5 md:p-6">
                     {/* Image Container */}
-                    <div className="md:w-1/3 mb-4 md:mb-0 md:mr-6">
-                      <div className="relative overflow-hidden rounded-xl">
+                    <div className="w-full sm:w-1/4 md:w-1/3 mb-4 sm:mb-0 sm:mr-4 md:mr-6">
+                      <div className="relative overflow-hidden rounded-lg sm:rounded-xl">
                         <img
                           loading="lazy"
                           src={feature.image}
@@ -137,19 +137,19 @@ const AIAssistantFeatures = () => {
                     </div>
 
                     {/* Content Container */}
-                    <div className="md:w-2/3">
-                      <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+                    <div className="w-full sm:w-3/4 md:w-2/3">
+                      <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-2 sm:mb-3 leading-tight">
                         {feature.title}
                       </h3>
-                      
-                      <div className="w-12 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-4"></div>
-                      
-                      <p className="text-gray-600 leading-relaxed mb-4">
+
+                      <div className="w-10 sm:w-12 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-3 sm:mb-4"></div>
+
+                      <p className="text-sm sm:text-base text-gray-600 leading-relaxed pr-8 sm:pr-0">
                         {feature.description}
                       </p>
 
                       {/* Arrow Icon */}
-                      <div className="absolute bottom-6 right-6 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
+                      <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
                         <ArrowIcon />
                       </div>
                     </div>

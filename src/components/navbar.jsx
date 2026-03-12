@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Menu, X, ChevronRight, Phone } from 'lucide-react';
-import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const location = useLocation()
+    const navigate = useNavigate()
 
     React.useEffect(() => {
         const handleScroll = () => {
@@ -65,10 +66,9 @@ const Navbar = () => {
                         {/* CTA Button - Desktop */}
                         <div className="hidden lg:block">
                             <button
-                                onClick={scrollToContactForm}
-                                className="cursor-pointer group relative px-6 py-3 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/30"
+                                onClick={() => navigate('/contact-us')}
+                                className="cursor-pointer group relative px-6 py-3 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-lg overflow-hidden transition-all duration-300"
                             >
-                                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                 <div className="relative flex items-center gap-2">
                                     <span className="font-semibold text-white">Get A Quote</span>
                                     <ChevronRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
@@ -105,9 +105,9 @@ const Navbar = () => {
                             {/* Mobile Menu Items */}
                             <div className="py-4">
                                 {menuItems.map((item, index) => (
-                                    <a
+                                    <NavLink
                                         key={item.name}
-                                        href={item.href}
+                                        to={item.href}
                                         className={`
                       flex items-center justify-between px-6 py-4 text-lg font-medium
                       ${index !== menuItems.length - 1 ? 'border-b border-gray-700/50' : ''}
@@ -117,7 +117,7 @@ const Navbar = () => {
                                     >
                                         <span>{item.name}</span>
                                         <ChevronRight className="w-5 h-5 text-gray-500" />
-                                    </a>
+                                    </NavLink>
                                 ))}
                             </div>
 
@@ -127,8 +127,9 @@ const Navbar = () => {
                                     onClick={(e) => {
                                         scrollToContactForm(e);
                                         setIsMenuOpen(false);
+                                        navigate('/contact-us')
                                     }}
-                                    className="cursor-pointer w-full group relative px-6 py-4 bg-gradient-to-r from-[#B03982] to-[#733C86] rounded-xl overflow-hidden transition-all duration-300 hover:scale-[1.02]"
+                                    className="cursor-pointer w-full group relative px-6 py-4 bg-gradient-to-r from-[#B03982] to-[#733C86] rounded-xl overflow-hidden transition-all duration-300"
                                 >
                                     <div className="absolute inset-0 bg-gradient-to-r from-[#B03982] to-[#733C86] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                     <div className="relative flex items-center justify-center gap-3">

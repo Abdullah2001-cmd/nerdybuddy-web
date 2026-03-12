@@ -319,7 +319,7 @@ const ImplementationServices = () => {
         </div>
 
         {/* Additional Info */}
-        <div className="mt-16 border-t border-gray-200">
+        <div className="mt-16 pt-10 border-t border-gray-200">
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-blue-100 to-cyan-100 rounded-xl mx-auto mb-4">

@@ -710,39 +710,33 @@ const PricingPage = () => {
             <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
 
                 {/* Hero Section */}
-                <section className="relative pt-44 overflow-hidden">
-                    <div className="relative container mx-auto px-4 md:px-6 text-center">
-                        <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#B03982]/10 to-[#733C86]/10 rounded-full border border-[#B03982]/20 mb-8">
+                <section className="relative pt-30 overflow-hidden">
+                    <div className="relative container mx-auto px-4 sm:px-6 text-center">
+
+                        {/* Badge */}
+                        <div className="inline-flex items-center px-3 sm:px-4 py-2 bg-gradient-to-r from-[#B03982]/10 to-[#733C86]/10 rounded-full border border-[#B03982]/20 mb-6 sm:mb-8">
                             <Sparkles className="w-4 h-4 text-[#B03982] mr-2" />
-                            <span className="text-sm font-medium text-[#B03982]">Flexible Plans for Every Business</span>
+                            <span className="text-xs sm:text-sm font-medium text-[#B03982]">
+                                Flexible Plans for Every Business
+                            </span>
                         </div>
 
-                        <h1 className="text-5xl md:text-4xl lg:text-5xl font-bold mb-6">
-                            <span className="block text-gray-900">Simple, Transparent</span>
-                            <span className="block mt-2 bg-gradient-to-r from-[#B03982] via-[#a32c8d] to-[#733C86] bg-clip-text text-transparent">
+                        {/* Heading */}
+                        <h1 className="font-bold mb-5 sm:mb-6">
+                            <span className="block text-gray-900 text-3xl sm:text-4xl md:text-4xl lg:text-5xl">
+                                Simple, Transparent
+                            </span>
+                            <span className="block bg-gradient-to-r from-[#B03982] via-[#a32c8d] to-[#733C86] bg-clip-text text-transparent text-3xl sm:text-4xl md:text-4xl lg:text-5xl">
                                 Pricing for AI Excellence
                             </span>
                         </h1>
 
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
-                            Choose the perfect plan for your business. From implementation to ongoing support,
-                            we have flexible options to meet your needs and budget.
+                        {/* Description */}
+                        <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-10 sm:mb-12 px-2">
+                            Choose the perfect plan for your business. From implementation to ongoing
+                            support, we have flexible options to meet your needs and budget.
                         </p>
 
-                        {/* Stats */}
-                        {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-                            {stats.map((stat, index) => (
-                                <div key={index} className="text-center">
-                                    <div className="flex justify-center mb-3">
-                                        <div className="p-3 bg-gradient-to-br from-[#B03982]/10 to-[#733C86]/10 rounded-2xl">
-                                            <div className="text-[#B03982]">{stat.icon}</div>
-                                        </div>
-                                    </div>
-                                    <div className="text-2xl font-bold text-gray-900">{stat.value}</div>
-                                    <div className="text-sm text-gray-600">{stat.label}</div>
-                                </div>
-                            ))}
-                        </div> */}
                     </div>
                 </section>
 
@@ -788,28 +782,31 @@ const PricingPage = () => {
                                 </button>
                             </div> */}
 
-                            <div className="flex items-center gap-4 bg-white p-2 rounded-2xl border border-gray-200">
+                            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 bg-white p-2 sm:p-2 rounded-2xl border border-gray-200 w-full sm:w-auto">
+
                                 <button
                                     onClick={() => setIsYearly(false)}
-                                    className={`cursor-pointer px-6 py-3 rounded-xl font-medium transition-all duration-300 ${!isYearly
-                                        ? 'bg-gradient-to-r from-[#B03982] to-[#733C86] text-white'
-                                        : 'text-gray-700 hover:text-gray-900'
+                                    className={`w-full sm:w-auto cursor-pointer px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-medium text-sm sm:text-base transition-all duration-300 ${!isYearly
+                                        ? "bg-gradient-to-r from-[#B03982] to-[#733C86] text-white"
+                                        : "text-gray-700 hover:text-gray-900"
                                         }`}
                                 >
                                     Monthly Billing
                                 </button>
+
                                 <button
                                     onClick={() => setIsYearly(true)}
-                                    className={`cursor-pointer px-6 py-3 rounded-xl font-medium transition-all duration-300 flex items-center gap-2 ${isYearly
-                                        ? 'bg-gradient-to-r from-[#B03982] to-[#733C86] text-white'
-                                        : 'text-gray-700 hover:text-gray-900'
+                                    className={`w-full sm:w-auto cursor-pointer px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-medium text-sm sm:text-base transition-all duration-300 flex items-center justify-center gap-2 ${isYearly
+                                        ? "bg-gradient-to-r from-[#B03982] to-[#733C86] text-white"
+                                        : "text-gray-700 hover:text-gray-900"
                                         }`}
                                 >
                                     Yearly Billing
-                                    <span className="px-2 py-1 bg-green-500 text-white text-xs rounded-full">
+                                    <span className="px-2 py-0.5 bg-green-500 text-white text-[10px] sm:text-xs rounded-full">
                                         Save 20%
                                     </span>
                                 </button>
+
                             </div>
 
                         </div>
@@ -823,52 +820,58 @@ const PricingPage = () => {
                                             return (
                                                 <div
                                                     key={service.id}
-                                                    className="cursor-pointer group relative bg-white rounded-3xl border border-gray-200 overflow-hidden hover:border-[#B03982]/50 transition-all duration-300 hover:shadow-2xl hover:shadow-[#B03982]/10 hover:scale-105"
+                                                    className="cursor-pointer group relative bg-white rounded-3xl border border-gray-200 overflow-hidden 
+  hover:border-[#B03982]/50 transition-all duration-300 hover:shadow-2xl hover:shadow-[#B03982]/10 
+  sm:hover:scale-105"
                                                 >
-                                                    {/* Header with Gradient */}
-                                                    <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
+                                                    {/* Gradient Background */}
+                                                    <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
 
                                                     {/* Top Decoration */}
-                                                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#B03982] to-[#733C86] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                                                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#B03982] to-[#733C86] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
 
-                                                    {/* Content */}
-                                                    <div className="relative p-8">
+                                                    <div className="relative p-5 sm:p-6 md:p-8">
+
                                                         {/* Icon */}
-                                                        <div className="relative mb-6">
+                                                        <div className="relative mb-4 sm:mb-6">
                                                             <div className="absolute -inset-3 bg-gradient-to-br from-[#B03982]/20 to-[#733C86]/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                                            <div className={`relative w-16 h-16 flex items-center justify-center bg-gradient-to-br from-${service.color}-50 to-white rounded-2xl border border-gray-200 group-hover:border-transparent transition-all duration-300`}>
+
+                                                            <div className={`relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 flex items-center justify-center 
+      bg-gradient-to-br from-${service.color}-50 to-white rounded-2xl border border-gray-200 
+      group-hover:border-transparent transition-all duration-300`}>
                                                                 <div className={`text-${service.color}-600 transform group-hover:scale-110 transition-transform duration-300`}>
                                                                     {service.icon}
                                                                 </div>
                                                             </div>
                                                         </div>
 
-                                                        {/* Title & Description */}
-                                                        <h3 className="text-2xl font-bold text-gray-900 mb-2">{service.title}</h3>
-                                                        <p className="text-gray-600 text-sm mb-4">{service.shortDesc}</p>
+                                                        {/* Title */}
+                                                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-2">
+                                                            {service.title}
+                                                        </h3>
+
+                                                        {/* Description */}
+                                                        <p className="text-gray-600 text-sm mb-4">
+                                                            {service.shortDesc}
+                                                        </p>
 
                                                         {/* Price */}
                                                         <div className="mb-4">
-                                                            <div className="text-4xl font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
-                                                                {service.price === 'Free' ? 'Free' : service.price === 'Custom' ? 'Custom' : `$ ${service.price}`}
+                                                            <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
+                                                                {service.price === 'Free'
+                                                                    ? 'Free'
+                                                                    : service.price === 'Custom'
+                                                                        ? 'Custom'
+                                                                        : `$ ${service.price}`}
                                                             </div>
-                                                            {/* <div className="text-sm text-gray-600">Per hour</div> */}
-                                                            {/* <div className="text-xs text-gray-500 mt-1">{service.setupFee} setup</div> */}
                                                         </div>
 
-                                                        {/* Stats */}
-                                                        {/* <div className="grid grid-cols-3 gap-2 mb-6 p-3 bg-gray-50 rounded-xl">
-                                                            {service.stats.map((stat, idx) => (
-                                                                <div key={idx} className="text-center">
-                                                                    <div className="text-xs font-bold text-gray-900">{stat.value}</div>
-                                                                    <div className="text-xs text-gray-600">{stat.label}</div>
-                                                                </div>
-                                                            ))}
-                                                        </div> */}
-
                                                         {/* Features */}
-                                                        <div className="space-y-3 mb-8">
-                                                            <h4 className="font-semibold text-gray-900">Key Features:</h4>
+                                                        <div className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
+                                                            <h4 className="font-semibold text-gray-900 text-sm sm:text-base">
+                                                                Key Features:
+                                                            </h4>
+
                                                             {service.features.map((feature, idx) => (
                                                                 <div key={idx} className="flex items-start gap-2">
                                                                     <CheckCircle className={`w-4 h-4 text-${service.color}-600 flex-shrink-0 mt-0.5`} />
@@ -877,29 +880,20 @@ const PricingPage = () => {
                                                             ))}
                                                         </div>
 
-                                                        {/* CTA Button */}
+                                                        {/* CTA */}
                                                         <button
                                                             onClick={() => {
-                                                                if (service.title === 'Enterprise (Integration)') {
-                                                                    navigate('/contact-us')
+                                                                if (service.title === "Enterprise (Integration)") {
+                                                                    navigate("/contact-us");
                                                                 } else {
-                                                                    handlePlanSelect(service)
+                                                                    handlePlanSelect(service);
                                                                 }
                                                             }}
-                                                            className="cursor-pointer w-full py-3 bg-gradient-to-r from-[#B03982] to-[#733C86] text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-[#B03982]/20 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
+                                                            className="cursor-pointer w-full py-2.5 sm:py-3 bg-gradient-to-r from-[#B03982] to-[#733C86] text-white 
+      rounded-xl font-semibold text-sm sm:text-base hover:shadow-lg hover:shadow-[#B03982]/20 
+      transition-all duration-300 sm:hover:scale-105 flex items-center justify-center gap-2"
                                                         >
-                                                            {/* {() ? (
-                                                                <>
-                                                                    <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                                                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                                                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                                                    </svg>
-                                                                    <span>Processing...</span>
-                                                                </>
-                                                            ) : (
-                                                                'Get Started'
-                                                            )} */}
-                                                            {service.title === 'Enterprise (Integration)' ? 'Contact Sales' : 'Start Plan'}
+                                                            {service.title === "Enterprise (Integration)" ? "Contact Sales" : "Start Plan"}
                                                         </button>
                                                     </div>
                                                 </div>
@@ -1057,12 +1051,12 @@ const PricingPage = () => {
                 <section className="bg-gray-50 mt-10">
                     <div className="container pb-10 mx-auto px-4 md:px-6">
                         <div className="text-center mb-12">
-                            <h2 className="text-4xl font-bold mb-4">
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
                                 <span className="bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
                                     Compare Plans Side by Side
                                 </span>
                             </h2>
-                            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                            <p className="text-sm sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
                                 Find the perfect plan for your business needs with our detailed feature comparison
                             </p>
                         </div>
@@ -1847,66 +1841,101 @@ const PricingPage = () => {
                 </section> */}
 
                 {/* FAQ Section */}
-                <section className="py-20">
-                    <div className="container mx-auto px-4 md:px-6">
-                        <div className="text-center mb-12">
-                            <h2 className="text-4xl font-bold mb-4">
+                <section className="py-12 sm:py-16 md:py-20">
+                    <div className="container mx-auto px-4 sm:px-6">
+
+                        {/* Heading */}
+                        <div className="text-center mb-8 sm:mb-10 md:mb-12">
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
                                 <span className="bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
                                     Frequently Asked Questions
                                 </span>
                             </h2>
-                            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+
+                            <p className="text-sm sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
                                 Get answers to common questions about our services
                             </p>
                         </div>
 
+                        {/* FAQ */}
                         <div className="max-w-3xl mx-auto">
                             {faqs.map((faq, index) => (
-                                <div key={index} className="mb-4">
+                                <div key={index} className="mb-3 sm:mb-4">
+
+                                    {/* Question */}
                                     <button
-                                        onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
-                                        className="w-full text-left p-6 bg-white rounded-xl border border-gray-200 hover:border-[#B03982]/50 transition-all duration-300 flex items-center justify-between group"
+                                        onClick={() =>
+                                            setExpandedFaq(expandedFaq === index ? null : index)
+                                        }
+                                        className="w-full text-left p-4 sm:p-5 md:p-6 bg-white rounded-xl border border-gray-200 
+            hover:border-[#B03982]/50 transition-all duration-300 
+            flex items-center justify-between gap-4 group"
                                     >
-                                        <span className="font-semibold text-gray-900 group-hover:text-[#B03982] transition">
+                                        <span className="font-semibold text-gray-900 text-sm sm:text-base md:text-lg group-hover:text-[#B03982] transition">
                                             {faq.question}
                                         </span>
-                                        <ChevronRight className={`w-5 h-5 text-gray-500 transition-transform duration-300 ${expandedFaq === index ? 'rotate-90' : ''}`} />
+
+                                        <ChevronRight
+                                            className={`w-4 h-4 sm:w-5 sm:h-5 text-gray-500 transition-transform duration-300 ${expandedFaq === index ? "rotate-90" : ""
+                                                }`}
+                                        />
                                     </button>
+
+                                    {/* Answer */}
                                     {expandedFaq === index && (
-                                        <div className="p-6 bg-gray-50 rounded-xl border border-gray-200 mt-2">
-                                            <p className="text-gray-700">{faq.answer}</p>
+                                        <div className="p-4 sm:p-5 md:p-6 bg-gray-50 rounded-xl border border-gray-200 mt-2">
+                                            <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                                                {faq.answer}
+                                            </p>
                                         </div>
                                     )}
                                 </div>
                             ))}
                         </div>
+
                     </div>
                 </section>
 
                 {/* CTA Section */}
-                <section className="py-20 bg-gradient-to-r from-[#B03982] to-[#733C86] relative overflow-hidden">
+                <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-r from-[#B03982] to-[#733C86] relative overflow-hidden">
+
+                    {/* Background blur shapes */}
                     <div className="absolute inset-0 opacity-10">
-                        <div className="absolute top-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl"></div>
-                        <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+                        <div className="absolute top-0 left-0 w-40 h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 bg-white rounded-full blur-3xl"></div>
+                        <div className="absolute bottom-0 right-0 w-60 h-60 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-white rounded-full blur-3xl"></div>
                     </div>
-                    <div className="relative container mx-auto px-4 md:px-6 text-center">
-                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+
+                    <div className="relative container mx-auto px-4 sm:px-6 text-center">
+
+                        {/* Heading */}
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
                             Ready to Transform Your Business?
                         </h2>
-                        <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-                            Join hundreds of companies already using our AI solutions to save time, reduce costs, and improve efficiency.
+
+                        {/* Description */}
+                        <p className="text-sm sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8 max-w-2xl mx-auto">
+                            Join hundreds of companies already using our AI solutions to save time,
+                            reduce costs, and improve efficiency.
                         </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <button className="px-8 py-4 bg-white text-[#B03982] rounded-xl font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105">
+
+                        {/* Buttons */}
+                        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
+
+                            <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-[#B03982] rounded-xl font-semibold text-sm sm:text-base hover:shadow-xl transition-all duration-300 sm:hover:scale-105">
                                 Start Free Trial
                             </button>
-                            <button className="px-8 py-4 border-2 border-white text-white rounded-xl font-semibold hover:bg-white hover:text-[#B03982] transition-all duration-300">
+
+                            <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border-2 border-white text-white rounded-xl font-semibold text-sm sm:text-base hover:bg-white hover:text-[#B03982] transition-all duration-300">
                                 Schedule Demo
                             </button>
+
                         </div>
-                        <p className="text-white/80 mt-6 text-sm">
+
+                        {/* Footer note */}
+                        <p className="text-white/80 mt-5 sm:mt-6 text-xs sm:text-sm">
                             No credit card required • 14-day free trial • Cancel anytime
                         </p>
+
                     </div>
                 </section>
 

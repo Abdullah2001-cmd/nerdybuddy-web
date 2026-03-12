@@ -145,7 +145,7 @@ const ContactInformation = () => {
 
     return (
         <>
-            <section className="relative pt-44 pb-14 overflow-hidden">
+            <section className="relative pt-30 pb-14 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-white">
                     {/* Geometric Pattern */}
                     <div className="absolute inset-0 opacity-5">
@@ -165,98 +165,137 @@ const ContactInformation = () => {
                     <div className="absolute bottom-20 -right-40 w-80 h-80 bg-gradient-to-br from-[#B03982]/5 to-[#733C86]/5 rounded-full blur-3xl"></div>
                 </div>
                 <div className="relative container mx-auto px-4 md:px-6 lg:px-8">
-                    <div className="max-w-3xl mx-auto text-center mb-16 md:mb-20">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-gray-200 shadow-sm mb-6">
+                    <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-14 md:mb-16 lg:mb-20">
+
+                        {/* Badge */}
+                        <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-white rounded-full border border-gray-200 shadow-sm mb-5 sm:mb-6">
                             <div className="w-2 h-2 bg-gradient-to-r from-[#B03982] to-[#733C86] rounded-full animate-pulse"></div>
-                            <span className="text-sm font-medium text-gray-600">Ready to Connect</span>
+                            <span className="text-xs sm:text-sm font-medium text-gray-600">
+                                Ready to Connect
+                            </span>
                         </div>
 
-                        <h1 className="text-5xl md:text-4xl lg:text-5xl font-bold mb-6">
-                            <span className="block text-gray-900">Let's Start Your</span>
-                            <span className="block mt-2 relative">
-                                <span className="relative z-10 bg-gradient-to-r from-[#B03982] via-[#a32c8d] to-[#733C86] bg-clip-text text-transparent">
+                        {/* Heading */}
+                        <h1 className="font-bold mb-4 sm:mb-6 leading-tight">
+
+                            <span className="block text-gray-900 text-3xl sm:text-4xl md:text-4xl lg:text-5xl">
+                                Let's Start Your
+                            </span>
+
+                            <span className="block relative">
+                                <span className="relative z-10 bg-gradient-to-r from-[#B03982] via-[#a32c8d] to-[#733C86] bg-clip-text text-transparent text-3xl sm:text-4xl md:text-4xl lg:text-5xl">
                                     AI Transformation
                                 </span>
-                                <span className="absolute -bottom-2 left-1/4 w-1/2 h-3 bg-gradient-to-r from-[#B03982]/10 to-[#733C86]/10 blur-xl -z-10"></span>
+
+                                <span className="absolute -bottom-1 sm:-bottom-2 left-1/4 w-1/2 h-2 sm:h-3 bg-gradient-to-r from-[#B03982]/10 to-[#733C86]/10 blur-xl -z-10"></span>
                             </span>
+
                         </h1>
 
-                        <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-                            Connect with our team to discover how Nerdy Buddy can transform your organizational knowledge management.
+                        {/* Description */}
+                        <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto px-2">
+                            Connect with our team to discover how Nerdy Buddy can transform your
+                            organizational knowledge management.
                         </p>
+
                     </div>
                     <div className="grid md:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3 gap-6 mb-10">
                         {contactCards.map((card, index) => (
                             <div
                                 key={index}
-                                className="group relative bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-xl transition-all duration-300"
+                                className="group relative bg-white rounded-2xl border border-gray-200 p-5 sm:p-6 hover:shadow-xl transition-all duration-300"
                             >
                                 {/* Corner Accent */}
-                                <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden">
-                                    <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${card.gradient} opacity-5 group-hover:opacity-10 transition-opacity duration-500 transform rotate-45 translate-x-8 -translate-y-8`}></div>
+                                <div className="absolute top-0 right-0 w-14 h-14 sm:w-16 sm:h-16 overflow-hidden">
+                                    <div
+                                        className={`absolute top-0 right-0 w-28 h-28 sm:w-32 sm:h-32 bg-gradient-to-br ${card.gradient} opacity-5 group-hover:opacity-10 transition-opacity duration-500 transform rotate-45 translate-x-8 -translate-y-8`}
+                                    ></div>
                                 </div>
 
                                 <div className="space-y-4 relative">
+
                                     {/* Icon */}
-                                    <div className={`w-12 h-12 flex items-center justify-center bg-gradient-to-br ${card.gradient} bg-opacity-10 rounded-xl`}>
-                                        <div className={`text-transparent bg-gradient-to-br ${card.gradient} bg-clip-text`}>
+                                    <div
+                                        className={`w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-gradient-to-br ${card.gradient} bg-opacity-10 rounded-xl`}
+                                    >
+                                        <div
+                                            className={`text-transparent bg-gradient-to-br ${card.gradient} bg-clip-text text-lg sm:text-xl`}
+                                        >
                                             {card.icon}
                                         </div>
                                     </div>
 
                                     {/* Content */}
                                     <div className="space-y-2">
-                                        <h3 className="text-xl font-bold text-gray-900">{card.title}</h3>
-                                        <p className="text-gray-600 text-sm">{card.description}</p>
+                                        <h3 className="text-lg sm:text-xl font-bold text-gray-900">
+                                            {card.title}
+                                        </h3>
+
+                                        <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                                            {card.description}
+                                        </p>
                                     </div>
 
                                     {/* Details */}
                                     <div className="pt-3 border-t border-gray-100">
+
                                         {card.address && (
                                             <div className="space-y-1">
-                                                <div
-                                                    className="text-lg font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent hover:from-[#c94594] hover:to-[#8a48a3] transition-all duration-300"
-                                                >{card.address}</div>
-                                                <div className="text-sm text-gray-500">{card.location}</div>
+                                                <div className="text-base sm:text-lg font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent hover:from-[#c94594] hover:to-[#8a48a3] transition-all duration-300 break-words">
+                                                    {card.address}
+                                                </div>
+                                                <div className="text-xs sm:text-sm text-gray-500">
+                                                    {card.location}
+                                                </div>
                                             </div>
                                         )}
+
                                         {card.email && (
                                             <div className="space-y-1">
                                                 <a
                                                     href={`mailto:${card.email}`}
-                                                    className="text-lg font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent hover:from-[#c94594] hover:to-[#8a48a3] transition-all duration-300"
+                                                    className="text-base sm:text-lg font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent hover:from-[#c94594] hover:to-[#8a48a3] transition-all duration-300 break-all"
                                                 >
                                                     {card.email}
                                                 </a>
-                                                <div className="text-sm text-gray-500">{card.response}</div>
+                                                <div className="text-xs sm:text-sm text-gray-500">
+                                                    {card.response}
+                                                </div>
                                             </div>
                                         )}
+
                                         {card.phone && (
                                             <div className="space-y-1">
                                                 <a
-                                                    href={`tel:${card.phone.replace(/\s+/g, '')}`}
-                                                    className="text-lg font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent hover:from-[#c94594] hover:to-[#8a48a3] transition-all duration-300"
+                                                    href={`tel:${card.phone.replace(/\s+/g, "")}`}
+                                                    className="text-base sm:text-lg font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent hover:from-[#c94594] hover:to-[#8a48a3] transition-all duration-300"
                                                 >
                                                     {card.phone}
                                                 </a>
-                                                <div className="text-sm text-gray-500">{card.hours}</div>
+                                                <div className="text-xs sm:text-sm text-gray-500">
+                                                    {card.hours}
+                                                </div>
                                             </div>
                                         )}
+
                                     </div>
 
                                     {/* Action Button */}
                                     <div className="pt-3">
-                                        <button className="group flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-[#B03982] transition-colors duration-300">
+                                        <button className="group flex items-center gap-2 text-xs sm:text-sm font-medium text-gray-700 hover:text-[#B03982] transition-colors duration-300">
                                             <span>Get in touch</span>
-                                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                            <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
                                         </button>
                                     </div>
+
                                 </div>
 
                                 {/* Hover Line */}
                                 <div className="mt-4 relative">
                                     <div className="w-full h-0.5 bg-gray-100 rounded-full overflow-hidden">
-                                        <div className={`w-0 h-full bg-gradient-to-r ${card.gradient} rounded-full group-hover:w-full transition-all duration-700`}></div>
+                                        <div
+                                            className={`w-0 h-full bg-gradient-to-r ${card.gradient} rounded-full group-hover:w-full transition-all duration-700`}
+                                        ></div>
                                     </div>
                                 </div>
                             </div>
@@ -264,127 +303,169 @@ const ContactInformation = () => {
                     </div>
                     <div className="grid md:grid-cols-3 lg:grid-cols-1 xl:grid-cols-2 gap-6">
                         {/* Map Section */}
-                        <div className="rounded-2xl bg-gradient-to-br from-gray-900 to-black text-white p-6 md:p-8">
+                        <div className="rounded-2xl bg-gradient-to-br from-gray-900 to-black text-white p-5 sm:p-6 md:p-8">
+
                             {/* Header */}
-                            <div className="mb-6">
-                                <div className="flex items-center gap-3 mb-3">
-                                    <Navigation className="w-6 h-6 text-[#B03982]" />
-                                    <h3 className="text-xl font-bold">London Headquarters</h3>
+                            <div className="mb-5 sm:mb-6">
+                                <div className="flex items-center gap-3 mb-2 sm:mb-3">
+                                    <Navigation className="w-5 h-5 sm:w-6 sm:h-6 text-[#B03982]" />
+                                    <h3 className="text-lg sm:text-xl font-bold">
+                                        London Headquarters
+                                    </h3>
                                 </div>
-                                <p className="text-gray-300">
+
+                                <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
                                     Visit our state-of-the-art office in the heart of London's business district
                                 </p>
                             </div>
 
                             {/* Address Card */}
-                            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20 mb-6">
+                            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-5 border border-white/20 mb-5 sm:mb-6">
                                 <div className="flex items-start gap-3">
-                                    <Building className="w-5 h-5 text-[#B03982] mt-0.5" />
+                                    <Building className="w-4 h-4 sm:w-5 sm:h-5 text-[#B03982] mt-1 flex-shrink-0" />
+
                                     <div className="flex-1">
-                                        <div className="text-lg font-bold mb-1">Skyline Business Village</div>
-                                        <div className="text-gray-300 text-sm">
-                                            32-33 Limeharbour<br />
-                                            London E14 9TS<br />
+                                        <div className="text-base sm:text-lg font-bold mb-1">
+                                            Skyline Business Village
+                                        </div>
+
+                                        <div className="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                                            32-33 Limeharbour <br />
+                                            London E14 9TS <br />
                                             United Kingdom
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className="h-48 md:h-64 rounded-xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900">
-                                <iframe className='w-full h-full' loading="lazy" src="https://maps.google.com/maps?q=32-33%20Skyline%20Business%20Village%20Limeharbour%20London%20E14%209TS.&amp;t=m&amp;z=16&amp;output=embed&amp;iwloc=near" title="32-33 Skyline Business Village Limeharbour London E14 9TS." aria-label="32-33 Skyline Business Village Limeharbour London E14 9TS."></iframe>
+
+                            {/* Map */}
+                            <div className="h-40 sm:h-48 md:h-64 rounded-xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900">
+                                <iframe
+                                    className="w-full h-full"
+                                    loading="lazy"
+                                    src="https://maps.google.com/maps?q=32-33%20Skyline%20Business%20Village%20Limeharbour%20London%20E14%209TS.&t=m&z=16&output=embed&iwloc=near"
+                                    title="32-33 Skyline Business Village Limeharbour London E14 9TS."
+                                    aria-label="32-33 Skyline Business Village Limeharbour London E14 9TS."
+                                ></iframe>
                             </div>
+
                         </div>
                         {/* Quick Contact Form */}
-                        <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 p-6">
-                            <div className="flex items-center gap-3 mb-6">
-                                <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-[#B03982]/10 to-[#733C86]/10 rounded-lg">
-                                    <MessageSquare className="w-5 h-5 text-[#B03982]" />
+                        <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 p-5 sm:p-6">
+
+                            {/* Header */}
+                            <div className="flex items-center gap-3 mb-5 sm:mb-6">
+                                <div className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center bg-gradient-to-br from-[#B03982]/10 to-[#733C86]/10 rounded-lg">
+                                    <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 text-[#B03982]" />
                                 </div>
+
                                 <div>
-                                    <h3 className="text-lg font-bold text-gray-900">Quick Inquiry</h3>
-                                    <p className="text-sm text-gray-500">Send us a quick message</p>
+                                    <h3 className="text-base sm:text-lg font-bold text-gray-900">
+                                        Quick Inquiry
+                                    </h3>
+                                    <p className="text-xs sm:text-sm text-gray-500">
+                                        Send us a quick message
+                                    </p>
                                 </div>
                             </div>
 
                             {/* Success Message */}
                             {isSubmitted ? (
-                                <div className="text-center py-12 space-y-6 animate-fadeIn">
+                                <div className="text-center py-10 sm:py-12 space-y-5 sm:space-y-6 animate-fadeIn">
+
                                     <div className="relative inline-block">
                                         <div className="absolute -inset-4 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full blur opacity-50"></div>
-                                        <div className="relative w-16 h-16 flex items-center justify-center bg-gradient-to-br from-green-500 to-emerald-500 rounded-full mx-auto mb-4">
-                                            <CheckCircle className="w-8 h-8 text-white" />
+
+                                        <div className="relative w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center bg-gradient-to-br from-green-500 to-emerald-500 rounded-full mx-auto mb-3 sm:mb-4">
+                                            <CheckCircle className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
                                         </div>
                                     </div>
+
                                     <div>
-                                        <h3 className="text-2xl font-bold text-gray-900 mb-2">Thank You!</h3>
-                                        <p className="text-gray-600">
+                                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
+                                            Thank You!
+                                        </h3>
+                                        <p className="text-sm sm:text-base text-gray-600">
                                             Your message has been received. Our team will contact you within 24 hours.
                                         </p>
                                     </div>
+
                                     <div className="flex items-center justify-center gap-2">
                                         <div className="w-2 h-2 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-full animate-pulse"></div>
-                                        <span className="text-sm text-gray-600">Preparing your demo...</span>
+                                        <span className="text-xs sm:text-sm text-gray-600">
+                                            Preparing your demo...
+                                        </span>
                                     </div>
+
                                 </div>
                             ) : (
-                                <form onSubmit={handleSubmit} className="space-y-6">
+
+                                <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
+
                                     {/* Form Header */}
-                                    <div className="mb-6">
-                                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#B03982]/10 to-[#733C86]/10 rounded-full border border-[#B03982]/20 backdrop-blur-sm mb-4">
-                                            <Sparkles className="w-4 h-4 text-[#B03982]" />
-                                            <span className="text-sm font-medium bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
+                                    <div className="mb-4 sm:mb-6">
+
+                                        <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-[#B03982]/10 to-[#733C86]/10 rounded-full border border-[#B03982]/20 backdrop-blur-sm mb-3 sm:mb-4">
+                                            <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#B03982]" />
+                                            <span className="text-xs sm:text-sm font-medium bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
                                                 Get Started Today
                                             </span>
                                         </div>
-                                        <p className="text-gray-600">
+
+                                        <p className="text-sm sm:text-base text-gray-600">
                                             Fill out the form below and our team will reach out to schedule your personalized demo.
                                         </p>
+
                                     </div>
 
-                                    {/* Name Field */}
+                                    {/* Name */}
                                     <div className="space-y-2">
                                         <label className="block text-sm font-medium text-gray-700">
                                             What is your name? *
                                         </label>
+
                                         <input
                                             type="text"
                                             name="name"
                                             value={formData.name}
                                             onChange={handleChange}
                                             required
-                                            className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B03982]/20 focus:border-[#B03982] transition-all duration-300"
+                                            className="w-full px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B03982]/20 focus:border-[#B03982] transition-all duration-300"
                                             placeholder="Enter your full name"
                                         />
                                     </div>
 
-                                    {/* Company Field */}
+                                    {/* Company */}
                                     <div className="space-y-2">
                                         <label className="block text-sm font-medium text-gray-700">
                                             What company do you represent?
                                         </label>
+
                                         <input
                                             type="text"
                                             name="company"
                                             value={formData.company}
                                             onChange={handleChange}
-                                            className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B03982]/20 focus:border-[#B03982] transition-all duration-300"
+                                            className="w-full px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B03982]/20 focus:border-[#B03982] transition-all duration-300"
                                             placeholder="Your company name"
                                         />
                                     </div>
 
-                                    {/* Phone and Email Fields */}
-                                    <div className="grid md:grid-cols-2 gap-6">
+                                    {/* Phone + Email */}
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+
                                         <div className="space-y-2">
                                             <label className="block text-sm font-medium text-gray-700">
                                                 Phone number *
                                             </label>
+
                                             <input
                                                 type="tel"
                                                 name="phone"
                                                 value={formData.phone}
                                                 onChange={handleChange}
                                                 required
-                                                className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B03982]/20 focus:border-[#B03982] transition-all duration-300"
+                                                className="w-full px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B03982]/20 focus:border-[#B03982]"
                                                 placeholder="+1 (555) 123-4567"
                                             />
                                         </div>
@@ -393,75 +474,74 @@ const ContactInformation = () => {
                                             <label className="block text-sm font-medium text-gray-700">
                                                 E-mail *
                                             </label>
+
                                             <input
                                                 type="email"
                                                 name="email"
                                                 value={formData.email}
                                                 onChange={handleChange}
                                                 required
-                                                className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B03982]/20 focus:border-[#B03982] transition-all duration-300"
+                                                className="w-full px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B03982]/20 focus:border-[#B03982]"
                                                 placeholder="your.email@company.com"
                                             />
                                         </div>
+
                                     </div>
 
-                                    {/* Message Field */}
+                                    {/* Message */}
                                     <div className="space-y-2">
                                         <label className="block text-sm font-medium text-gray-700">
                                             A few words about your company *
                                         </label>
+
                                         <textarea
                                             name="message"
                                             value={formData.message}
                                             onChange={handleChange}
                                             required
                                             rows="4"
-                                            className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B03982]/20 focus:border-[#B03982] transition-all duration-300 resize-none"
+                                            className="w-full px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B03982]/20 focus:border-[#B03982] resize-none"
                                             placeholder="Tell us about your organization and what you're looking to achieve..."
                                         />
                                     </div>
 
-                                    {/* Submit Button */}
-                                    <div className="pt-4">
+                                    {/* Submit */}
+                                    <div className="pt-3 sm:pt-4">
                                         <button
                                             type="submit"
                                             disabled={isSubmitting}
-                                            className="cursor-pointer group relative w-full px-8 py-4 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-xl overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#B03982]/20 disabled:opacity-50 disabled:cursor-not-allowed"
+                                            className="cursor-pointer group relative w-full px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-xl overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#B03982]/20 disabled:opacity-50"
                                         >
-                                            {/* Animated Background */}
+
                                             <div className="absolute inset-0 bg-gradient-to-br from-[#c94594] to-[#8a48a3] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                                            {/* Ripple Effect */}
-                                            <div className="absolute inset-0 overflow-hidden">
-                                                <div className="absolute -inset-10 bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:animate-shimmer"></div>
-                                            </div>
-
-                                            <div className="relative flex items-center justify-center gap-3">
-                                                <div className="relative">
-                                                    <div className="absolute -inset-2 bg-white/20 rounded-full blur group-hover:animate-ping"></div>
-                                                    <Send className="w-5 h-5 text-white relative z-10" />
-                                                </div>
-                                                <span className="font-semibold text-lg text-white">
-                                                    {isSubmitting ? 'Submitting...' : 'Submit'}
+                                            <div className="relative flex items-center justify-center gap-2 sm:gap-3">
+                                                <Send className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                                                <span className="font-semibold text-sm sm:text-lg text-white">
+                                                    {isSubmitting ? "Submitting..." : "Submit"}
                                                 </span>
                                             </div>
+
                                         </button>
 
-                                        {/* Form Note */}
-                                        <p className="text-xs text-gray-500 mt-4 text-center">
+                                        <p className="text-[11px] sm:text-xs text-gray-500 mt-4 text-center">
                                             By submitting this form, you agree to our Privacy Policy and consent to being contacted by our team.
                                         </p>
                                     </div>
+
                                 </form>
                             )}
 
                             {/* Response Time */}
-                            <div className="mt-6 pt-6 border-t border-gray-100">
+                            <div className="mt-5 sm:mt-6 pt-5 sm:pt-6 border-t border-gray-100">
                                 <div className="flex items-center gap-2">
                                     <div className="w-2 h-2 bg-gradient-to-r from-[#B03982] to-[#733C86] rounded-full animate-pulse"></div>
-                                    <span className="text-sm text-gray-600">Typical response time: 2-4 hours</span>
+                                    <span className="text-xs sm:text-sm text-gray-600">
+                                        Typical response time: 2–4 hours
+                                    </span>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>

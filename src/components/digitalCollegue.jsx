@@ -15,8 +15,11 @@ import { CiSearch } from "react-icons/ci";
 import { IoChatboxEllipsesOutline } from "react-icons/io5";
 import { HiOutlineNewspaper } from "react-icons/hi2";
 import { IoSearch } from "react-icons/io5";
+import { useNavigate } from 'react-router-dom';
 
 const DigitalColleagueLight = () => {
+
+  const navigate = useNavigate()
 
   const benefits = [
     {
@@ -58,9 +61,9 @@ const DigitalColleagueLight = () => {
   ];
 
   return (
-    <section className="relative py-20 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100">
+    <section className="relative py-10 md:py-20 lg:py-20 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <div className="relative container mx-auto px-4 md:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Left Column - GIF */}
           <div className="relative order-2 lg:order-1 animate-fadeInLeft">
             <div className="relative">
@@ -75,7 +78,6 @@ const DigitalColleagueLight = () => {
                   </div>
                 </div>
               </div>
-
               {/* Main GIF Container - Light */}
               <div className="relative rounded-3xl overflow-hidden shadow-xl group">
                 {/* Light Gradient Border */}
@@ -83,14 +85,14 @@ const DigitalColleagueLight = () => {
 
                 {/* Image with Light Glow Effect */}
                 <div className="relative bg-white rounded-3xl overflow-hidden flex justify-center">
-                  <div className="w-[30rem] h-[34rem]">
-                    <img
-                      src="https://nerdybuddy.com/wp-content/uploads/2025/05/12435.gif"
-                      alt="Nerdy Buddy Digital Colleague in Action"
-                      className="w-full h-auto object-cover rounded-3xl transform group-hover:scale-[1.02] transition-transform duration-500"
-                      loading="lazy"
-                    />
-                  </div>
+                  <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl">
+                  <img
+                    src="https://nerdybuddy.com/wp-content/uploads/2025/05/12435.gif"
+                    alt="Nerdy Buddy Digital Colleague in Action"
+                    className="w-full h-auto object-cover rounded-2xl sm:rounded-3xl transform group-hover:scale-[1.02] transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
 
                   {/* Light Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
@@ -114,7 +116,6 @@ const DigitalColleagueLight = () => {
                 <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-gradient-to-br from-[#B03982]/30 to-[#733C86]/30 rounded-tl-3xl"></div>
                 <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-gradient-to-br from-[#B03982]/30 to-[#733C86]/30 rounded-br-3xl"></div>
               </div>
-
               {/* Stats Bar - Light */}
               <div className="mt-8 grid grid-cols-3 gap-4">
                 {[
@@ -142,30 +143,29 @@ const DigitalColleagueLight = () => {
           {/* Right Column - Content - Light */}
           <div className="order-1 lg:order-2 space-y-8 animate-fadeInRight">
             {/* Header - Light */}
-            <div className="space-y-4">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#B03982]/10 to-[#733C86]/10 rounded-full border border-[#B03982]/20">
-                <Sparkles className="w-4 h-4 text-[#B03982]" />
-                <span className="text-sm font-medium text-[#733C86]">
+            <div className="space-y-3 sm:space-y-4 sm:px-0">
+              <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-[#B03982]/10 to-[#733C86]/10 rounded-full border border-[#B03982]/20">
+                <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#B03982]" />
+                <span className="text-xs sm:text-sm font-medium text-[#733C86]">
                   Nerdy Buddy Benefits
                 </span>
               </div>
 
-              <h2 className="text-4xl md:text-4xl lg:text-4xl font-bold leading-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight">
                 <span className="block text-gray-900">Meet your new</span>
-                <span className="block mt-2">
-                  <span className="relative">
+                <span className="block mt-1 sm:mt-2">
+                  <span className="relative inline-block">
                     <span className="relative z-10 bg-gradient-to-r from-[#B03982] via-[#a32c8d] to-[#733C86] bg-clip-text text-transparent">
                       Digital Colleague
                     </span>
-                    <span className="absolute -bottom-2 left-0 w-full h-3 bg-gradient-to-r from-[#B03982]/10 to-[#733C86]/10 blur-xl -z-10"></span>
+                    <span className="absolute -bottom-1.5 sm:-bottom-2 left-0 w-full h-2 sm:h-3 bg-gradient-to-r from-[#B03982]/10 to-[#733C86]/10 blur-lg sm:blur-xl -z-10"></span>
                   </span>
                 </span>
               </h2>
 
-              <p className="text-lg text-gray-600 max-w-lg">
+              <p className="text-sm sm:text-base md:text-lg text-gray-600 w-full max-w-full sm:max-w-lg">
                 An AI-powered assistant that transforms how your team accesses and interacts with organizational knowledge.
               </p>
-
             </div>
 
             {/* Benefits List - Light */}
@@ -174,86 +174,66 @@ const DigitalColleagueLight = () => {
                 {benefits.map((benefit, index) => (
                   <div
                     key={index}
-                    className="group relative bg-gradient-to-br from-white to-gray-50 backdrop-blur-sm rounded-2xl border border-gray-200 py-3 px-3 hover:border-[#B03982]/50 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#B03982]/5 shadow-sm"
+                    className="group relative bg-gradient-to-br from-white to-gray-50 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-gray-200 p-3 sm:p-3 hover:border-[#B03982]/50 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#B03982]/5 shadow-sm"
                     style={{
                       animationDelay: `${index * 100}ms`
                     }}
                   >
-                    {/* Light Background Effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#B03982]/0 to-[#733C86]/0 group-hover:from-[#B03982]/5 group-hover:to-[#733C86]/5 rounded-2xl transition-all duration-500"></div>
-
-                    <div className="relative flex items-start gap-4">
-                      {/* Light Icon Container */}
-                      <div className="relative">
-                        <div className="absolute -inset-3 bg-gradient-to-br from-[#B03982]/10 to-[#733C86]/10 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div className={`relative w-12 h-12 flex items-center justify-center ${benefit.bgColor} rounded-xl border border-gray-200 group-hover:border-transparent transition-all duration-300`}>
-                          <div className={`${benefit.color} transform group-hover:scale-110 transition-transform duration-300`}>
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#B03982]/0 to-[#733C86]/0 group-hover:from-[#B03982]/5 group-hover:to-[#733C86]/5 rounded-xl sm:rounded-2xl transition-all duration-500"></div>
+                    <div className="relative flex items-start gap-3 sm:gap-4">
+                      <div className="relative flex-shrink-0">
+                        <div className="absolute -inset-2 sm:-inset-3 bg-gradient-to-br from-[#B03982]/10 to-[#733C86]/10 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div className={`relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center ${benefit.bgColor} rounded-lg sm:rounded-xl border border-gray-200 group-hover:border-transparent transition-all duration-300`}>
+                          <div className={`${benefit.color} transform group-hover:scale-110 transition-transform duration-300 text-sm sm:text-base`}>
                             {benefit.icon}
                           </div>
                         </div>
                       </div>
-
-                      {/* Text Content */}
-                      <div className="flex-1">
-                        <h3 className="font-semibold text-gray-900 mb-2 leading-relaxed">
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-sm sm:text-base font-semibold text-gray-900 mb-1.5 sm:mb-2 leading-relaxed line-clamp-2">
                           {benefit.title}
                         </h3>
-
-                        {/* Progress Bar Effect - Light */}
-                        <div className="mt-3 relative">
+                        <div className="mt-2 sm:mt-3 relative">
                           <div className="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
                             <div
-                              className={`h-full bg-gradient-to-r ${benefit.color.replace('text', 'from')} ${benefit.color} rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}
+                              className={`h-full bg-gradient-to-r ${benefit.color.replace('text', 'from')} to-[#733C86] rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}
                             ></div>
                           </div>
                         </div>
                       </div>
-
-                      {/* Check Indicator - Light */}
-                      {/* <div className="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <CheckCircle className="w-5 h-5 text-[#B03982]" />
-                    </div> */}
                     </div>
-
-                    {/* Floating Number - Light */}
-                    {/* <div className="absolute -left-3 -top-3 w-8 h-8 flex items-center justify-center bg-white rounded-full border border-gray-300 text-xs font-bold text-gray-600 group-hover:text-white group-hover:bg-gradient-to-r group-hover:from-[#B03982] group-hover:to-[#733C86] transition-all duration-300">
-                      {index + 1}
-                    </div> */}
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* CTA Button - Light */}
-            <div>
-              <button className="group relative px-8 py-4 bg-gradient-to-r from-[#B03982] to-[#733C86] rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                {/* Light Ripple Effect */}
+            <div className="flex flex-col items-center sm:items-start w-full sm:px-0">
+              <button className="group relative w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#B03982] to-[#733C86] rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl">
                 <div className="absolute inset-0 overflow-hidden">
                   <div className="absolute -inset-10 bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:animate-shimmer"></div>
                 </div>
-
-                <div className="relative flex items-center justify-center gap-3">
+                <div onClick={() => navigate('/contact-us')} className="cursor-pointer relative flex items-center justify-center gap-2 sm:gap-3">
                   <div className="relative">
                     <div className="absolute -inset-2 bg-white/30 rounded-full blur group-hover:animate-ping-slow"></div>
-                    <GraduationCap className="w-5 h-5 text-white relative z-10" />
+                    <GraduationCap className="w-4 h-4 sm:w-5 sm:h-5 text-white relative z-10" />
                   </div>
-                  <span className="font-semibold text-lg text-white">Let's Connect</span>
-                  <ArrowRight className="w-5 h-5 text-white group-hover:translate-x-2 transition-transform duration-300" />
+                  <span className="font-semibold text-base sm:text-lg text-white">Let's Connect</span>
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-white group-hover:translate-x-2 transition-transform duration-300" />
                 </div>
               </button>
 
-              {/* Additional Info - Light */}
-              <div className="mt-6 flex items-center gap-4 text-sm text-gray-600">
+              <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 text-xs sm:text-sm text-gray-600 w-full">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-full animate-pulse"></div>
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-full animate-pulse"></div>
                   <span>Free consultation included</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-full animate-pulse"></div>
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-full animate-pulse"></div>
                   <span>No commitment required</span>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>

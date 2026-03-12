@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
 const UseCases = () => {
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const [autoplay, setAutoplay] = useState(true);
   const carouselRef = useRef(null);
@@ -90,97 +91,121 @@ const UseCases = () => {
     setAutoplay(true);
   };
 
+  // Helper function to determine number of slides to show
+  const getSlidesToShow = () => {
+    if (typeof window === 'undefined') return 1; // Default for SSR
+
+    if (window.innerWidth >= 1280) return 3; // xl
+    if (window.innerWidth >= 1024) return 2; // lg
+    if (window.innerWidth >= 640) return 2;  // sm
+    return 1; // xs (mobile)
+  };
+
+  // Add this inside your component
+  useEffect(() => {
+    const handleResize = () => {
+      // Force re-render to update slidesToShow
+      setCurrentSlide(prev => Math.min(prev, useCases.length - getSlidesToShow()));
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
-    <section className="relative py-20 overflow-hidden bg-gradient-to-b from-white to-gray-50">
+    <section className="relative py-12 sm:py-16 md:py-20 overflow-hidden bg-gradient-to-b from-white to-gray-50">
       {/* Background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#B03982]/5 to-[#733C86]/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-br from-[#B03982]/5 to-[#733C86]/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 right-0 w-48 sm:w-64 h-48 sm:h-64 bg-gradient-to-br from-[#B03982]/5 to-[#733C86]/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-48 sm:w-64 h-48 sm:h-64 bg-gradient-to-br from-[#B03982]/5 to-[#733C86]/5 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="relative container mx-auto px-4 md:px-6 lg:px-8">
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold mb-6">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 md:mb-6">
             <span className="block text-gray-900">Use Cases</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4 sm:px-0">
             Discover how Nerdy Buddy transforms knowledge management across industries
           </p>
         </div>
 
         {/* Carousel Container */}
         <div
-          className="relative"
+          className="relative px-8 sm:px-10 md:px-12"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          {/* Navigation Buttons */}
+          {/* Navigation Buttons - Hidden on mobile */}
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-6 z-10 w-12 h-12 flex items-center justify-center bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group border border-gray-200"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group border border-gray-200 disabled:opacity-50 disabled:cursor-not-allowed hidden sm:flex"
             aria-label="Previous slide"
+            disabled={currentSlide === 0}
           >
-            <ChevronLeft className="w-6 h-6 text-gray-700 group-hover:text-[#B03982] transition-colors" />
+            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-700 group-hover:text-[#B03982] transition-colors" />
           </button>
 
           <button
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 z-10 w-12 h-12 flex items-center justify-center bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group border border-gray-200"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group border border-gray-200 disabled:opacity-50 disabled:cursor-not-allowed hidden sm:flex"
             aria-label="Next slide"
+            disabled={currentSlide >= useCases.length - getSlidesToShow()}
           >
-            <ChevronRight className="w-6 h-6 text-gray-700 group-hover:text-[#B03982] transition-colors" />
+            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-700 group-hover:text-[#B03982] transition-colors" />
           </button>
 
           {/* Carousel */}
           <div className="overflow-hidden">
             <div
               ref={carouselRef}
-              className="flex transition-transform duration-500 ease-out"
-              style={{ transform: `translateX(-${currentSlide * (100 / slidesToShow.xl)}%)` }}
+              className="flex transition-transform duration-500 ease-out gap-2 sm:gap-3 md:gap-4"
+              style={{ transform: `translateX(-${currentSlide * (100 / getSlidesToShow())}%)` }}
             >
               {useCases.map((useCase, index) => (
                 <div
                   key={useCase.id}
-                  className={`flex-shrink-0 px-3 transition-all duration-300 ${currentSlide === index ? 'opacity-100 scale-100' : 'opacity-90 scale-95'}`}
-                  style={{ width: `${100 / slidesToShow.xl}%` }}
+                  className={`flex-shrink-0 transition-all duration-300 ${currentSlide === index ? 'opacity-100 scale-100' : 'opacity-80 sm:opacity-90 scale-95'
+                    }`}
+                  style={{ width: `${100 / getSlidesToShow()}%` }}
                 >
                   <NavLink
                     to={useCase.link}
                     className="group block h-full"
                     aria-label={`Learn more about ${useCase.title}`}
                   >
-                    <div className="relative bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 p-6 md:p-8 h-full flex flex-col items-center text-center transition-all duration-300 hover:border-[#B03982]/50 hover:shadow-xl hover:shadow-[#B03982]/10 hover:scale-[1.02]">
+                    <div className="relative bg-gradient-to-br from-white to-gray-50 rounded-xl sm:rounded-2xl border border-gray-200 p-4 sm:p-5 md:p-6 lg:p-8 h-full flex flex-col items-center text-center transition-all duration-300 hover:border-[#B03982]/50 hover:shadow-xl hover:shadow-[#B03982]/10 hover:scale-[1.02]">
                       {/* Icon Container */}
-                      <div className="relative mb-6">
-                        <div className="absolute -inset-4 bg-gradient-to-br from-[#B03982]/5 to-[#733C86]/5 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div className="relative w-24 h-24 md:w-32 md:h-32 flex items-center justify-center bg-gradient-to-r from-[#B03982] via-[#a32c8d] to-[#733C86] rounded-xl border border-gray-300 group-hover:border-transparent transition-all duration-300">
+                      <div className="relative mb-3 sm:mb-4 md:mb-5 lg:mb-6">
+                        <div className="absolute -inset-2 sm:-inset-3 md:-inset-4 bg-gradient-to-br from-[#B03982]/5 to-[#733C86]/5 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 flex items-center justify-center bg-gradient-to-r from-[#B03982] via-[#a32c8d] to-[#733C86] rounded-lg sm:rounded-xl border border-gray-300 group-hover:border-transparent transition-all duration-300">
                           <img
                             src={useCase.icon}
                             alt={useCase.title}
-                            className="w-16 h-16 md:w-20 md:h-20 object-contain"
+                            className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain"
                             loading="lazy"
                           />
                         </div>
                       </div>
 
                       {/* Title */}
-                      <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#B03982] group-hover:to-[#733C86] group-hover:bg-clip-text transition-all duration-300">
+                      <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-gray-900 mb-2 sm:mb-2.5 md:mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#B03982] group-hover:to-[#733C86] group-hover:bg-clip-text transition-all duration-300 line-clamp-2">
                         {useCase.title}
                       </h3>
 
                       {/* Description */}
-                      <p className="text-sm md:text-base text-gray-600 mb-4 flex-grow">
+                      <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-3 sm:mb-4 flex-grow line-clamp-3 sm:line-clamp-4">
                         {useCase.description}
                       </p>
 
                       {/* Indicator */}
-                      <div className="flex items-center justify-center gap-2 mt-4">
+                      <div className="flex items-center justify-center gap-2 mt-2 sm:mt-3 md:mt-4">
                         <div className="flex items-center gap-1">
                           {[...Array(3)].map((_, i) => (
                             <div
                               key={i}
-                              className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${i === 0
+                              className={`w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full transition-all duration-300 ${i === 0
                                   ? 'bg-gradient-to-r from-[#B03982] to-[#733C86]'
                                   : 'bg-gray-300 group-hover:bg-gray-400'
                                 }`}
@@ -190,12 +215,12 @@ const UseCases = () => {
                       </div>
 
                       {/* Hover Indicator */}
-                      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <div className="w-8 h-0.5 bg-gradient-to-r from-[#B03982] to-[#733C86] rounded-full"></div>
+                      <div className="absolute bottom-2 sm:bottom-3 md:bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="w-6 sm:w-8 h-0.5 bg-gradient-to-r from-[#B03982] to-[#733C86] rounded-full"></div>
                       </div>
 
                       {/* Number Badge */}
-                      <div className="absolute -top-2 -right-2 w-8 h-8 flex items-center justify-center bg-gradient-to-br from-white to-gray-100 rounded-full border border-gray-300 text-xs font-bold text-gray-600 group-hover:text-white group-hover:bg-gradient-to-r group-hover:from-[#B03982] group-hover:to-[#733C86] transition-all duration-300">
+                      <div className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 flex items-center justify-center bg-gradient-to-br from-white to-gray-100 rounded-full border border-gray-300 text-[10px] sm:text-xs md:text-sm font-bold text-gray-600 group-hover:text-white group-hover:bg-gradient-to-r group-hover:from-[#B03982] group-hover:to-[#733C86] transition-all duration-300">
                         {index + 1}
                       </div>
                     </div>
@@ -205,92 +230,53 @@ const UseCases = () => {
             </div>
           </div>
 
+          {/* Mobile Navigation Buttons - Visible only on mobile */}
+          <div className="flex justify-center items-center gap-4 mt-4 sm:hidden">
+            <button
+              onClick={prevSlide}
+              className="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-lg border border-gray-200 disabled:opacity-50"
+              disabled={currentSlide === 0}
+              aria-label="Previous slide"
+            >
+              <ChevronLeft className="w-5 h-5 text-gray-700" />
+            </button>
+            <button
+              onClick={nextSlide}
+              className="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-lg border border-gray-200 disabled:opacity-50"
+              disabled={currentSlide >= useCases.length - getSlidesToShow()}
+              aria-label="Next slide"
+            >
+              <ChevronRight className="w-5 h-5 text-gray-700" />
+            </button>
+          </div>
+
           {/* Pagination Dots */}
-          <div className="flex justify-center items-center gap-2 mt-8">
+          <div className="flex justify-center items-center gap-1.5 sm:gap-2 mt-4 sm:mt-6 md:mt-8">
             {useCases.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${currentSlide === index
-                    ? 'w-8 bg-gradient-to-r from-[#B03982] to-[#733C86]'
-                    : 'bg-gray-300 hover:bg-gray-400'
+                className={`transition-all duration-300 ${currentSlide === index
+                    ? 'w-4 sm:w-6 md:w-8 h-1.5 sm:h-2 bg-gradient-to-r from-[#B03982] to-[#733C86] rounded-full'
+                    : 'w-1.5 sm:w-2 h-1.5 sm:h-2 bg-gray-300 rounded-full hover:bg-gray-400'
                   }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
           </div>
-
-          {/* Autoplay Indicator */}
-          {/* <div className="flex items-center justify-center gap-2 mt-4">
-            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#B03982] to-[#733C86] animate-pulse"></div>
-            <span className="text-sm text-gray-600">
-              {autoplay ? 'Auto-scrolling' : 'Paused'}
-            </span>
-          </div> */}
         </div>
-
-        {/* Responsive indicators */}
-        {/* <div className="hidden lg:flex justify-center items-center gap-4 mt-8 text-sm text-gray-600">
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-4 rounded-full bg-gradient-to-r from-[#B03982] to-[#733C86]"></div>
-            <span>Drag to scroll</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-4 rounded-full bg-gray-300"></div>
-            <span>Click to select</span>
-          </div>
-        </div> */}
-
-        {/* CTA */}
-        {/* <div className="text-center mt-12 md:mt-16">
-          <p className="text-gray-600 mb-6">
-            Ready to see how Nerdy Buddy can transform your organization?
-          </p>
-          <a
-            href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#B03982] to-[#733C86] text-white rounded-xl font-semibold hover:shadow-xl hover:shadow-[#B03982]/20 transition-all duration-300 hover:scale-105"
-          >
-            <span>Get Started Now</span>
-            <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </a>
-        </div> */}
       </div>
 
       <style jsx>{`
-        @keyframes pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.5; }
-        }
-        
-        .animate-pulse {
-          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 1280px) {
-          .pxl-swiper-wrapper > div {
-            width: ${100 / slidesToShow.lg}% !important;
-          }
-        }
-        
-        @media (max-width: 1024px) {
-          .pxl-swiper-wrapper > div {
-            width: ${100 / slidesToShow.md}% !important;
-          }
-        }
-        
-        @media (max-width: 768px) {
-          .pxl-swiper-wrapper > div {
-            width: ${100 / slidesToShow.sm}% !important;
-          }
-        }
-        
-        @media (max-width: 640px) {
-          .pxl-swiper-wrapper > div {
-            width: ${100 / slidesToShow.xs}% !important;
-          }
-        }
-      `}</style>
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    .animate-pulse {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+  `}</style>
     </section>
   );
 };

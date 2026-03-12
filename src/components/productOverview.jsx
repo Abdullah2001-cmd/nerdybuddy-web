@@ -73,7 +73,7 @@ const ProductOverview = () => {
   ];
 
   return (
-    <section className="relative py-20 overflow-hidden bg-gradient-to-b from-gray-50 via-white to-gray-50">
+    <section className="relative py-10 md:py-20 lg:py-20 overflow-hidden bg-gradient-to-b from-gray-50 via-white to-gray-50">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 -left-24 w-96 h-96 bg-gradient-to-br from-[#B03982]/5 to-[#733C86]/5 rounded-full blur-3xl"></div>
@@ -84,13 +84,13 @@ const ProductOverview = () => {
       <div className="relative container mx-auto px-4 md:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 md:mb-20 animate-fadeInUp">
-          <div className="inline-flex items-center justify-center mb-4">
-            <span className="text-lg font-medium bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
+          <div className="inline-flex items-center justify-center md:mb-4 lg:mb-4 mb-2">
+            <span className="text-md md:text-lg lg:text-lg font-medium bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
               AI That Understands Your Organization
             </span>
           </div>
 
-          <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold mb-6 flex justify-center gap-4">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-6 flex justify-center gap-2">
             <span className="block text-gray-900">Product</span>
             <span className="block bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
               Overview
@@ -108,13 +108,13 @@ const ProductOverview = () => {
                   <Brain className="w-4 h-4" />
                   Simple. Secure. Smart.
                 </span>
-                <h3 className="text-3xl md:text-4xl font-bold text-gray-900">
+                <h3 className="text-2xl md:text-4xl font-bold text-gray-900">
                   What is <span className="bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">Nerdy Buddy?</span>
                 </h3>
               </div>
 
               <div className="bg-gradient-to-br from-gray-50 to-white backdrop-blur-sm rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
-                <p className="text-lg text-gray-700 leading-relaxed">
+                <p className="text-md md:text-lg lg:text-lg text-gray-700 leading-relaxed">
                   <span className="font-bold text-gray-900">NerdyBuddy</span> is not just a chatbot. It's a{' '}
                   <span className="relative inline-block">
                     <span className="relative z-10 font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
@@ -217,7 +217,7 @@ const ProductOverview = () => {
               <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
                 {/* How It Works Section */}
                 <div className="space-y-6 animate-fadeIn">
-                  <h4 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+                  <h4 className="text-center md:text-left lg:text-left text-2xl md:text-3xl font-bold text-gray-900 mb-6">
                     How It <span className="bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">Works</span>
                   </h4>
 
@@ -245,7 +245,7 @@ const ProductOverview = () => {
 
                 {/* Why It's Different Section */}
                 <div className="space-y-6 animate-fadeIn">
-                  <h4 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+                  <h4 className="text-center md:text-left lg:text-left text-2xl md:text-3xl font-bold text-gray-900 mb-6">
                     Why It's <span className="bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">Different</span>
                   </h4>
 
@@ -275,7 +275,7 @@ const ProductOverview = () => {
 
             {/* CTA Button */}
             <div className="pt-4">
-              <button className="group relative px-8 py-4 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#B03982]/20">
+              <button className="cursor-pointer group relative px-8 py-4 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#B03982]/20">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#c94594] to-[#8a48a3] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative flex items-center justify-center gap-3">
                   <FileText className="w-5 h-5 text-white" />

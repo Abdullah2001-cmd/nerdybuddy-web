@@ -186,7 +186,7 @@ const LoadingScreen = ({ onFinish }) => {
       // Always move to the bottom-right corner
       let finalLeft;
       let finalTop;
-      const finalScale = 0.9; // scale up after moving, initial size unchanged
+      const finalScale = 0.75 // scale up after moving, initial size unchanged
       const paddingY = 24;      // vertical offset only (move up from bottom)
       // calculate position so the scaled character is fully inside viewport
       const scaledWidth = rect.width * finalScale;
