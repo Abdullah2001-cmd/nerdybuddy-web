@@ -440,7 +440,7 @@ const Footer = () => {
               <a href="https://www.linkedin.com/company/nerdy-buddy/" className="text-gray-400 hover:text-white transition">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition">
+              <a href="https://www.youtube.com/@NerdyBuddy-AI" className="text-gray-400 hover:text-white transition">
                 <Youtube className="w-5 h-5" />
               </a>
             </div>
