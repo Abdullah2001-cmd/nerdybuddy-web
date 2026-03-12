@@ -321,7 +321,7 @@ const ContactFormSection = () => {
         </div>
 
         {/* Additional Info */}
-        <div className="mt-16 pt-12 border-t border-gray-200">
+        {/* <div className="mt-16 pt-12 border-t border-gray-200">
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>
               <div className="text-2xl font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent mb-2">
@@ -342,7 +342,7 @@ const ContactFormSection = () => {
               <div className="text-sm text-gray-600">Free Consultation</div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <style jsx>{`

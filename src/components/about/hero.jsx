@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 
 const AboutUs = () => {
+  
   const stats = [
     { value: "100+", label: "Organizations Transformed", icon: <TrendingUp className="w-5 h-5" /> },
     { value: "24/7", label: "AI Assistant Available", icon: <Zap className="w-5 h-5" /> },
@@ -143,35 +144,7 @@ const AboutUs = () => {
               </div>
 
               {/* Stats Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-5 sm:mt-6">
-                {stats.map((stat, index) => (
-                  <div
-                    key={index}
-                    className="bg-white rounded-xl border border-gray-200 p-3 sm:p-4 hover:border-[#B03982]/50 transition-all duration-300 hover:shadow-lg group"
-                  >
-                    <div className="flex items-center gap-3">
-
-                      {/* Icon */}
-                      <div className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center bg-gradient-to-br from-gray-50 to-white rounded-lg border border-gray-200">
-                        <div className="text-gray-600 group-hover:text-[#B03982] transition-colors duration-300">
-                          {stat.icon}
-                        </div>
-                      </div>
-
-                      {/* Text */}
-                      <div>
-                        <div className="text-lg sm:text-xl font-bold text-gray-900">
-                          {stat.value}
-                        </div>
-                        <div className="text-[11px] sm:text-xs text-gray-600">
-                          {stat.label}
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
-                ))}
-              </div>
+              
             </div>
 
             {/* Timeline */}
