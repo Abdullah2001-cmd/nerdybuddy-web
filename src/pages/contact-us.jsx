@@ -281,23 +281,23 @@ const ContactInformation = () => {
                                     </div>
 
                                     {/* Action Button */}
-                                    <div className="pt-3">
+                                    {/* <div className="pt-3">
                                         <button className="group flex items-center gap-2 text-xs sm:text-sm font-medium text-gray-700 hover:text-[#B03982] transition-colors duration-300">
                                             <span>Get in touch</span>
                                             <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
                                         </button>
-                                    </div>
+                                    </div> */}
 
                                 </div>
 
                                 {/* Hover Line */}
-                                <div className="mt-4 relative">
+                                {/* <div className="mt-4 relative">
                                     <div className="w-full h-0.5 bg-gray-100 rounded-full overflow-hidden">
                                         <div
                                             className={`w-0 h-full bg-gradient-to-r ${card.gradient} rounded-full group-hover:w-full transition-all duration-700`}
                                         ></div>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         ))}
                     </div>
@@ -533,14 +533,14 @@ const ContactInformation = () => {
                             )}
 
                             {/* Response Time */}
-                            <div className="mt-5 sm:mt-6 pt-5 sm:pt-6 border-t border-gray-100">
+                            {/* <div className="mt-5 sm:mt-6 pt-5 sm:pt-6 border-t border-gray-100">
                                 <div className="flex items-center gap-2">
                                     <div className="w-2 h-2 bg-gradient-to-r from-[#B03982] to-[#733C86] rounded-full animate-pulse"></div>
                                     <span className="text-xs sm:text-sm text-gray-600">
                                         Typical response time: 2–4 hours
                                     </span>
                                 </div>
-                            </div>
+                            </div> */}
 
                         </div>
                     </div>

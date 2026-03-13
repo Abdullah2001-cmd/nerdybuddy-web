@@ -424,65 +424,91 @@ const PricingPage = () => {
         },
     ];
 
-    // Annual Plans Data
     const annualPlans = [
         {
-            id: 'starter-annual',
-            title: 'Starter',
-            bestFor: 'Evaluation',
-            icon: <Rocket className="w-6 h-6" />,
-            color: 'blue',
-            price: { monthly: 0, yearly: 0 },
-            savings: null,
-            popular: false,
-            cta: 'Start Free',
-            keyFeatures: [
-                '1 Company, 1 Department',
-                '1 User',
-                'Basic Roles & Permissions',
-                'Admin Portal Access',
-                '100 Pages Documents',
-                '250k AI Query Credits'
+            id: 'Starter (Free)',
+            title: "Starter (Free)",
+            shortDesc: "Perfect for evaluation and small teams",
+            icon: <Rocket className="w-8 h-8" />,
+            price: "Free",
+            billingPeriod: "Always free",
+            setupFee: "No setup fee",
+            features: [
+                "Company Creation",
+                "Department Creation",
+                "Number of Users: 1",
+                "Roles & Permissions: Basic - Pre Defined Roles",
+                "Admin Portal Access: Yes",
+                "LMS Access (Admin): No",
+                "Leaderboard: No",
+                "Onboarding Module: No",
+                "On-Job Training Module: No",
+            ],
+            gradient: "from-blue-400 to-cyan-500",
+            color: "blue",
+            stats: [
+                { label: "Users", value: "1" },
+                { label: "Companies", value: "1" },
+                { label: "Documents", value: "100pg" }
             ]
         },
         {
-            id: 'standard-annual',
-            title: 'Standard',
-            bestFor: 'Growing Teams',
-            icon: <Briefcase className="w-6 h-6" />,
-            color: 'purple',
-            price: { monthly: 99, yearly: 950 },
-            savings: 'Save 20%',
-            popular: true,
-            cta: 'Get Started',
-            keyFeatures: [
-                'Up to 10 Users',
-                'Unlimited Departments',
-                'Advanced Roles & Permissions',
-                'Full LMS Access',
-                '500 Pages Documents',
-                'AI Quiz Generation'
+            id: 'Standard',
+            title: "Standard",
+            shortDesc: "Ideal for growing teams",
+            icon: <Briefcase className="w-8 h-8" />,
+            price: "2,000", // $200/month × 10 users × 12 months with 20% annual discount
+            billingPeriod: "/year (for up to 10 users)",
+            setupFee: "Contact for setup",
+            features: [
+                "Company Creation: 1",
+                "Department Creation: Unlimited",
+                "Number of Users: Up to 10",
+                "Roles & Permissions: Advanced - can create",
+                "Admin Portal Access: Yes",
+                "LMS Access (Admin): Yes",
+                "Leaderboard: Yes",
+                "Onboarding Module: Yes",
+                "On-Job Training Module: Yes",
+            ],
+            gradient: "from-purple-400 to-pink-500",
+            color: "purple",
+            savings: "Save $400 compared to monthly",
+            monthlyEquivalent: "$200/month for 10 users",
+            stats: [
+                { label: "Users", value: "10" },
+                { label: "Documents", value: "500pg" },
+                { label: "Support", value: "Email/WA" }
             ]
         },
         {
-            id: 'enterprise-annual',
-            title: 'Enterprise',
-            bestFor: 'Complex Enterprise Firms',
-            icon: <Globe className="w-6 h-6" />,
-            color: 'pink',
-            price: { monthly: 599, yearly: 5990 },
-            savings: 'Save 16%',
-            popular: false,
-            cta: 'Contact Sales',
-            keyFeatures: [
-                'Unlimited Users',
-                'Fully Custom Permissions',
-                'Unlimited Documents',
-                'Custom Integrations',
-                'Dedicated CSM',
-                'Priority SLA Support'
+            id: 'Enterprise (Integration)',
+            title: "Enterprise (Integration)",
+            shortDesc: "Complex enterprise firms with custom needs",
+            icon: <Globe className="w-8 h-8" />,
+            price: "Custom",
+            billingPeriod: "Annual enterprise agreement",
+            setupFee: "Custom setup",
+            features: [
+                "Company Creation: Multiple",
+                "Department Creation: Unlimited",
+                "Number of Users: Unlimited",
+                "Roles & Permissions: Fully Custom",
+                "Admin Portal Access: Yes",
+                "LMS Access (Admin): Yes",
+                "Leaderboard: Yes",
+                "Onboarding Module: Yes",
+                "On-Job Training Module: Yes",
+            ],
+            gradient: "from-pink-400 to-rose-500",
+            color: "pink",
+            annualPricing: "Custom quote based on requirements",
+            stats: [
+                { label: "Users", value: "∞" },
+                { label: "Documents", value: "∞" },
+                { label: "Support", value: "Priority 24/7" }
             ]
-        }
+        },
     ];
 
     // Add-on Services
@@ -785,8 +811,10 @@ const PricingPage = () => {
                             <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 bg-white p-2 sm:p-2 rounded-2xl border border-gray-200 w-full sm:w-auto">
 
                                 <button
-                                    onClick={() => setIsYearly(false)}
-                                    className={`w-full sm:w-auto cursor-pointer px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-medium text-sm sm:text-base transition-all duration-300 ${!isYearly
+                                    onClick={() => {
+                                        setActiveTab('monthly')
+                                    }}
+                                    className={`w-full sm:w-auto cursor-pointer px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-medium text-sm sm:text-base transition-all duration-300 ${activeTab === 'monthly'
                                         ? "bg-gradient-to-r from-[#B03982] to-[#733C86] text-white"
                                         : "text-gray-700 hover:text-gray-900"
                                         }`}
@@ -795,8 +823,10 @@ const PricingPage = () => {
                                 </button>
 
                                 <button
-                                    onClick={() => setIsYearly(true)}
-                                    className={`w-full sm:w-auto cursor-pointer px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-medium text-sm sm:text-base transition-all duration-300 flex items-center justify-center gap-2 ${isYearly
+                                    onClick={() => {
+                                        setActiveTab('yearly')
+                                    }}
+                                    className={`w-full sm:w-auto cursor-pointer px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-medium text-sm sm:text-base transition-all duration-300 flex items-center justify-center gap-2 ${activeTab === 'yearly'
                                         ? "bg-gradient-to-r from-[#B03982] to-[#733C86] text-white"
                                         : "text-gray-700 hover:text-gray-900"
                                         }`}
@@ -813,16 +843,14 @@ const PricingPage = () => {
 
                         {/* Tab Content */}
                         <div className="transition-all duration-500">
-                            {activeTab === 'implementation' ? (
+                            {activeTab === 'monthly' ? (
                                 <div>
                                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                                         {implementationServices.map((service, index) => {
                                             return (
                                                 <div
                                                     key={service.id}
-                                                    className="cursor-pointer group relative bg-white rounded-3xl border border-gray-200 overflow-hidden 
-  hover:border-[#B03982]/50 transition-all duration-300 hover:shadow-2xl hover:shadow-[#B03982]/10 
-  sm:hover:scale-105"
+                                                    className="cursor-pointer group relative bg-white rounded-3xl border border-gray-200 overflow-hidden hover:border-[#B03982]/50 transition-all duration-300 hover:shadow-2xl hover:shadow-[#B03982]/10 sm:hover:scale-105"
                                                 >
                                                     {/* Gradient Background */}
                                                     <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
@@ -830,15 +858,13 @@ const PricingPage = () => {
                                                     {/* Top Decoration */}
                                                     <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#B03982] to-[#733C86] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
 
-                                                    <div className="relative p-5 sm:p-6 md:p-8">
+                                                    <div className="relative p-5 p-6">
 
                                                         {/* Icon */}
                                                         <div className="relative mb-4 sm:mb-6">
                                                             <div className="absolute -inset-3 bg-gradient-to-br from-[#B03982]/20 to-[#733C86]/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                                                            <div className={`relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 flex items-center justify-center 
-      bg-gradient-to-br from-${service.color}-50 to-white rounded-2xl border border-gray-200 
-      group-hover:border-transparent transition-all duration-300`}>
+                                                            <div className={`relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 flex items-center justify-center bg-gradient-to-br from-${service.color}-50 to-white rounded-2xl border border-gray-200 group-hover:border-transparent transition-all duration-300`}>
                                                                 <div className={`text-${service.color}-600 transform group-hover:scale-110 transition-transform duration-300`}>
                                                                     {service.icon}
                                                                 </div>
@@ -846,7 +872,7 @@ const PricingPage = () => {
                                                         </div>
 
                                                         {/* Title */}
-                                                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-2">
+                                                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">
                                                             {service.title}
                                                         </h3>
 
@@ -857,7 +883,7 @@ const PricingPage = () => {
 
                                                         {/* Price */}
                                                         <div className="mb-4">
-                                                            <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
+                                                            <div className="text-4xl font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
                                                                 {service.price === 'Free'
                                                                     ? 'Free'
                                                                     : service.price === 'Custom'
@@ -900,7 +926,6 @@ const PricingPage = () => {
                                             )
                                         })}
                                     </div>
-
                                     {/* Add-on Services */}
                                     {/* <div className="mt-16">
                                         <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
@@ -930,93 +955,84 @@ const PricingPage = () => {
                                 <div>
                                     {/* Annual Plans */}
                                     <div className="grid md:grid-cols-3 gap-8">
-                                        {annualPlans.map((plan) => {
-                                            const price = isYearly ? plan.price.yearly : plan.price.monthly;
-                                            const savings = isYearly ? plan.savings : null;
-
+                                        {annualPlans.map((service, index) => {
                                             return (
                                                 <div
-                                                    key={plan.id}
-                                                    className={`group relative bg-white rounded-3xl border-2 overflow-hidden transition-all duration-500 hover:scale-105 ${plan.popular
-                                                        ? 'border-[#B03982] shadow-2xl shadow-[#B03982]/20'
-                                                        : 'border-gray-200 hover:border-[#B03982]/50'
-                                                        }`}
+                                                    key={service.id}
+                                                    className="cursor-pointer group relative bg-white rounded-3xl border border-gray-200 overflow-hidden hover:border-[#B03982]/50 transition-all duration-300 hover:shadow-2xl hover:shadow-[#B03982]/10 sm:hover:scale-105"
                                                 >
-                                                    {/* Popular Badge */}
-                                                    {plan.popular && (
-                                                        <>
-                                                            <div className="absolute top-6 right-6 z-10">
-                                                                <div className="px-4 py-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-sm font-bold rounded-full shadow-lg">
-                                                                    Most Popular
+                                                    {/* Gradient Background */}
+                                                    <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+
+                                                    {/* Top Decoration */}
+                                                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#B03982] to-[#733C86] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+
+                                                    <div className="relative p-5 p-6">
+
+                                                        {/* Icon */}
+                                                        <div className="relative mb-4 sm:mb-6">
+                                                            <div className="absolute -inset-3 bg-gradient-to-br from-[#B03982]/20 to-[#733C86]/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                                                            <div className={`relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 flex items-center justify-center bg-gradient-to-br from-${service.color}-50 to-white rounded-2xl border border-gray-200 group-hover:border-transparent transition-all duration-300`}>
+                                                                <div className={`text-${service.color}-600 transform group-hover:scale-110 transition-transform duration-300`}>
+                                                                    {service.icon}
                                                                 </div>
                                                             </div>
-                                                            <div className="absolute inset-0 bg-gradient-to-br from-[#B03982]/5 to-[#733C86]/5 pointer-events-none"></div>
-                                                        </>
-                                                    )}
-
-                                                    {/* Savings Badge */}
-                                                    {savings && (
-                                                        <div className="absolute top-6 left-6 z-10">
-                                                            <div className="px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-sm font-bold rounded-full shadow-lg">
-                                                                {savings}
-                                                            </div>
                                                         </div>
-                                                    )}
 
-                                                    {/* Header */}
-                                                    <div className={`p-6 border-b ${plan.popular ? 'border-[#B03982]/20' : 'border-gray-200'}`}>
-                                                        <div className="flex items-center gap-3 mb-4">
-                                                            <div className={`p-3 bg-gradient-to-br from-${plan.color}-100 to-white rounded-xl`}>
-                                                                <div className={`text-${plan.color}-600`}>{plan.icon}</div>
-                                                            </div>
-                                                            <div>
-                                                                <h3 className="text-2xl font-bold text-gray-900">{plan.title}</h3>
-                                                                <p className="text-sm text-gray-600">{plan.bestFor}</p>
-                                                            </div>
-                                                        </div>
+                                                        {/* Title */}
+                                                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">
+                                                            {service.title}
+                                                        </h3>
+
+                                                        {/* Description */}
+                                                        <p className="text-gray-600 text-sm mb-4">
+                                                            {service.shortDesc}
+                                                        </p>
 
                                                         {/* Price */}
-                                                        <div className="mb-6">
-                                                            <div className="flex items-end gap-2">
-                                                                <span className="text-4xl font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
-                                                                    ${price}
-                                                                </span>
-                                                                <span className="text-gray-600 mb-1">
-                                                                    {isYearly ? '/year' : '/month'}
-                                                                </span>
+                                                        <div className="mb-4">
+                                                            <div className="text-4xl font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
+                                                                {service.price === 'Free'
+                                                                    ? 'Free'
+                                                                    : service.price === 'Custom'
+                                                                        ? 'Custom'
+                                                                        : `$ ${service.price}`}
                                                             </div>
-                                                            {isYearly && price > 0 && (
-                                                                <div className="text-sm text-gray-600 mt-2">
-                                                                    ${Math.round(price / 12)}/month when billed annually
-                                                                </div>
-                                                            )}
                                                         </div>
 
-                                                        {/* Key Features */}
-                                                        <div className="space-y-2">
-                                                            {plan.keyFeatures.map((feature, idx) => (
-                                                                <div key={idx} className="flex items-center gap-2 text-sm">
-                                                                    <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0" />
-                                                                    <span className="text-gray-700">{feature}</span>
+                                                        {/* Features */}
+                                                        <div className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
+                                                            <h4 className="font-semibold text-gray-900 text-sm sm:text-base">
+                                                                Key Features:
+                                                            </h4>
+
+                                                            {service.features.map((feature, idx) => (
+                                                                <div key={idx} className="flex items-start gap-2">
+                                                                    <CheckCircle className={`w-4 h-4 text-${service.color}-600 flex-shrink-0 mt-0.5`} />
+                                                                    <span className="text-sm text-gray-700">{feature}</span>
                                                                 </div>
                                                             ))}
                                                         </div>
-                                                    </div>
 
-                                                    {/* CTA Button */}
-                                                    <div className="p-6">
+                                                        {/* CTA */}
                                                         <button
-                                                            onClick={() => handlePlanSelect(plan.id, price)}
-                                                            className={`w-full py-3 rounded-xl font-semibold transition-all duration-300 ${plan.popular
-                                                                ? 'bg-gradient-to-r from-[#B03982] to-[#733C86] text-white hover:shadow-lg hover:shadow-[#B03982]/20'
-                                                                : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
-                                                                }`}
+                                                            onClick={() => {
+                                                                if (service.title === "Enterprise (Integration)") {
+                                                                    navigate("/contact-us");
+                                                                } else {
+                                                                    handlePlanSelect(service);
+                                                                }
+                                                            }}
+                                                            className="cursor-pointer w-full py-2.5 sm:py-3 bg-gradient-to-r from-[#B03982] to-[#733C86] text-white 
+      rounded-xl font-semibold text-sm sm:text-base hover:shadow-lg hover:shadow-[#B03982]/20 
+      transition-all duration-300 sm:hover:scale-105 flex items-center justify-center gap-2"
                                                         >
-                                                            {plan.cta}
+                                                            {service.title === "Enterprise (Integration)" ? "Contact Sales" : "Start Plan"}
                                                         </button>
                                                     </div>
                                                 </div>
-                                            );
+                                            )
                                         })}
                                     </div>
 
@@ -1069,11 +1085,11 @@ const PricingPage = () => {
                                     <tr className="bg-gradient-to-r from-[#B03982] to-[#733C86]">
                                         <th className="p-6 text-left text-white font-semibold text-lg w-72">Features</th>
                                         <th className="p-6 text-center text-white font-semibold text-lg w-56">
-                                            <div>Starter</div>
+                                            <div>Starter (Free)</div>
                                             {/* <div className="text-sm font-normal text-white/80 mt-1">(Free)</div> */}
                                         </th>
                                         <th className="p-6 text-center text-white font-semibold text-lg w-56">
-                                            <div>Standard</div>
+                                            <div>Standard ($200)</div>
                                             {/* <div className="text-sm font-normal text-white/80 mt-1">Growing Teams</div> */}
                                         </th>
                                         {/* <th className="p-6 text-center text-white font-semibold text-lg w-56">
@@ -1081,7 +1097,7 @@ const PricingPage = () => {
                                             <div className="text-sm font-normal text-white/80 mt-1">Large Enterprises</div>
                                         </th> */}
                                         <th className="p-6 text-center text-white font-semibold text-lg w-56">
-                                            <div>Enterprise Integration</div>
+                                            <div>Enterprise Integration (Custom)</div>
                                             {/* <div className="text-sm font-normal text-white/80 mt-1">Complex Firms</div> */}
                                         </th>
                                     </tr>
@@ -1841,10 +1857,9 @@ const PricingPage = () => {
                 </section> */}
 
                 {/* FAQ Section */}
-                <section className="py-12 sm:py-16 md:py-20">
+                {/* <section className="py-12 sm:py-16 md:py-20">
                     <div className="container mx-auto px-4 sm:px-6">
 
-                        {/* Heading */}
                         <div className="text-center mb-8 sm:mb-10 md:mb-12">
                             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
                                 <span className="bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent">
@@ -1857,12 +1872,9 @@ const PricingPage = () => {
                             </p>
                         </div>
 
-                        {/* FAQ */}
                         <div className="max-w-3xl mx-auto">
                             {faqs.map((faq, index) => (
                                 <div key={index} className="mb-3 sm:mb-4">
-
-                                    {/* Question */}
                                     <button
                                         onClick={() =>
                                             setExpandedFaq(expandedFaq === index ? null : index)
@@ -1880,8 +1892,6 @@ const PricingPage = () => {
                                                 }`}
                                         />
                                     </button>
-
-                                    {/* Answer */}
                                     {expandedFaq === index && (
                                         <div className="p-4 sm:p-5 md:p-6 bg-gray-50 rounded-xl border border-gray-200 mt-2">
                                             <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
@@ -1894,7 +1904,7 @@ const PricingPage = () => {
                         </div>
 
                     </div>
-                </section>
+                </section> */}
 
                 {/* CTA Section */}
                 <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-r from-[#B03982] to-[#733C86] relative overflow-hidden">
@@ -1921,11 +1931,11 @@ const PricingPage = () => {
                         {/* Buttons */}
                         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
 
-                            <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-[#B03982] rounded-xl font-semibold text-sm sm:text-base hover:shadow-xl transition-all duration-300 sm:hover:scale-105">
+                            <button onClick={() => navigate('/contact-us')} className="cursor-pointer w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-[#B03982] rounded-xl font-semibold text-sm sm:text-base hover:shadow-xl transition-all duration-300 sm:hover:scale-105">
                                 Start Free Trial
                             </button>
 
-                            <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border-2 border-white text-white rounded-xl font-semibold text-sm sm:text-base hover:bg-white hover:text-[#B03982] transition-all duration-300">
+                            <button onClick={() => navigate('/contact-us')} className="cursor-pointer w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border-2 border-white text-white rounded-xl font-semibold text-sm sm:text-base hover:bg-white hover:text-[#B03982] transition-all duration-300">
                                 Schedule Demo
                             </button>
 

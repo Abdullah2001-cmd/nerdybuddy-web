@@ -13,9 +13,12 @@ import {
   ArrowRight,
   CheckCircle
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const AboutUs = () => {
-  
+
+  const navigate = useNavigate()
+
   const stats = [
     { value: "100+", label: "Organizations Transformed", icon: <TrendingUp className="w-5 h-5" /> },
     { value: "24/7", label: "AI Assistant Available", icon: <Zap className="w-5 h-5" /> },
@@ -53,7 +56,7 @@ const AboutUs = () => {
   const milestones = [
     { year: "2023", title: "The Beginning", description: "Concept born to solve workplace knowledge gaps" },
     { year: "2024", title: "Platform Launch", description: "First version released to early adopters" },
-    { year: "2025", title: "Global Expansion", description: "Serving 100+ organizations worldwide" }
+    { year: "2025", title: "Global Expansion", description: "Building solutions for organizations everywhere" }
   ];
 
   return (
@@ -114,7 +117,7 @@ const AboutUs = () => {
 
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-8 md:mb-16 lg:mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-8 md:mb-16 lg:mb-10">
           {/* Left Column - Visual & Stats */}
           <div className="space-y-8">
             {/* Animated GIF Container */}
@@ -160,7 +163,7 @@ const AboutUs = () => {
                 <div className="absolute left-5 sm:left-6 top-0 bottom-0 w-[2px] bg-gradient-to-b from-gray-200 via-gray-300 to-gray-200"></div>
 
                 {milestones.map((milestone, index) => (
-                  <div key={index} className="relative pl-14 sm:pl-12">
+                  <div key={index} className="relative pl-16">
 
                     {/* Timeline Dot */}
                     <div className="absolute left-0 top-1">
@@ -293,7 +296,7 @@ const AboutUs = () => {
           </div>
         </div>
         {/* CTA Card */}
-        <div className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#B03982] to-[#733C86] p-5 sm:p-6 md:p-8 text-white w-full">
+        <div className="mb-10 relative overflow-hidden rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#B03982] to-[#733C86] p-5 sm:p-6 md:p-8 text-white w-full">
           <div className="relative z-10">
             <h3 className="text-lg sm:text-xl md:text-xl font-bold mb-2 sm:mb-3 leading-tight">
               Ready to Transform Your Organization?
@@ -301,7 +304,7 @@ const AboutUs = () => {
             <p className="text-sm sm:text-base mb-4 sm:mb-6 opacity-90 leading-relaxed max-w-md">
               Join hundreds of companies using Nerdy Buddy to streamline their knowledge management.
             </p>
-            <button className="group flex items-center justify-center sm:justify-start gap-2 bg-white text-gray-900 px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-semibold hover:bg-gray-100 transition-colors duration-300 w-full sm:w-auto text-sm sm:text-base">
+            <button onClick={() => navigate('/contact-us')} className="cursor-pointer group flex items-center justify-center sm:justify-start gap-2 bg-white text-gray-900 px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-semibold hover:bg-gray-100 transition-colors duration-300 w-full sm:w-auto text-sm sm:text-base">
               <span>Book a Demo</span>
               <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
             </button>
