@@ -139,8 +139,8 @@ const ImplementationServices = () => {
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold mb-6">
-            <span className="block text-gray-900">Implementation &</span>
-            <span className="block mt-2 bg-gradient-to-r from-[#B03982] via-[#a32c8d] to-[#733C86] bg-clip-text text-transparent">
+            <span className="text-gray-900">Implementation & </span>
+            <span className="mt-2 bg-gradient-to-r from-[#B03982] via-[#a32c8d] to-[#733C86] bg-clip-text text-transparent">
               Support Services
             </span>
           </h2>

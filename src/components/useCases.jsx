@@ -160,15 +160,17 @@ const UseCases = () => {
           <div className="overflow-hidden">
             <div
               ref={carouselRef}
-              className="flex transition-transform duration-500 ease-out gap-2 sm:gap-3 md:gap-4"
-              style={{ transform: `translateX(-${currentSlide * (100 / getSlidesToShow())}%)` }}
+              className="flex transition-transform duration-500 ease-out"
+              style={{
+                gap: '12px',
+                transform: `translateX(calc(-${currentSlide * (100 / getSlidesToShow())}% - ${currentSlide * 12}px))`,
+              }}
             >
               {useCases.map((useCase, index) => (
                 <div
                   key={useCase.id}
-                  className={`flex-shrink-0 transition-all duration-300 ${currentSlide === index ? 'opacity-100 scale-100' : 'opacity-80 sm:opacity-90 scale-95'
-                    }`}
-                  style={{ width: `${100 / getSlidesToShow()}%` }}
+                  className={`flex-shrink-0 transition-all duration-300 opacity-80 sm:opacity-90 scale-95`}
+                  style={{ width: `calc(${100 / getSlidesToShow()}% - ${(12 * (getSlidesToShow() - 1)) / getSlidesToShow()}px)` }}
                 >
                   <NavLink
                     to={useCase.link}
@@ -176,7 +178,6 @@ const UseCases = () => {
                     aria-label={`Learn more about ${useCase.title}`}
                   >
                     <div className="relative bg-gradient-to-br from-white to-gray-50 rounded-xl sm:rounded-2xl border border-gray-200 p-4 sm:p-5 md:p-6 lg:p-8 h-full flex flex-col items-center text-center transition-all duration-300 hover:border-[#B03982]/50 hover:shadow-xl hover:shadow-[#B03982]/10 hover:scale-[1.02]">
-                      {/* Icon Container */}
                       <div className="relative mb-3 sm:mb-4 md:mb-5 lg:mb-6">
                         <div className="absolute -inset-2 sm:-inset-3 md:-inset-4 bg-gradient-to-br from-[#B03982]/5 to-[#733C86]/5 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 flex items-center justify-center bg-gradient-to-r from-[#B03982] via-[#a32c8d] to-[#733C86] rounded-lg sm:rounded-xl border border-gray-300 group-hover:border-transparent transition-all duration-300">
@@ -188,41 +189,15 @@ const UseCases = () => {
                           />
                         </div>
                       </div>
-
-                      {/* Title */}
                       <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-gray-900 mb-2 sm:mb-2.5 md:mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#B03982] group-hover:to-[#733C86] group-hover:bg-clip-text transition-all duration-300 line-clamp-2">
                         {useCase.title}
                       </h3>
-
-                      {/* Description */}
                       <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-3 sm:mb-4 flex-grow line-clamp-3 sm:line-clamp-4">
                         {useCase.description}
                       </p>
-
-                      {/* Indicator */}
-                      <div className="flex items-center justify-center gap-2 mt-2 sm:mt-3 md:mt-4">
-                        <div className="flex items-center gap-1">
-                          {[...Array(3)].map((_, i) => (
-                            <div
-                              key={i}
-                              className={`w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full transition-all duration-300 ${i === 0
-                                  ? 'bg-gradient-to-r from-[#B03982] to-[#733C86]'
-                                  : 'bg-gray-300 group-hover:bg-gray-400'
-                                }`}
-                            ></div>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Hover Indicator */}
                       <div className="absolute bottom-2 sm:bottom-3 md:bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <div className="w-6 sm:w-8 h-0.5 bg-gradient-to-r from-[#B03982] to-[#733C86] rounded-full"></div>
                       </div>
-
-                      {/* Number Badge */}
-                      {/* <div className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 flex items-center justify-center bg-gradient-to-br from-white to-gray-100 rounded-full border border-gray-300 text-[10px] sm:text-xs md:text-sm font-bold text-gray-600 group-hover:text-white group-hover:bg-gradient-to-r group-hover:from-[#B03982] group-hover:to-[#733C86] transition-all duration-300">
-                        {index + 1}
-                      </div> */}
                     </div>
                   </NavLink>
                 </div>
@@ -251,19 +226,19 @@ const UseCases = () => {
           </div>
 
           {/* Pagination Dots */}
-          <div className="flex justify-center items-center gap-1.5 sm:gap-2 mt-4 sm:mt-6 md:mt-8">
+          {/* <div className="flex justify-center items-center gap-1.5 sm:gap-2 mt-4 sm:mt-6 md:mt-8">
             {useCases.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
                 className={`transition-all duration-300 ${currentSlide === index
-                    ? 'w-4 sm:w-6 md:w-8 h-1.5 sm:h-2 bg-gradient-to-r from-[#B03982] to-[#733C86] rounded-full'
-                    : 'w-1.5 sm:w-2 h-1.5 sm:h-2 bg-gray-300 rounded-full hover:bg-gray-400'
+                  ? 'w-4 sm:w-6 md:w-8 h-1.5 sm:h-2 bg-gradient-to-r from-[#B03982] to-[#733C86] rounded-full'
+                  : 'w-1.5 sm:w-2 h-1.5 sm:h-2 bg-gray-300 rounded-full hover:bg-gray-400'
                   }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
 
