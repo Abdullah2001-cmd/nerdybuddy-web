@@ -194,7 +194,7 @@ const ContactFormSection = () => {
                   {/* Name Field */}
                   <div className="space-y-2">
                     <label className="block text-sm font-medium text-gray-700">
-                      What is your name? *
+                      Full name *
                     </label>
                     <input
                       type="text"
@@ -210,7 +210,7 @@ const ContactFormSection = () => {
                   {/* Company Field */}
                   <div className="space-y-2">
                     <label className="block text-sm font-medium text-gray-700">
-                      What company do you represent?
+                      Company name *
                     </label>
                     <input
                       type="text"
@@ -258,7 +258,7 @@ const ContactFormSection = () => {
                   {/* Message Field */}
                   <div className="space-y-2">
                     <label className="block text-sm font-medium text-gray-700">
-                      A few words about your company *
+                      Message *
                     </label>
                     <textarea
                       name="message"

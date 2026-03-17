@@ -51,7 +51,7 @@ const ProblemStatement = () => {
     {
       icon: <MessageSquare className="w-8 h-8" />,
       title: "No Bottom-Up Feedback",
-      description: "Employees often lack structured channels to share insights from real operational challenges.s",
+      description: "Employees often lack structured channels to share insights from real operational challenges",
       stats: "Only about 14% of employees feel their feedback truly reaches leadership.",
       gradient: "from-green-400 to-teal-500"
     }

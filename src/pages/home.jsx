@@ -352,7 +352,7 @@ function Home({ isLoading }) {
           } ${isScrolling ? 'scale-95' : 'scale-100 hover:scale-110'}`}
         style={{
           bottom: '1rem',
-          right: '1rem',
+          left: '1rem',
         }}
         aria-label="Scroll to top"
       >
