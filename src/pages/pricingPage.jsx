@@ -1805,7 +1805,7 @@ const PricingPage = () => {
 
                         {/* Table Footer Note */}
                         <div className="mt-8 text-center text-gray-600">
-                            <p className="text-sm">* Features and pricing subject to change based on specific enterprise requirements</p>
+                            <p className="text-sm">* Features and pricing subject to change based on specific requirements</p>
                             <button onClick={() => navigate('/contact-us')} className="cursor-pointer mt-4 px-8 py-3 bg-gradient-to-r from-[#B03982] to-[#733C86] text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-[#B03982]/20 transition-all duration-300">
                                 Contact Sales for Custom Enterprise Pricing
                             </button>
