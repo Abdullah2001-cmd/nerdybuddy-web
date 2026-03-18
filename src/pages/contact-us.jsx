@@ -421,7 +421,7 @@ const ContactInformation = () => {
                                     {/* Name */}
                                     <div className="space-y-2">
                                         <label className="block text-sm font-medium text-gray-700">
-                                            What is your name? *
+                                            Full name *
                                         </label>
 
                                         <input
@@ -438,7 +438,7 @@ const ContactInformation = () => {
                                     {/* Company */}
                                     <div className="space-y-2">
                                         <label className="block text-sm font-medium text-gray-700">
-                                            What company do you represent?
+                                            Company name *
                                         </label>
 
                                         <input
@@ -491,7 +491,7 @@ const ContactInformation = () => {
                                     {/* Message */}
                                     <div className="space-y-2">
                                         <label className="block text-sm font-medium text-gray-700">
-                                            A few words about your company *
+                                            Message *
                                         </label>
 
                                         <textarea
