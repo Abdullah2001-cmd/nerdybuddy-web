@@ -14,6 +14,8 @@ import {
   Award,
   DollarSign,
   Target,
+  Linkedin,
+  Youtube,
 } from "lucide-react";
 
 /**
@@ -220,7 +222,7 @@ const FinanceTeamsSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative pt-[150px] pb-20 md:pb-28 lg:pb-32 overflow-hidden opacity-0 translate-y-8 transition-all duration-900 ease-out"
+      className="relative pt-[150px] overflow-hidden opacity-0 translate-y-8 transition-all duration-900 ease-out"
       aria-label="Nerdy Buddy – Finance Teams"
     >
       {/* ========== PREMIUM BACKGROUND – GEOMETRIC GRID + GRADIENT BLOBS ========== */}
@@ -440,11 +442,74 @@ const FinanceTeamsSection = () => {
           <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-[#B03982]/50 to-[#733C86]/50 rounded-full"></div>
         </div>
 
-        {/* ========== TRUST BAR ========== */}
-        <div className="mt-20 text-center text-xs text-gray-400 border-t border-gray-200/60 pt-8">
-          <span>© Nerdy Buddy – AI for finance, compliance & audit teams</span>
-        </div>
       </div>
+
+      <footer className="relative bg-gray-900 text-white py-16 mt-32">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid md:grid-cols-4 gap-12 mb-12">
+            <div>
+              <div className="flex items-center space-x-2 mb-6">
+                <img
+                  src="https://nerdybuddy.com/wp-content/uploads/2024/08/Nerdy-Buddy-scaled.png"
+                  alt="Nerdy Buddy"
+                  className="h-8 w-auto transition-all duration-300"
+                />
+              </div>
+              <p className="text-gray-400 mb-6">
+                Empowering businesses with cutting-edge AI solutions for knowledge management and automation.
+              </p>
+              <div className="flex space-x-4">
+                <a href="https://www.linkedin.com/company/nerdy-buddy/" className="text-gray-400 hover:text-white transition">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a href="https://www.youtube.com/@NerdyBuddy-AI" className="text-gray-400 hover:text-white transition">
+                  <Youtube className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+
+            {/* <div>
+                                <h4 className="font-bold text-lg mb-4">Product</h4>
+                                <ul className="space-y-3">
+                                    <li><a href="#" className="text-gray-400 hover:text-white transition">Features</a></li>
+                                    <li><a href="#" className="text-gray-400 hover:text-white transition">Pricing</a></li>
+                                    <li><a href="#" className="text-gray-400 hover:text-white transition">Security</a></li>
+                                    <li><a href="#" className="text-gray-400 hover:text-white transition">Enterprise</a></li>
+                                    <li><a href="#" className="text-gray-400 hover:text-white transition">Roadmap</a></li>
+                                </ul>
+                            </div> */}
+
+            <div>
+              <h4 className="font-bold text-lg mb-4">Resources</h4>
+              <ul className="space-y-3">
+                <li><a href="#" className="text-gray-400 hover:text-white transition">Implementation</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition">Use Cases</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition">Problem Statement</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-bold text-lg mb-4">Company</h4>
+              <ul className="space-y-3">
+                <li><a href="#" className="text-gray-400 hover:text-white transition">About Us</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-400 text-sm">
+              © 2026 AI Solutions. All rights reserved.
+            </p>
+            <div className="flex space-x-6 mt-4 md:mt-0">
+              <a href="#" className="text-gray-400 hover:text-white text-sm transition">Privacy Policy</a>
+              <a href="#" className="text-gray-400 hover:text-white text-sm transition">Terms of Service</a>
+              <a href="#" className="text-gray-400 hover:text-white text-sm transition">Cookie Policy</a>
+            </div>
+          </div>
+        </div>
+
+      </footer>
 
       {/* ========== ANIMATION STYLES ========== */}
       <style>{`
@@ -456,6 +521,7 @@ const FinanceTeamsSection = () => {
           animation: fadeInUp 0.9s cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
         }
       `}</style>
+
     </section>
   );
 };

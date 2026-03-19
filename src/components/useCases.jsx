@@ -27,28 +27,28 @@ const UseCases = () => {
       id: 3,
       title: "Retail Chains",
       icon: "https://nerdybuddy.com/wp-content/uploads/2025/05/Icon-3-1.webp",
-      link: "/health-care",
+      link: "/retail-chain",
       description: "Consistent information across all store locations"
     },
     {
       id: 4,
       title: "Healthcare",
       icon: "https://nerdybuddy.com/wp-content/uploads/2025/05/Icon-5-1.webp",
-      link: "/public-sector",
+      link: "/health-care",
       description: "Quick access to medical protocols and patient information"
     },
     {
       id: 5,
       title: "Telecom & Service",
       icon: "https://nerdybuddy.com/wp-content/uploads/2025/05/Icon-2-1.webp",
-      link: "/retail-chain",
+      link: "/telecom",
       description: "Efficient customer service and technical documentation"
     },
     {
       id: 6,
       title: "Public Sector",
       icon: "https://nerdybuddy.com/wp-content/uploads/2025/05/Icon-6-1.webp",
-      link: "/telecom",
+      link: "/public-sector",
       description: "Government documentation and public information access"
     }
   ];
