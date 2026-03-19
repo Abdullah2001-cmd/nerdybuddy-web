@@ -560,7 +560,7 @@ const PublicSectorSection = () => {
               <h4 className="font-bold text-lg mb-4">Company</h4>
               <ul className="space-y-3">
                                 <li onClick={() => navigate('/about')}><a href="#" className="text-gray-400 hover:text-white transition">About Us</a></li>
-                                <li onClick={() => navigate('/contact')}><a href="#" className="text-gray-400 hover:text-white transition">Contact</a></li>
+                                <li onClick={() => navigate('/contact-us')}><a href="#" className="text-gray-400 hover:text-white transition">Contact</a></li>
                             </ul>
             </div>
           </div>
