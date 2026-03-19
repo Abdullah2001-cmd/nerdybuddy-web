@@ -70,17 +70,17 @@ const UseCases = () => {
   };
 
   // Autoplay functionality
-  useEffect(() => {
-    let interval;
-    if (autoplay) {
-      interval = setInterval(() => {
-        nextSlide();
-      }, 5000);
-    }
-    return () => {
-      if (interval) clearInterval(interval);
-    };
-  }, [autoplay, currentSlide]);
+  // useEffect(() => {
+  //   let interval;
+  //   if (autoplay) {
+  //     interval = setInterval(() => {
+  //       nextSlide();
+  //     }, 5000);
+  //   }
+  //   return () => {
+  //     if (interval) clearInterval(interval);
+  //   };
+  // }, [autoplay, currentSlide]);
 
   // Pause autoplay on hover
   const handleMouseEnter = () => {

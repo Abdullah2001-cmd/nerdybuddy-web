@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   Rocket,
   CheckCircle,
@@ -17,6 +17,7 @@ import {
   Linkedin,
   Youtube,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 /**
  * Nerdy Buddy – Corporate Teams Suite
@@ -34,8 +35,61 @@ import {
  *  – Fully mobile‑stacked, hover animations, timeline removed.
  */
 const NerdyBuddyCorporate = () => {
+
   const sectionRef = useRef(null);
   const counterRef = useRef(null);
+  const navigate = useNavigate();
+
+  const [showScrollButton, setShowScrollButton] = useState(false);
+  const [isScrolling, setIsScrolling] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const buttonRef = useRef(null);
+  const hasScrolledToTop = useRef(false);
+
+  // Smooth scroll to top when component mounts
+  useEffect(() => {
+    if (window.scrollY > 0 && !hasScrolledToTop.current) {
+      hasScrolledToTop.current = true;
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  }, []);
+
+  // Scroll progress and button visibility
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.scrollY;
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrolled / maxScroll) * 100;
+      setProgress(scrollPercent);
+      setShowScrollButton(scrolled > 400);
+    };
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    if (isScrolling) return;
+    setIsScrolling(true);
+
+    // Add ripple effect
+    const ripple = document.createElement('div');
+    ripple.className = 'absolute inset-0 bg-gradient-to-br from-[#B03982] to-[#733C86] rounded-full opacity-30 animate-ripple';
+    buttonRef.current?.appendChild(ripple);
+    setTimeout(() => {
+      ripple.remove();
+    }, 600);
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+    setTimeout(() => setIsScrolling(false), 1000);
+  };
+
 
   // ---------- Animation on scroll (fadeInUp) ----------
   useEffect(() => {
@@ -406,17 +460,17 @@ const NerdyBuddyCorporate = () => {
             <div>
               <h4 className="font-bold text-lg mb-4">Resources</h4>
               <ul className="space-y-3">
-                <li><a href="#" className="text-gray-400 hover:text-white transition">Implementation</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition">Use Cases</a></li>
                 <li><a href="#" className="text-gray-400 hover:text-white transition">Problem Statement</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition">Use Cases</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition">Implementation</a></li>
               </ul>
             </div>
 
             <div>
               <h4 className="font-bold text-lg mb-4">Company</h4>
               <ul className="space-y-3">
-                <li><a href="#" className="text-gray-400 hover:text-white transition">About Us</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition">Contact</a></li>
+                <li onClick={() => navigate('/about')}><a href="#" className="text-gray-400 hover:text-white transition">About Us</a></li>
+                <li onClick={() => navigate('/contact')}><a href="#" className="text-gray-400 hover:text-white transition">Contact</a></li>
               </ul>
             </div>
           </div>

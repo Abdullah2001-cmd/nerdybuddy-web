@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import AboutHeroSession from '../components/about/hero'
 import AIAssistantFeatures from '../components/about/aiAssistant'
 import { Facebook, Github, Linkedin, Twitter, Youtube, Brain, ArrowUp } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 const About = () => {
 
@@ -10,6 +11,7 @@ const About = () => {
     const [progress, setProgress] = useState(0);
     const buttonRef = useRef(null);
     const hasScrolledToTop = useRef(false);
+    const navigate = useNavigate()
 
     // Smooth scroll to top when component mounts
     useEffect(() => {
@@ -97,17 +99,17 @@ const About = () => {
                         <div>
                             <h4 className="font-bold text-lg mb-4">Resources</h4>
                             <ul className="space-y-3">
-                                <li><a href="#" className="text-gray-400 hover:text-white transition">Implementation</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white transition">Use Cases</a></li>
                                 <li><a href="#" className="text-gray-400 hover:text-white transition">Problem Statement</a></li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition">Use Cases</a></li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition">Implementation</a></li>
                             </ul>
                         </div>
 
                         <div>
                             <h4 className="font-bold text-lg mb-4">Company</h4>
                             <ul className="space-y-3">
-                                <li><a href="#" className="text-gray-400 hover:text-white transition">About Us</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white transition">Contact</a></li>
+                                <li onClick={() => navigate('/about')}><a href="#" className="text-gray-400 hover:text-white transition">About Us</a></li>
+                                <li onClick={() => navigate('/contact')}><a href="#" className="text-gray-400 hover:text-white transition">Contact</a></li>
                             </ul>
                         </div>
                     </div>

@@ -1988,18 +1988,18 @@ const PricingPage = () => {
                             <div>
                                 <h4 className="font-bold text-lg mb-4">Resources</h4>
                                 <ul className="space-y-3">
-                                    <li><a href="#" className="text-gray-400 hover:text-white transition">Implementation</a></li>
-                                    <li><a href="#" className="text-gray-400 hover:text-white transition">Use Cases</a></li>
-                                    <li><a href="#" className="text-gray-400 hover:text-white transition">Problem Statement</a></li>
-                                </ul>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition">Problem Statement</a></li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition">Use Cases</a></li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition">Implementation</a></li>
+                            </ul>
                             </div>
 
                             <div>
                                 <h4 className="font-bold text-lg mb-4">Company</h4>
                                 <ul className="space-y-3">
-                                    <li><a href="#" className="text-gray-400 hover:text-white transition">About Us</a></li>
-                                    <li><a href="#" className="text-gray-400 hover:text-white transition">Contact</a></li>
-                                </ul>
+                                <li onClick={() => navigate('/about')}><a href="#" className="text-gray-400 hover:text-white transition">About Us</a></li>
+                                <li onClick={() => navigate('/contact')}><a href="#" className="text-gray-400 hover:text-white transition">Contact</a></li>
+                            </ul>
                             </div>
                         </div>
 
