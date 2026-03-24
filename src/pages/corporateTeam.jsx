@@ -405,7 +405,7 @@ const NerdyBuddyCorporate = () => {
               </div>
               <div className="flex items-center justify-center gap-1">
                 <span className="counter-value text-5xl md:text-6xl font-bold bg-gradient-to-r from-[#B03982] to-[#733C86] bg-clip-text text-transparent" data-target="98">
-                  1
+                  98
                 </span>
                 <span className="text-5xl md:text-6xl font-bold text-gray-900">%</span>
               </div>
