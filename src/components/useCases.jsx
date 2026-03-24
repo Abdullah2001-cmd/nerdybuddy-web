@@ -61,26 +61,38 @@ const UseCases = () => {
     xs: 1
   };
 
+  const getMaxSlideIndex = () => {
+    const slidesToShowNow = getSlidesToShow();
+    return Math.max(0, useCases.length - slidesToShowNow);
+  };
+
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % useCases.length);
+    setCurrentSlide((prev) => {
+      const maxIndex = getMaxSlideIndex();
+      return prev >= maxIndex ? 0 : prev + 1;
+    });
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + useCases.length) % useCases.length);
+    setCurrentSlide((prev) => {
+      const maxIndex = getMaxSlideIndex();
+      return prev <= 0 ? maxIndex : prev - 1;
+    });
   };
 
   // Autoplay functionality
-  // useEffect(() => {
-  //   let interval;
-  //   if (autoplay) {
-  //     interval = setInterval(() => {
-  //       nextSlide();
-  //     }, 5000);
-  //   }
-  //   return () => {
-  //     if (interval) clearInterval(interval);
-  //   };
-  // }, [autoplay, currentSlide]);
+  useEffect(() => {
+    if (!autoplay) return;
+
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => {
+        const maxIndex = getMaxSlideIndex();
+        return prev >= maxIndex ? 0 : prev + 1;
+      });
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [autoplay, useCases.length]);
 
   // Pause autoplay on hover
   const handleMouseEnter = () => {
@@ -101,11 +113,13 @@ const UseCases = () => {
     return 1; // xs (mobile)
   };
 
+  const maxSlideIndex = getMaxSlideIndex();
+
   // Add this inside your component
   useEffect(() => {
     const handleResize = () => {
-      // Force re-render to update slidesToShow
-      setCurrentSlide(prev => Math.min(prev, useCases.length - getSlidesToShow()));
+      const maxIndex = getMaxSlideIndex();
+      setCurrentSlide((prev) => Math.min(prev, maxIndex));
     };
 
     window.addEventListener('resize', handleResize);
@@ -151,7 +165,7 @@ const UseCases = () => {
             onClick={nextSlide}
             className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group border border-gray-200 disabled:opacity-50 disabled:cursor-not-allowed hidden sm:flex"
             aria-label="Next slide"
-            disabled={currentSlide >= useCases.length - getSlidesToShow()}
+            disabled={currentSlide >= maxSlideIndex}
           >
             <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-700 group-hover:text-[#B03982] transition-colors" />
           </button>
@@ -218,7 +232,7 @@ const UseCases = () => {
             <button
               onClick={nextSlide}
               className="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-lg border border-gray-200 disabled:opacity-50"
-              disabled={currentSlide >= useCases.length - getSlidesToShow()}
+              disabled={currentSlide >= maxSlideIndex}
               aria-label="Next slide"
             >
               <ChevronRight className="w-5 h-5 text-gray-700" />
