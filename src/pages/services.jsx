@@ -1051,6 +1051,7 @@
 // export default ServicesPage;
 
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Brain,
   Cpu,
@@ -1113,6 +1114,7 @@ import {
 } from 'lucide-react';
 
 const ServicesPage = () => {
+  const navigate = useNavigate();
   const [activeService, setActiveService] = useState('all');
   const [showVideo, setShowVideo] = useState(false);
   const [expandedFaq, setExpandedFaq] = useState(null);
@@ -2085,16 +2087,14 @@ const ServicesPage = () => {
               </div>
             </div>
 
-            {/* <div>
-              <h4 className="font-bold text-lg mb-4">Services</h4>
+            <div>
+              <h4 className="font-bold text-lg mb-4">Resources</h4>
               <ul className="space-y-3">
-                <li><a href="#" className="text-gray-400 hover:text-white transition">AI & Machine Learning</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition">Cloud Solutions</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition">Data Analytics</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition">Cybersecurity</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition">Digital Transformation</a></li>
+                <li onClick={() => { localStorage.setItem('scrollTo', 'problem-statement'); navigate('/'); }} className="cursor-pointer text-gray-400 hover:text-white transition">Problem Statement</li>
+                <li onClick={() => { localStorage.setItem('scrollTo', 'use-cases'); navigate('/'); }} className="cursor-pointer text-gray-400 hover:text-white transition">Use Cases</li>
+                <li onClick={() => { localStorage.setItem('scrollTo', 'implementation'); navigate('/'); }} className="cursor-pointer text-gray-400 hover:text-white transition">Implementation</li>
               </ul>
-            </div> */}
+            </div>
 
             <div>
               <h4 className="font-bold text-lg mb-4">Company</h4>

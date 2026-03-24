@@ -19,7 +19,7 @@ import {
   Youtube,
   FileText
 } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Footer = () => {
 
@@ -28,6 +28,24 @@ const Footer = () => {
   // const [isSubmitting, setIsSubmitting] = useState(false);
   // const [isSubmitted, setIsSubmitted] = useState(false);
   const navigate = useNavigate()
+  const location = useLocation()
+
+  const handleSectionJump = (sectionId) => {
+    localStorage.setItem('scrollTo', sectionId);
+    if (location.pathname === '/') {
+      // Already on home page, scroll directly
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+        localStorage.removeItem('scrollTo');
+      }, 100);
+    } else {
+      // Navigate to home page
+      navigate('/');
+    }
+  }
 
   // const handleNewsletterSubmit = async (e) => {
   //   e.preventDefault();
@@ -462,10 +480,10 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-lg mb-4">Resources</h4>
             <ul className="space-y-3">
-                                <li><a href="#" className="text-gray-400 hover:text-white transition">Problem Statement</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white transition">Use Cases</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white transition">Implementation</a></li>
-                            </ul>
+              <li onClick={() => handleSectionJump('problem-statement')} className="cursor-pointer text-gray-400 hover:text-white transition">Problem Statement</li>
+              <li onClick={() => handleSectionJump('use-cases')} className="cursor-pointer text-gray-400 hover:text-white transition">Use Cases</li>
+              <li onClick={() => handleSectionJump('implementation')} className="cursor-pointer text-gray-400 hover:text-white transition">Implementation</li>
+            </ul>
           </div>
 
           <div>

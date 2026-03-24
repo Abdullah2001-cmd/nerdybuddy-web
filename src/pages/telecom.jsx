@@ -550,9 +550,9 @@ const TelecomSection = () => {
             <div>
               <h4 className="font-bold text-lg mb-4">Resources</h4>
               <ul className="space-y-3">
-                <li><a href="#" className="text-gray-400 hover:text-white transition">Problem Statement</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition">Use Cases</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition">Implementation</a></li>
+                <li onClick={() => { localStorage.setItem('scrollTo', 'problem-statement'); navigate('/'); }} className="cursor-pointer text-gray-400 hover:text-white transition">Problem Statement</li>
+                <li onClick={() => { localStorage.setItem('scrollTo', 'use-cases'); navigate('/'); }} className="cursor-pointer text-gray-400 hover:text-white transition">Use Cases</li>
+                <li onClick={() => { localStorage.setItem('scrollTo', 'implementation'); navigate('/'); }} className="cursor-pointer text-gray-400 hover:text-white transition">Implementation</li>
               </ul>
             </div>
 
