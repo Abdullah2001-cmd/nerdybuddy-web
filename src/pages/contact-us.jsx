@@ -623,7 +623,7 @@ const ContactInformation = () => {
                     } ${isScrolling ? 'scale-95' : 'scale-100 hover:scale-110'}`}
                 style={{
                     bottom: '2rem',
-                    right: '2rem',
+                    left: '2rem',
                 }}
                 aria-label="Scroll to top"
             >
