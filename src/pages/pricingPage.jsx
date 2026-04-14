@@ -603,7 +603,7 @@ const PricingPage = () => {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    amount: Number(selectedPlan?.price) * 100,
+                    amount: Number(selectedPlan?.price?.replace(/[^0-9.-]+/g, "")) * 100,
                     currency: 'usd',
                     email: email,
                     metadata: {
@@ -690,8 +690,6 @@ const PricingPage = () => {
         });
         setTimeout(() => setIsScrolling(false), 1000);
     };
-
-    console.log(selectedPlan);
 
     return (
         <>
