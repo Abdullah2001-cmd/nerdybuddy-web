@@ -603,7 +603,7 @@ const PricingPage = () => {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    amount: Number(selectedPlan?.price?.replace(/[^0-9.-]+/g, "")) * 100,
+                    amount: Number(selectedPlan?.price?.replace(/[^0-9.-]+/g, "")) * 100 || 0,
                     currency: 'usd',
                     email: email,
                     metadata: {
